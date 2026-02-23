@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: db9a5ca20403b0344ae64015de8f8c86
+TextScriptImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 286385
+  packageName: Smart NPCs
+  packageVersion: 0.7.3
+  assetPath: Assets/RaafOritme/Smart NPCs/Third Party/NaughtyAttributes/package.json
+  uploadId: 861570

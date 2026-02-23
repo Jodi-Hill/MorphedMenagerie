@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: 8eeecd317659f4b4380e81b20a42ac14
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 286385
+  packageName: Smart NPCs
+  packageVersion: 0.7.3
+  assetPath: Assets/RaafOritme/Smart NPCs/Scripts/Helpers/MinMax.cs
+  uploadId: 861570

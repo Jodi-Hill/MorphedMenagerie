@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: a51c6f2e7a6f61e4888c8e6a2e1c9383
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 286385
+  packageName: Smart NPCs
+  packageVersion: 0.7.3
+  assetPath: Assets/RaafOritme/Smart NPCs/Scripts/AI/Brain GOAP/Actions/PatrolAction.cs
+  uploadId: 861570

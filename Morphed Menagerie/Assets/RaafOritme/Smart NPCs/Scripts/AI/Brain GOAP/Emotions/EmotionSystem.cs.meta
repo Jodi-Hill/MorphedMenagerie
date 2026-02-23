@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: 1b908889aa885d242abbb5834ba3d47e
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 286385
+  packageName: Smart NPCs
+  packageVersion: 0.7.3
+  assetPath: Assets/RaafOritme/Smart NPCs/Scripts/AI/Brain GOAP/Emotions/EmotionSystem.cs
+  uploadId: 861570

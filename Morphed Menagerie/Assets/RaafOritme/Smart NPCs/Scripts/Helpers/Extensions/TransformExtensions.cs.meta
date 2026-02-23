@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: fb82fc1c7b383994bb963de75ebff5e3
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 286385
+  packageName: Smart NPCs
+  packageVersion: 0.7.3
+  assetPath: Assets/RaafOritme/Smart NPCs/Scripts/Helpers/Extensions/TransformExtensions.cs
+  uploadId: 861570

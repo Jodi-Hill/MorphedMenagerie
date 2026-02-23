@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: 32ce7502c247b824cb4fd5d31b86fd76
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 286385
+  packageName: Smart NPCs
+  packageVersion: 0.7.3
+  assetPath: Assets/RaafOritme/Smart NPCs/Scripts/AI/Modules/BaseModule.cs
+  uploadId: 861570

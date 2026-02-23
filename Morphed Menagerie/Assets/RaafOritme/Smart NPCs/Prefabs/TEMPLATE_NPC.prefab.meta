@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 40c362d283ca066478adc4b837f439ad
+PrefabImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 286385
+  packageName: Smart NPCs
+  packageVersion: 0.7.3
+  assetPath: Assets/RaafOritme/Smart NPCs/Prefabs/TEMPLATE_NPC.prefab
+  uploadId: 861570
