@@ -10,21 +10,21 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 88f02706172fdb54d965ff1083f25ec0, type: 3}
-  m_Name: Ovi
+  m_Name: Henny
   m_EditorClassIdentifier: 
-  icon: {fileID: 2800000, guid: 5277269c41ef30843826bbc26fc526a9, type: 3}
+  icon: {fileID: 2800000, guid: 3ca265d0ab3a8014fac9cb394102a78f, type: 3}
   data:
-    characterName: Ovi
+    characterName: Henny
     bodyIDs:
     - BodyType
     - Chest
     - Weight
     - NeckThickness
     bodyShapes:
-    - 43
-    - 79
-    - 47
-    - 63
+    - 54
+    - 54
+    - 0
+    - 100
     faceIDs:
     - Weight
     - Roundness
@@ -39,18 +39,18 @@ MonoBehaviour:
     - MouthWidth
     - EarLength
     faceShapes:
-    - 47
-    - 58
-    - 45
-    - 63
+    - 0
+    - 39
+    - 100
+    - 100
     - 0
     - 0
     - 0
+    - 100
     - 0
     - 0
-    - 19
+    - 100
     - 0
-    - 63
     bodyModsKeys:
     - root
     - spine_04
@@ -64,22 +64,12 @@ MonoBehaviour:
     - calf_twist_01_l
     - thigh_twist_01_l
     bodyMods:
-    - scaleValue: 0.93518347
+    - scaleValue: 0.85
       scale: {x: 1, y: 1, z: 1}
       posValue: 0
       position: {x: 0, y: 0, z: 0}
       rotation: 0
-    - scaleValue: 1.0568179
-      scale: {x: 1, y: 1, z: 1}
-      posValue: 0
-      position: {x: 0, y: 0, z: 0}
-      rotation: 0
-    - scaleValue: 1.059576
-      scale: {x: 1, y: 1, z: 1}
-      posValue: 0
-      position: {x: 0, y: 0, z: 0}
-      rotation: 0
-    - scaleValue: 0.91725534
+    - scaleValue: 1.0248233
       scale: {x: 1, y: 1, z: 1}
       posValue: 0
       position: {x: 0, y: 0, z: 0}
@@ -89,32 +79,42 @@ MonoBehaviour:
       posValue: 0
       position: {x: 0, y: 0, z: 0}
       rotation: 0
-    - scaleValue: 1
+    - scaleValue: 1.4261342
       scale: {x: 1, y: 1, z: 1}
       posValue: 0
       position: {x: 0, y: 0, z: 0}
       rotation: 0
     - scaleValue: 1
+      scale: {x: 1, y: 0.5, z: 1.0051504}
+      posValue: 0
+      position: {x: 0, y: 0, z: 0}
+      rotation: 0
+    - scaleValue: 1
+      scale: {x: 1, y: 1.2678237, z: 1.2987263}
+      posValue: 0
+      position: {x: 0, y: 0, z: 0}
+      rotation: 0
+    - scaleValue: 0.90484375
       scale: {x: 1, y: 1, z: 1}
       posValue: 0
       position: {x: 0, y: 0, z: 0}
       rotation: 0
     - scaleValue: 1
-      scale: {x: 0.9175928, y: 0.8094334, z: 1.0669558}
+      scale: {x: 1.0824072, y: 0.99484956, z: 1.1133099}
       posValue: 0
-      position: {x: 0.00041203498, y: -0.001098758, z: 0}
+      position: {x: 0.0012361121, y: -0.0002746904, z: 0}
       rotation: 0
     - scaleValue: 1
-      scale: {x: 1.2163192, y: 0.701274, z: 0.5}
+      scale: {x: 1.4377886, y: 1.0412037, z: 1.0412035}
       posValue: 0
       position: {x: 0, y: 0, z: 0}
-      rotation: -51.745483
-    - scaleValue: 1
+      rotation: 0
+    - scaleValue: 0.74409634
       scale: {x: 1, y: 1, z: 1}
       posValue: 0
       position: {x: 0, y: 0, z: 0}
       rotation: 0
-    - scaleValue: 1.3185662
+    - scaleValue: 0.5
       scale: {x: 1, y: 1, z: 1}
       posValue: 0
       position: {x: 0, y: 0, z: 0}
@@ -122,11 +122,11 @@ MonoBehaviour:
     outfitDatas:
     - outfit: Body/Body_BasicBody
       colors:
-      - {r: 0.48167634, g: 0.42231086, b: 0.38706264, a: 1}
-      - {r: 0.22727594, g: 0.19934842, b: 0.18909979, a: 1}
-      - {r: 0.013044468, g: 0.012293063, b: 0.012019824, a: 1}
-      - {r: 0.9770866, g: 0.87656087, b: 0.8129629, a: 1}
-      - {r: 0.95700246, g: 0.8772295, b: 0.82737136, a: 1}
+      - {r: 0.9503078, g: 0.76047564, b: 0.64776284, a: 1}
+      - {r: 0.64235014, g: 0.50993824, b: 0.4613465, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0.90588236, g: 0.7137255, b: 0.5921568, a: 1}
+      - {r: 0.9056604, g: 0.71393913, b: 0.59411323, a: 1}
       - {r: 0, g: 0, b: 0, a: 0}
       - {r: 0, g: 0, b: 0, a: 0}
       - {r: 0, g: 0, b: 0, a: 0}
@@ -144,9 +144,9 @@ MonoBehaviour:
       swatch: 0
     - outfit: Eyes/Eyes_Eyes01
       colors:
-      - {r: 1, g: 0.9694151, b: 0.40117306, a: 1}
+      - {r: 1, g: 0.66828465, b: 0, a: 1}
       - {r: 0, g: 0, b: 0, a: 1}
-      - {r: 0.6817139, g: 0.7159919, b: 0.22903138, a: 1}
+      - {r: 0.7695498, g: 0.39178005, b: 0, a: 1}
       - {r: 1, g: 1, b: 1, a: 0}
       - {r: 0, g: 0.9845986, b: 1, a: 0}
       - {r: 1, g: 0, b: 0.988061, a: 0}
@@ -158,7 +158,7 @@ MonoBehaviour:
       - {r: 1, g: 1, b: 1, a: 0}
       - {r: 0, g: 0, b: 0, a: 0}
       - {r: 1, g: 1, b: 1, a: 0}
-      decalScale: {x: 0.8720943, y: 1, z: 0, w: 0}
+      decalScale: {x: 1, y: 1, z: 0, w: 0}
       pattern: Pattern/Pattern_DoubleCircles
       patternColors:
       - {r: 1, g: 1, b: 1, a: 1}
@@ -169,31 +169,28 @@ MonoBehaviour:
       swatch: 0
     - outfit: Head/Head_Young
       colors:
-      - {r: 0.48167634, g: 0.42231086, b: 0.38706264, a: 1}
-      - {r: 0.22727594, g: 0.19934842, b: 0.18909979, a: 1}
-      - {r: 0.013044468, g: 0.012293063, b: 0.012019824, a: 1}
+      - {r: 0.9503078, g: 0.76047564, b: 0.64776284, a: 1}
+      - {r: 0.64235014, g: 0.50993824, b: 0.4613465, a: 1}
       - {r: 0, g: 0, b: 0, a: 1}
-      - {r: 0.6155708, g: 0.58778435, b: 0.49715918, a: 1}
       - {r: 0, g: 0, b: 0, a: 1}
-      - {r: 0.8632765, g: 0.76946354, b: 0.598966, a: 1}
-      - {r: 0.42142376, g: 0.21612749, b: 0.2067487, a: 1}
-      - {r: 0.9703919, g: 0.835967, b: 0.6614529, a: 1}
-      decal: Decal/Decal_FullMakeUp
-      decalColors:
-      - {r: 0.14693919, g: 0.12476506, b: 0.095978044, a: 1}
-      - {r: 0.3276971, g: 0.27493268, b: 0.26599303, a: 1}
-      - {r: 0.945098, g: 0.63529414, b: 0.5215686, a: 0}
-      decalScale: {x: 1.0511607, y: 1, z: 0, w: 0}
+      - {r: 1, g: 0.20045921, b: 0, a: 1}
+      - {r: 0.7159919, g: 0.14610168, b: 0, a: 1}
+      - {r: 1, g: 1, b: 1, a: 1}
+      - {r: 0.49056596, g: 0.06324899, b: 0.11146217, a: 1}
+      - {r: 1, g: 1, b: 1, a: 1}
+      decal: 
+      decalColors: []
+      decalScale: {x: 0, y: 0, z: 0, w: 0}
       pattern: 
       patternColors: []
       patternScale: {x: 0, y: 0, z: 0, w: 0}
       color: {r: 1, g: 1, b: 1, a: 1}
       swatch: 0
-    - outfit: HairBack/HairBack_PineappleCut
+    - outfit: HairBack/HairBack_SweaptDreads
       colors:
-      - {r: 1, g: 0.94714826, b: 0.8076393, a: 1}
-      - {r: 0.8364973, g: 0.79690635, b: 0.69598866, a: 1}
-      - {r: 0.58, g: 0.40999994, b: 0.56499994, a: 1}
+      - {r: 0.6021817, g: 0.050451815, b: 0, a: 1}
+      - {r: 1, g: 0.4336903, b: 0.4336903, a: 1}
+      - {r: 0.997171, g: 0.9087709, b: 0.82562023, a: 1}
       - {r: 0.9727612, g: 1, b: 0, a: 0}
       - {r: 0, g: 0.9845986, b: 1, a: 0}
       - {r: 1, g: 0, b: 0.988061, a: 0}
@@ -208,14 +205,14 @@ MonoBehaviour:
       patternScale: {x: 0, y: 0, z: 0, w: 0}
       color: {r: 1, g: 1, b: 1, a: 1}
       swatch: 0
-    - outfit: Top/Top_SimpleSweater
+    - outfit: Overall/Overall_Overall
       colors:
-      - {r: 0.9904762, g: 0.9561588, b: 0.84423304, a: 1}
-      - {r: 0.5486235, g: 0.4842552, b: 0.3672709, a: 1}
-      - {r: 0, g: 0, b: 1, a: 0}
-      - {r: 0.9727612, g: 1, b: 0, a: 0}
-      - {r: 0, g: 0.9845986, b: 1, a: 0}
-      - {r: 1, g: 0, b: 0.988061, a: 0}
+      - {r: 1, g: 0.88226616, b: 0.7019581, a: 1}
+      - {r: 0.62896043, g: 0.15773109, b: 0.15773109, a: 1}
+      - {r: 0.6021817, g: 0.363698, b: 0.1901781, a: 1}
+      - {r: 0.6021817, g: 0.37890872, b: 0.18038738, a: 1}
+      - {r: 0.49506545, g: 0.35485154, b: 0.1704351, a: 1}
+      - {r: 0.84276724, g: 0.3206754, b: 0.8366251, a: 0}
       - {r: 1, g: 1, b: 1, a: 0}
       - {r: 0.50314444, g: 0.50314444, b: 0.50314444, a: 0}
       - {r: 0, g: 0, b: 0, a: 0}
@@ -227,51 +224,13 @@ MonoBehaviour:
       patternScale: {x: 0, y: 0, z: 0, w: 0}
       color: {r: 1, g: 1, b: 1, a: 1}
       swatch: 0
-    - outfit: Bottom/Bottom_SimpleSkirt
+    - outfit: Feet/Feet_OfficeLoafer
       colors:
-      - {r: 0.9101393, g: 0.8851734, b: 0.80535305, a: 1}
+      - {r: 0.40133953, g: 0.27664047, b: 0.0924915, a: 1}
       - {r: 0, g: 0, b: 0, a: 1}
-      - {r: 0, g: 0, b: 1, a: 0}
+      - {r: 0.48837084, g: 0.10063819, b: 0.10063819, a: 1}
       - {r: 0.9727612, g: 1, b: 0, a: 0}
       - {r: 0, g: 0.9845986, b: 1, a: 0}
-      - {r: 1, g: 0, b: 0.988061, a: 0}
-      - {r: 1, g: 1, b: 1, a: 0}
-      - {r: 0.50314444, g: 0.50314444, b: 0.50314444, a: 0}
-      - {r: 0, g: 0, b: 0, a: 0}
-      decal: 
-      decalColors: []
-      decalScale: {x: 0, y: 0, z: 0, w: 0}
-      pattern: 
-      patternColors: []
-      patternScale: {x: 0, y: 0, z: 0, w: 0}
-      color: {r: 1, g: 1, b: 1, a: 1}
-      swatch: 0
-    - outfit: Feet/Feet_BalletFlats
-      colors:
-      - {r: 1, g: 0.90984297, b: 0.8117039, a: 1}
-      - {r: 0.68921304, g: 0.6065259, b: 0.45858592, a: 1}
-      - {r: 0, g: 0, b: 0, a: 1}
-      - {r: 0.9727612, g: 1, b: 0, a: 0}
-      - {r: 0, g: 0.9845986, b: 1, a: 0}
-      - {r: 1, g: 0, b: 0.988061, a: 0}
-      - {r: 1, g: 1, b: 1, a: 0}
-      - {r: 0.50314444, g: 0.50314444, b: 0.50314444, a: 0}
-      - {r: 0, g: 0, b: 0, a: 0}
-      decal: 
-      decalColors: []
-      decalScale: {x: 0, y: 0, z: 0, w: 0}
-      pattern: 
-      patternColors: []
-      patternScale: {x: 0, y: 0, z: 0, w: 0}
-      color: {r: 1, g: 1, b: 1, a: 1}
-      swatch: 0
-    - outfit: UpperFace/UpperFace_RoundGlasses
-      colors:
-      - {r: 1, g: 0.8103989, b: 0.5678241, a: 1}
-      - {r: 0.289308, g: 0.289308, b: 0.289308, a: 0}
-      - {r: 0.5471698, g: 0.35175398, b: 0.2942327, a: 0}
-      - {r: 1, g: 1, b: 1, a: 0}
-      - {r: 0.5031445, g: 0.5031445, b: 0.5031445, a: 0}
       - {r: 1, g: 0, b: 0.988061, a: 0}
       - {r: 1, g: 1, b: 1, a: 0}
       - {r: 0.50314444, g: 0.50314444, b: 0.50314444, a: 0}
@@ -295,4 +254,4 @@ MonoBehaviour:
       patternScale: {x: 0, y: 0, z: 0, w: 0}
       color: {r: 1, g: 1, b: 1, a: 1}
       swatch: 0
-    stance: 0.44237456
+    stance: 0.6038764
