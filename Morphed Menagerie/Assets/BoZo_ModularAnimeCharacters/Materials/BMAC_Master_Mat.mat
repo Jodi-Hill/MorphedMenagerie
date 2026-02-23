@@ -124,12 +124,12 @@ Material:
     - _AddPrecomputedVelocity: 0
     - _AlphaClip: 0
     - _AlphaToMask: 0
-    - _AmbiantStrength: 1
+    - _AmbiantStrength: 0.98
     - _BUILTIN_QueueControl: -1
     - _BUILTIN_QueueOffset: 0
     - _Blend: 0
     - _BlendModePreserveSpecular: 1
-    - _Brightness: 1
+    - _Brightness: 1.28
     - _BumpScale: 1
     - _CastShadows: 1
     - _ClearCoatMask: 0
@@ -164,11 +164,11 @@ Material:
     - _MaskEdgeLow_5: 0.01
     - _MaskEdgeLow_6: 0.01
     - _Metallic: 0
-    - _MultipleLightSharpness: 0
+    - _MultipleLightSharpness: 0.792
     - _MultipleStrength: 1
     - _OcclusionStrength: 1
     - _OutlineColor: 0
-    - _OutlineDistance: 2
+    - _OutlineDistance: 0
     - _OutlineThickness: 2
     - _Parallax: 0.005
     - _PatternBlend: 1
@@ -176,12 +176,12 @@ Material:
     - _QueueControl: 0
     - _QueueOffset: 0
     - _ReceiveShadows: 1
-    - _RecieveShadows: 0
+    - _RecieveShadows: 0.024
     - _RefVal: 221
-    - _RimlightPower: 5.98
-    - _RimlightSharpness: 0.041
-    - _ShadowEdge: 0.042
-    - _ShadowSharpness: 0.12
+    - _RimlightPower: 6.64
+    - _RimlightSharpness: 0
+    - _ShadowEdge: 0.441
+    - _ShadowSharpness: 1
     - _Shininess: 10
     - _Smoothness: 0.5
     - _SmoothnessTextureChannel: 0
@@ -236,6 +236,7 @@ Material:
     - _ShadowEdgeColor: {r: 1, g: 0.77873063, b: 0.5943395, a: 0}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
   m_BuildTextureStacks: []
+  m_AllowLocking: 1
 --- !u!114 &9195620309957543724
 MonoBehaviour:
   m_ObjectHideFlags: 11
