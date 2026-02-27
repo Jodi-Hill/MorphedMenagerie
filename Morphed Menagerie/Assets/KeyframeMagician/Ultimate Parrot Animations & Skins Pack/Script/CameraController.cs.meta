@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: bd98c47daa1b68f4e870a74de97130e1
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 306730
+  packageName: Ultimate Parrot Animations & Skins Pack
+  packageVersion: 1.0.0
+  assetPath: Assets/KeyframeMagician/Ultimate Parrot Animations & Skins Pack/Script/CameraController.cs
+  uploadId: 725400

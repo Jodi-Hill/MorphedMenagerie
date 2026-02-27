@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: 0664398f3db7e6a4989161a5c4e291b8
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 306730
+  packageName: Ultimate Parrot Animations & Skins Pack
+  packageVersion: 1.0.0
+  assetPath: Assets/KeyframeMagician/Ultimate Parrot Animations & Skins Pack/Script/AnimationChanger.cs
+  uploadId: 725400

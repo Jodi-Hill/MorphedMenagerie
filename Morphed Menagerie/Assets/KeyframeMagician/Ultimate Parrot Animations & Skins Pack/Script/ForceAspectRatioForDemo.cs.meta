@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: db5ab7992e92b284e86ad64b634e935c
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 306730
+  packageName: Ultimate Parrot Animations & Skins Pack
+  packageVersion: 1.0.0
+  assetPath: Assets/KeyframeMagician/Ultimate Parrot Animations & Skins Pack/Script/ForceAspectRatioForDemo.cs
+  uploadId: 725400
