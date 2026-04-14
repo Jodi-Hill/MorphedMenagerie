@@ -2,6 +2,9 @@ using UnityEngine;
 
 public class PlayerCam : MonoBehaviour
 {
+    [SerializeField] private MonoBehaviour movementController;
+    [SerializeField] private MonoBehaviour lookController;
+
     public float sensX;
     public float sensY;
 
@@ -28,5 +31,23 @@ public class PlayerCam : MonoBehaviour
 
         transform.rotation = Quaternion.Euler(xRotation, yRotation, 0);
         orientation.rotation = Quaternion.Euler(0, yRotation, 0);
+    }
+
+    public void OnDialogueStart()
+    {
+        movementController.enabled = false;
+        lookController.enabled = false;
+
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
+    }
+
+    public void OnDialogueComplete()
+    {
+        movementController.enabled = true;
+        lookController.enabled = true;
+
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
     }
 }
