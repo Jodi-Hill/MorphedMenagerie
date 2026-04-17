@@ -11,7 +11,7 @@ public class CardBattle : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     //if specific card (Devil) is on specific position (present) with specific card on specific opponent position (opponentpresent), this event happens: blabla.

@@ -3379,7 +3379,7 @@ MonoBehaviour:
   snapPoints:
   - {fileID: 1212416433}
   - {fileID: 1704599837}
-  snapDistance: 1.5
+  snapDistance: 0.5
 --- !u!65 &809477370
 BoxCollider:
   m_ObjectHideFlags: 0
