@@ -60385,8 +60385,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ad7e7caed04ddff4ba062d90af206aab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movementController: {fileID: 0}
-  lookController: {fileID: 0}
   cameraPosition: {fileID: 1332895651}
 --- !u!1001 &655088407
 PrefabInstance:
@@ -96786,7 +96784,7 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 4.4065924, y: 1.7863255, z: 2.2523336}
   m_Center: {x: 1.1517115, y: 0.6882777, z: 0.6261673}
---- !u!114 &1049965329
+--- !u!114 &1049965334
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -185488,7 +185486,7 @@ PrefabInstance:
       addedObject: {fileID: 1049965328}
     - targetCorrespondingSourceObject: {fileID: 343872058408870310, guid: ce385d6c86a9fb0418ac7db83e245c95, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1049965329}
+      addedObject: {fileID: 1049965334}
   m_SourcePrefab: {fileID: 100100000, guid: ce385d6c86a9fb0418ac7db83e245c95, type: 3}
 --- !u!1001 &2008236972
 PrefabInstance:
