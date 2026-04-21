@@ -6,7 +6,8 @@ public class Path : MonoBehaviour
     public enum PathType
     {
         Loop,
-        ReverseWhenComplete
+        ReverseWhenComplete,
+        StopAtEnd
     }
 
     public Transform[] waypoints;
@@ -32,6 +33,11 @@ public class Path : MonoBehaviour
 
     private int GetNextWaypointIndex()
     {
+        if (pathType == PathType.StopAtEnd && index == waypoints.Length - 1)
+        {
+            return index;
+        }
+        
         index += direction;
 
         if (pathType == PathType.Loop)
@@ -40,7 +46,7 @@ public class Path : MonoBehaviour
         }
         else if (pathType == PathType.ReverseWhenComplete)
         {
-        if (index < waypoints.Length || index < 0)
+        if (index >= waypoints.Length || index < 0)
             {
                 index *= -1;
                 index += direction * 2;
@@ -56,7 +62,7 @@ public class Path : MonoBehaviour
 
         Gizmos.color = Color.white;
 
-        for (int i = 0; i < waypoints.Length; i++)
+        for (int i = 0; i < waypoints.Length -1; i++)
         {
                 Gizmos.DrawLine(waypoints[i].position, waypoints[i + 1].position);
         }
@@ -76,5 +82,10 @@ public class Path : MonoBehaviour
     public static object Combine(string dataPath, string v)
     {
         throw new NotImplementedException();
+    }
+
+    public bool IsLastWayPoint()
+    {
+        return index == waypoints.Length - 1;
     }
 }
