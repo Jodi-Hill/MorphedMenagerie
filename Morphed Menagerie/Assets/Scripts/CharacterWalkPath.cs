@@ -9,8 +9,8 @@ public class CharacterWalkPath : MonoBehaviour
     [SerializeField] float waitTimeOnwayPoint = 1f;
     [SerializeField] Path path;
 
-    NavMeshAgent agent;
-    Animator animator;
+    public NavMeshAgent agent;
+    public Animator animator;
 
     float time = 0f;
 
@@ -24,14 +24,27 @@ public class CharacterWalkPath : MonoBehaviour
         if (agent.remainingDistance <= 0.1f)
         {
             time += Time.deltaTime;
+
             if (time >= waitTimeOnwayPoint)
             {
                 time = 0f;
+
+                if (path.pathType == Path.PathType.StopAtEnd && path.IsLastWayPoint())
+                {
+                    Disappear();
+                    return;
+                }
+
                 agent.destination = path.GetNextWaypoint();
             }
         }
 
         float normalizedSpeed = Mathf.InverseLerp (0f, agent.speed, agent.velocity.magnitude);
         animator.SetFloat("speed", normalizedSpeed);
+    }
+
+    void Disappear()
+    {
+        gameObject.SetActive(false);
     }
 }
