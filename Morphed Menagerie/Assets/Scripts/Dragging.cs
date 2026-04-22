@@ -13,6 +13,18 @@ public class Dragging : MonoBehaviour
 
     private SnapPoint currentSnapPoint;
 
+
+    public CardManager cardManager;
+    public CardData cardData;
+
+
+    private void OnMouseDown()
+    {
+        cardManager.SetPlayerCard(cardData);
+    }
+
+
+    /*
     private void Start()
     {
         distanceFromCamera = Vector3.Distance(transform.position, Camera.main.transform.position);
@@ -78,5 +90,5 @@ public class Dragging : MonoBehaviour
         {
             transform.position = startPosition;
         }
-    }
+    }*/
 }

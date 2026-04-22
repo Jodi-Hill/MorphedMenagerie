@@ -2,17 +2,27 @@ using UnityEngine;
 
 public class CardBattle : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    public int turnCount = 0;
+    public int playerHealth = 5;
+    public int enemyHealth = 5;
+
+    public CardManager cardManager;
+
+    public void Resolve()
     {
-        
+        turnCount++;
+
+        if (turnCount > 1)
+        {
+            int pdmg = cardManager.p_present.activeCard.attack;
+            int edmg = cardManager.present.activeCard.attack;
+            int pdef = cardManager.p_present.activeCard.defence;
+            int edef = cardManager.present.activeCard.defence;
+
+            playerHealth -= Mathf.Clamp(edmg - pdef, 0, 100);
+            enemyHealth -= Mathf.Clamp(pdmg - edef, 0, 100);
+        }
+
+        cardManager.ContinueTurn();
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
-
-    //if specific card (Devil) is on specific position (present) with specific card on specific opponent position (opponentpresent), this event happens: blabla.
 }
