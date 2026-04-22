@@ -1,0 +1,20 @@
+﻿title: IntroRini
+---
+Rini: Hi, I apologize for revealing our secret like that.
+Rini: I was being careless, silly me.
+Rini: I just wish we wouldn't need to hide our identities.
+Rini: But oh well. 
+Rini: Did you meet Mr. Penelope? How did it go?
+-> He offered me a job here until I can be trusted with your secret.
+Rini: Ah, that seems fair enough!
+Rini: Welcome to our little Shapeshifting community! 
+Rini: What will you be working as?
+-> As a tarot reader.
+    Rini: Wow, that's so neat! Could you do a reading for me?
+    -> Sure.
+    Rini: Amazing, let's get started!
+-> As a fortune teller. 
+    Rini: Oh wow! That's so cool! Could you predict my future? 
+    -> Sure. 
+    Rini: Amazing, let's get started!
+===
