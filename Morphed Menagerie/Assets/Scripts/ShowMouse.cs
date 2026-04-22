@@ -2,14 +2,12 @@ using UnityEngine;
 
 public class ShowMouse : MonoBehaviour
 {
-    private void OnEnable()
+    void Update()
     {
-        Cursor.lockState = CursorLockMode.None;
+        if (Cursor.lockState != CursorLockMode.None)
+            Cursor.lockState = CursorLockMode.None;
+    
+        if (!Cursor.visible)
         Cursor.visible = true;
-    }
-    private void OnDisable()
-    {
-        Cursor.lockState = CursorLockMode.Locked;
-        Cursor.visible = false;
     }
 }

@@ -8,8 +8,10 @@ public class Dragging : MonoBehaviour
     private Plane dragPlane;
     private Vector3 startPosition;
 
-    [SerializeField] private Transform[] snapPoints;
+    [SerializeField] private SnapPoint[] snapPoints;
     [SerializeField] private float snapDistance = 0.5f;
+
+    private SnapPoint currentSnapPoint;
 
     private void Start()
     {
@@ -34,18 +36,26 @@ public class Dragging : MonoBehaviour
     {
         isDragging = true;
         dragPlane = new Plane(Vector3.up, transform.position);
+
+        if (currentSnapPoint != null)
+        {
+            currentSnapPoint.isOccupied = false;
+            currentSnapPoint = null;
+        }
     }
 
     private void OnMouseUp()
     {
         isDragging = false;
 
-        Transform closestPoint = null;
+        SnapPoint closestPoint = null;
         float closestDistance = Mathf.Infinity;
 
-        foreach (Transform point in snapPoints)
+        foreach (SnapPoint point in snapPoints)
         {
-            float distance = Vector3.Distance(transform.position, point.position);
+            if (point.isOccupied) continue;
+
+            float distance = Vector3.Distance(transform.position, point.transform.position);
 
             if (distance < closestDistance)
             {
@@ -56,7 +66,13 @@ public class Dragging : MonoBehaviour
 
         if (closestPoint != null && closestDistance <= snapDistance)
         {
-            transform.position = closestPoint.position;
+            if (currentSnapPoint != null)
+            {
+                currentSnapPoint.isOccupied = false;
+            }
+            transform.position = closestPoint.transform.position;
+            closestPoint.isOccupied = true;
+            currentSnapPoint = closestPoint;
         }
         else
         {
