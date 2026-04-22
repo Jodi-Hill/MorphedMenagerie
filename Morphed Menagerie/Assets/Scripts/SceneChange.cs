@@ -5,38 +5,13 @@ using Yarn.Unity;
 public class SceneChange : MonoBehaviour
 {
     [SerializeField] private string sceneName;
-    [SerializeField] private GameObject text;
+    [SerializeField] private DialogueRunner dialogueRunner;
 
-    private bool playerInside = false;
-
-    private void OnTriggerEnter(Collider other)
+    void Start()
     {
-        if (other.CompareTag("Player"))
+        dialogueRunner.AddCommandHandler<string>("load_scene", (sceneName) =>
         {
-            playerInside = true;
-            text.SetActive(true);
-        }
-    }
-
-    private void OnTriggerExit(Collider other)
-    {
-        if (other.CompareTag("Player"))
-        {
-            playerInside = false;
-            text.SetActive(false);
-        }
-    }
-
-    private void Update()
-    {
-        if (playerInside && Input.GetKeyDown(KeyCode.E))
-        {
-            ChangeScene();
-        }
-    }
-
-    void ChangeScene()
-    {
-        SceneManager.LoadScene(sceneName);
+            SceneManager.LoadScene(sceneName);
+        });
     }
 }
