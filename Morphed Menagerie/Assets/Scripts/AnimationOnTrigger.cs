@@ -5,6 +5,8 @@ public class AnimationOnTrigger : MonoBehaviour
     [SerializeField] private Animator myAnimationController;
     [SerializeField] private ParticleSystem[] particleEffects;
     [SerializeField] private GameObject objectToEnable;
+    [SerializeField] private GameObject objectToDisable;
+    [SerializeField] private GameObject text;
 
     private void OnTriggerEnter(Collider other)
     {
@@ -25,7 +27,12 @@ public class AnimationOnTrigger : MonoBehaviour
     public void EnableObject()
     {
         if (objectToEnable != null)
-            objectToEnable.SetActive(true);
+        {
+            Debug.Log("text shown");
+            text.SetActive(true);
+        }
+        objectToEnable.SetActive(true);
+        objectToDisable.SetActive(false);
 
         StopParticles();
     }
