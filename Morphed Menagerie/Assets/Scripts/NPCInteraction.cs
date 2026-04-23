@@ -31,7 +31,7 @@ public class NPCInteraction : MonoBehaviour
 
     private void Update()
     {
-        if (playerInside && Input.GetKeyDown(KeyCode.E))
+        if (playerInside && Input.GetKeyDown(KeyCode.E) && !dialogueRunner.IsDialogueRunning)
         {
             dialogueRunner.StartDialogue(nodeName);
         }
