@@ -40,7 +40,6 @@ public class CardSystem : Singleton<CardSystem>
 
     private IEnumerator DrawCardsPerformer(DrawCardsGA DrawCardsGA)
     {
-        Debug.Log("player turn");
         int actualAmount = Mathf.Min(DrawCardsGA.Amount, drawPile.Count);
         int notDrawnAmount = DrawCardsGA.Amount - actualAmount;
         for (int i = 0; i < actualAmount; i++)

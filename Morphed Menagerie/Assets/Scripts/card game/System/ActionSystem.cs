@@ -17,12 +17,7 @@ public class ActionSystem : Singleton<ActionSystem>
 
     public void Perform(GameAction action, System.Action OnPerformFinished = null)
     {
-        Debug.Log(action.GetType());
-        if (IsPerforming)
-        {
-            Debug.Log("rip");
-            return;
-        }
+        if (IsPerforming) return;
         IsPerforming = true;
         StartCoroutine(Flow(action, () =>
         {
