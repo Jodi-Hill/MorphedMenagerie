@@ -1,9 +1,9 @@
-using NUnit.Framework;
+using DG.Tweening;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Splines;
-using DG.Tweening;
+using System.Linq;
 
 public class HandView : MonoBehaviour
 {
@@ -17,11 +17,25 @@ public class HandView : MonoBehaviour
         yield return UpdateCardPositions(0.15f);
     }
 
+    public CardView RemoveCard(Card card)
+    {
+        CardView cardView = GetCardView(card);
+        if (cardView == null) return null;
+        cards.Remove(cardView);
+        StartCoroutine(UpdateCardPositions(0.15f));
+        return cardView;
+    }
+
+    private CardView GetCardView (Card card)
+    {
+        return cards.Where(cardView => cardView.Card == card).FirstOrDefault();
+    }
+
     private IEnumerator UpdateCardPositions (float duration)
     {
         if (cards.Count == 0) yield break;
-        float cardSpacing = 1f / 10f;
-        float firstCardPosition = 0.5f - (cards.Count - 1) * cardSpacing / 2;
+        float cardSpacing = 1f / cards.Count;
+        float firstCardPosition = 0.5f - (cards.Count - 1) * cardSpacing / 2f;
         Spline spline = splineContainer.Spline;
         for (int i = 0; i < cards.Count; i++)
         {
@@ -29,9 +43,9 @@ public class HandView : MonoBehaviour
             Vector3 splinePosition = spline.EvaluatePosition(p);
             Vector3 forward = spline.EvaluateTangent(p);
             Vector3 up = spline.EvaluateUpVector(p);
-            Quaternion rotation = Quaternion.LookRotation (-up, Vector3.Cross(-up, forward).normalized);
-            cards[i].transform.DOMove(splinePosition + transform.position + 0.01f * i * Vector3.back, duration);
-            cards[i].transform.DORotate(rotation.eulerAngles, duration);
+            Quaternion rotation = Quaternion.LookRotation(Vector3.forward, up);
+            cards[i].transform.DOMove(splinePosition + splineContainer.transform.position, duration);
+            cards[i].transform.DOLocalRotateQuaternion(rotation, duration);
         }
         yield return new WaitForSeconds(duration);
     }

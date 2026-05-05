@@ -1,15 +1,12 @@
 using UnityEngine;
+using System.Collections.Generic;
 
 public class TestSystem : MonoBehaviour
 {
-    [SerializeField] private HandView handView;
+    [SerializeField] private List<CardDataTut> deckData;
 
-    private void Update()
+    private void Start()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            CardView cardView = CardViewCreator.instance.CreateCardView(transform.position, Quaternion.identity);
-            StartCoroutine(handView.AddCard(cardView));
-        }
+        CardSystem.Instance.Setup(deckData);
     }
 }
