@@ -315,6 +315,9 @@ MonoBehaviour:
   mana: {fileID: 600889216414284243}
   imageSR: {fileID: 5632761509479149490}
   wrapper: {fileID: 7165263471409805902}
+  dropLayer:
+    serializedVersion: 2
+    m_Bits: 128
 --- !u!210 &3131311313829379476
 SortingGroup:
   m_ObjectHideFlags: 0
