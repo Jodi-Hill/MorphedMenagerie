@@ -244,7 +244,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &406701801
 Transform:
   m_ObjectHideFlags: 0
@@ -776,6 +776,61 @@ Transform:
   m_Children: []
   m_Father: {fileID: 371663791}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &880181538
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 880181539}
+  - component: {fileID: 880181540}
+  m_Layer: 0
+  m_Name: MatchSetupSystem
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &880181539
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 880181538}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1389895853}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &880181540
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 880181538}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: abc2c0db5f2a578418578dea5cdb33a5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  deckData:
+  - {fileID: 11400000, guid: ec4ea4f2aa383644e9094fd5ddf5f39b, type: 2}
+  - {fileID: 11400000, guid: ec4ea4f2aa383644e9094fd5ddf5f39b, type: 2}
+  - {fileID: 11400000, guid: ec4ea4f2aa383644e9094fd5ddf5f39b, type: 2}
+  - {fileID: 11400000, guid: ec4ea4f2aa383644e9094fd5ddf5f39b, type: 2}
+  - {fileID: 11400000, guid: ec4ea4f2aa383644e9094fd5ddf5f39b, type: 2}
+  - {fileID: 11400000, guid: ec4ea4f2aa383644e9094fd5ddf5f39b, type: 2}
+  - {fileID: 11400000, guid: ec4ea4f2aa383644e9094fd5ddf5f39b, type: 2}
+  - {fileID: 11400000, guid: ec4ea4f2aa383644e9094fd5ddf5f39b, type: 2}
+  - {fileID: 11400000, guid: ec4ea4f2aa383644e9094fd5ddf5f39b, type: 2}
+  - {fileID: 11400000, guid: ec4ea4f2aa383644e9094fd5ddf5f39b, type: 2}
 --- !u!114 &884189256 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2007578505056330748, guid: 61aafb4db5571b745be7d81539eb98c1, type: 3}
@@ -1365,12 +1420,13 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 2056237782}
-  - {fileID: 406701801}
+  - {fileID: 880181539}
   - {fileID: 628370759}
   - {fileID: 988477903}
   - {fileID: 1702993511}
   - {fileID: 2072782575}
+  - {fileID: 406701801}
+  - {fileID: 2056237782}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1625089476
