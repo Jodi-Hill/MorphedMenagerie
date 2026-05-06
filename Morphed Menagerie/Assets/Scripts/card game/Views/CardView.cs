@@ -20,6 +20,28 @@ public class CardView : MonoBehaviour
         description.text = card.Description;
         mana.text = card.Mana.ToString();
         imageSR.sprite = card.Image;
+
+        NormalizeSpriteSize();
+    }
+
+    //size of imageSR
+    private void NormalizeSpriteSize()
+    {
+        if (imageSR.sprite == null) return;
+        
+        Sprite sprite = imageSR.sprite;
+
+        float targetWidth = 3f;
+        float targetHeight = 3f;
+
+        Vector2 spriteSize = sprite.bounds.size;
+
+        float scaleX = targetWidth / spriteSize.x;
+        float scaleY = targetHeight / spriteSize.y;
+
+        float scale = Mathf.Min(scaleX, scaleY);
+
+        imageSR.transform.localScale = new Vector3(scale, scale, 1f);
     }
 
     private void OnMouseEnter()
@@ -58,7 +80,8 @@ public class CardView : MonoBehaviour
     private void OnMouseUp()
     {
         if (!Interactions.Instance.PlayerCanInteract()) return;
-        if (Physics.Raycast(transform.position, Vector3.forward, out RaycastHit hit, 10f, dropLayer))
+        if (ManaSystem.Instance.HasEnoughMana(Card.Mana)
+        && Physics.Raycast(transform.position, Vector3.forward, out RaycastHit hit, 10f, dropLayer))
         {
             PlayCardGA playCardGA = new(Card);
             ActionSystem.Instance.Perform(playCardGA);

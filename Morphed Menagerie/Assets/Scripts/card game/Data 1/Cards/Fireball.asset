@@ -14,4 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <Description>k__BackingField: Deal 4 damage to an enemy
   <Mana>k__BackingField: 2
-  <Image>k__BackingField: {fileID: 21300000, guid: 8f03b4d55cee8a34bae438d792d83ce0, type: 3}
+  <Image>k__BackingField: {fileID: 21300000, guid: 9e14b7ecc023fc84999c31a11fa06f14, type: 3}
+  <Effects>k__BackingField: []
+  references:
+    version: 2
+    RefIds: []
