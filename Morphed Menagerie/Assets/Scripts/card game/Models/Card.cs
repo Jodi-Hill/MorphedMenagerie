@@ -1,10 +1,12 @@
 using UnityEngine;
+using System.Collections.Generic;
 
 public class Card : MonoBehaviour
 {
     public string Title => data.name;
     public string Description => data.Description;
     public Sprite Image => data.Image;
+    public List<Effect> Effects => data.Effects;
 
     public int Mana {  get; private set; }
 
