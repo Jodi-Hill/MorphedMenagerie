@@ -78,9 +78,10 @@ public class CardSystem : Singleton<CardSystem>
         SpendManaGA spendManaGA = new(playCardGA.Card.Mana);
         ActionSystem.Instance.AddReaction(spendManaGA);
 
-        foreach (var effect in playCardGA.Card.Effects)
+        foreach (var effectWrapper in playCardGA.Card.OtherEffects)
         {
-            PerformEffectGA performEffectGA = new(effect);
+            List<CombatantView> targets = effectWrapper.TargetMode.GetTargets();
+            PerformEffectGA performEffectGA = new(effectWrapper.Effect, targets);
             ActionSystem.Instance.AddReaction(performEffectGA);
         }
     }

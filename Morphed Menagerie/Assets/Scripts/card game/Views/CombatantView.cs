@@ -2,6 +2,7 @@ using DG.Tweening;
 using TMPro;
 using UnityEngine;
 
+[System.Serializable]
 public class CombatantView : MonoBehaviour
 {
     [SerializeField] private TMP_Text healthText;
