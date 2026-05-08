@@ -22,7 +22,7 @@ public class StatusEffectsUI : MonoBehaviour
         }
         else
         {
-            if (statusEffectUIs.ContainsKey(statusEffectType))
+            if (!statusEffectUIs.ContainsKey(statusEffectType))
             {
                 StatusEffectUI statusEffectUI = Instantiate(statusEffectUIPrefab, transform);
                 statusEffectUIs.Add(statusEffectType, statusEffectUI);
