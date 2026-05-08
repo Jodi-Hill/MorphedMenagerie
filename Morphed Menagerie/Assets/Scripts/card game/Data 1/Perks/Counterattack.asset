@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f9e7c10238e8ed744bfaf7d7f1f0998f, type: 3}
   m_Name: Counterattack
   m_EditorClassIdentifier: 
-  <Image>k__BackingField: {fileID: 21300000, guid: 8f03b4d55cee8a34bae438d792d83ce0, type: 3}
+  <Image>k__BackingField: {fileID: 21300000, guid: e8b62ac026c67c2449bb573fb646aa46, type: 3}
   <PerkCondition>k__BackingField:
     rid: 2237191896501846141
   <AutoTargetEffect>k__BackingField:
