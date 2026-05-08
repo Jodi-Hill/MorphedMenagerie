@@ -1,9 +1,7 @@
-using UnityEngine;
-using System.Collections.Generic;
-using System.Collections;
 using System;
-using Unity.VisualScripting;
-using Yarn.Unity;
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
 
 public class ActionSystem : Singleton<ActionSystem>
 {
@@ -25,6 +23,7 @@ public class ActionSystem : Singleton<ActionSystem>
             OnPerformFinished?.Invoke();
         }));
     }
+
     public void AddReaction(GameAction gameAction)
     {
         reactions?.Add(gameAction);
@@ -112,4 +111,3 @@ public class ActionSystem : Singleton<ActionSystem>
         }
     }
 }
-
