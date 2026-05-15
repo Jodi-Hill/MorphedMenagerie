@@ -13,6 +13,8 @@ public class CardView : MonoBehaviour
     private Vector3 dragStartPosition;
     private Quaternion dragStartRotation;
 
+    public Transform thief;
+
     public void Setup(Card card)
     {
         Card = card;
@@ -48,7 +50,7 @@ public class CardView : MonoBehaviour
     {
         if (!Interactions.Instance.PlayerCanHover()) return;
         wrapper.SetActive(false);
-        Vector3 pos = new(transform.position.x, transform.position.y, 0);
+        Vector3 pos = new(transform.position.x, transform.position.y, 4.1f);
         CardViewHoverSystem.Instance.Show(Card, pos);
     }
 
@@ -74,7 +76,7 @@ public class CardView : MonoBehaviour
             dragStartPosition = transform.position;
             dragStartRotation = transform.rotation;
             transform.rotation = Quaternion.Euler(0, 0, 0);
-            transform.position = MouseUtil.GetMousePositionInWorldSpace(-1);
+            transform.position = MouseUtil.GetMousePositionInWorldSpace(-1) - Vector3.back * 4;
         }
     }
 
@@ -82,28 +84,32 @@ public class CardView : MonoBehaviour
     {
         if (!Interactions.Instance.PlayerCanInteract()) return;
         if (Card.ManualTargetEffect != null) return;
-        transform.position = MouseUtil.GetMousePositionInWorldSpace(-1);
+        transform.position = MouseUtil.GetMousePositionInWorldSpace(-1) - Vector3.back * 4;
     }
 
     private void OnMouseUp()
     {
         if (!Interactions.Instance.PlayerCanInteract()) return;
-        if (Card.ManualTargetEffect != null)
-        {
-            EnemyView target = ManualTargetSystem.Instance.EndTargeting(MouseUtil.GetMousePositionInWorldSpace(-1));
-            if (target != null && ManaSystem.Instance.HasEnoughMana(Card.Mana))
-            {
-                PlayCardGA playCardGA = new(Card, target);
-                ActionSystem.Instance.Perform(playCardGA);
-            }
-        }
-        else
-        {
-            if (ManaSystem.Instance.HasEnoughMana(Card.Mana)
+        //if (Card.ManualTargetEffect != null)
+        //{
+        //    EnemyView target = ManualTargetSystem.Instance.EndTargeting(MouseUtil.GetMousePositionInWorldSpace(-1) - Vector3.back * 4);
+        //    if (target != null && ManaSystem.Instance.HasEnoughMana(Card.Mana))
+        //    {
+        //        PlayCardGA playCardGA = new(Card, target);
+        //        ActionSystem.Instance.Perform(playCardGA);
+        //    }
+        //}
+        //else
+        //{
+            /*if (ManaSystem.Instance.HasEnoughMana(Card.Mana)
                     && Physics.Raycast(transform.position, Vector3.forward, out RaycastHit hit, 10f, dropLayer))
             {
                 PlayCardGA playCardGA = new(Card);
                 ActionSystem.Instance.Perform(playCardGA);
+            }*/
+            if (thief != null)
+            {
+                transform.position = thief.transform.position - Vector3.forward;
             }
             else
             {
@@ -111,6 +117,6 @@ public class CardView : MonoBehaviour
                 transform.rotation = dragStartRotation;
             }
             Interactions.Instance.PlayerIsDragging = false;
-        }
+        //}
     }
 }
