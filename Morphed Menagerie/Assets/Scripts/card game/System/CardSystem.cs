@@ -38,30 +38,30 @@ public class CardSystem : Singleton<CardSystem>
 
     private IEnumerator DrawCardsPerformer(DrawCardsGA DrawCardsGA)
     {
-        int actualAmount = Mathf.Min(DrawCardsGA.Amount, drawPile.Count);
-        int notDrawnAmount = DrawCardsGA.Amount - actualAmount;
+        int actualAmount = 0;
+        if (DrawCardsGA.TurnStart)
+        {
+            actualAmount = Mathf.Min(DrawCardsGA.Amount - hand.Count, drawPile.Count);
+        }
+        else
+        {
+            actualAmount = Mathf.Min(DrawCardsGA.Amount, drawPile.Count);
+        }
         for (int i = 0; i < actualAmount; i++)
         {
             yield return DrawCard();
-        }
-        if (notDrawnAmount  > 0)
-        {
-            RefillDeck();
-            for (int i = 0; i < notDrawnAmount; i++)
-            {
-                yield return DrawCard();
-            }
         }
     }
 
     private IEnumerator DiscardAllCardsPerformer(DiscardAllCardsGA discardAllCardsGA)
     {
-        foreach (var card in hand)
-        {
-            CardView cardView = handView.RemoveCard(card);
-            yield return DiscardCard(cardView);
-        }
-        hand.Clear();
+        yield return null;
+        //foreach (var card in hand)
+        //{
+        //    CardView cardView = handView.RemoveCard(card);
+        //    yield return DiscardCard(cardView);
+        //}
+        //hand.Clear();
     }
 
     private IEnumerator PlayCardPerformer(PlayCardGA playCardGA)
@@ -89,6 +89,11 @@ public class CardSystem : Singleton<CardSystem>
 
     private IEnumerator DrawCard()
     {
+        if (drawPile.Count <= 0)
+        {
+            RefillDeck();
+        }
+
         Card card = drawPile.Draw();
         hand.Add(card);
         CardView cardView = CardViewCreator.Instance.CreateCardView(card, drawPilePoint.position, drawPilePoint.rotation);

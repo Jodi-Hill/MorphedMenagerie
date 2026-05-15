@@ -37,7 +37,7 @@ public class HeroSystem : Singleton<HeroSystem>
             ApplyBurnGA applyBurnGA = new(burnStacks, HeroView);
             ActionSystem.Instance.AddReaction (applyBurnGA);
         }
-        DrawCardsGA drawCardsGA = new(5);
+        DrawCardsGA drawCardsGA = new(5, true);
         ActionSystem.Instance.AddReaction(drawCardsGA);
     }
 }
