@@ -23,7 +23,7 @@ public class EnemySystem : Singleton<EnemySystem>
         ActionSystem.DetachPerformer<KillEnemyGA>();
     }
 
-    public void Setup(List<EnemyData> enemyDatas)
+    public void Setup(List<CharacterDeck> enemyDatas)
     {
         foreach (var enemyData in enemyDatas)
         {

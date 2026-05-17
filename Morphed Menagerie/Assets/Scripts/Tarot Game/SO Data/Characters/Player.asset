@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b7b6f5ff1159be64aba7b970f8523b0a, type: 3}
+  m_Name: Player
+  m_EditorClassIdentifier: 
+  characterName: Player
+  health: 25
+  image: {fileID: 21300000, guid: 45feddb599d7a754e86768a6101930df, type: 3}
+  deck:
+  - {fileID: 11400000, guid: 335fb25077654ba4fb1912f747d7b2e7, type: 2}
+  - {fileID: 11400000, guid: dfa7dc582d18d734ab14ca01f991db81, type: 2}
+  - {fileID: 11400000, guid: fbcfcf9a86adc3845b5f212f0d60e532, type: 2}
+  - {fileID: 11400000, guid: 335fb25077654ba4fb1912f747d7b2e7, type: 2}
+  - {fileID: 11400000, guid: dfa7dc582d18d734ab14ca01f991db81, type: 2}
+  - {fileID: 11400000, guid: fbcfcf9a86adc3845b5f212f0d60e532, type: 2}
+  - {fileID: 11400000, guid: 335fb25077654ba4fb1912f747d7b2e7, type: 2}
+  - {fileID: 11400000, guid: dfa7dc582d18d734ab14ca01f991db81, type: 2}
+  - {fileID: 11400000, guid: fbcfcf9a86adc3845b5f212f0d60e532, type: 2}

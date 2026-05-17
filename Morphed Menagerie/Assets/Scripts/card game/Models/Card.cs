@@ -4,22 +4,19 @@ using System.Collections.Generic;
 public class Card
 {
     public string Title => data.name;
-    public string Description => data.Description;
-    public Sprite Image => data.Image;
-    public Effect ManualTargetEffect => data.ManualTargetEffect;
-
-    public List<AutoTargetEffect> OtherEffects => data.OtherEffects;
+    public string Description => data.cardDescription;
+    public Texture Image => data.image;
 
     public int Mana {  get; private set; }
 
-    private CardDataTut data;
+    private CardStatistics data;
     internal Sprite sprite;
-    private CardDataTut cardDataTut;
+    public CardStatistics cardInformation;
 
-    public Card(CardDataTut cardDataTut)
+    public Card(CardStatistics cardDataTut)
     {
         data = cardDataTut;
-        Mana = cardDataTut.Mana;
-        this.cardDataTut = cardDataTut;
+        Mana = 0;
+        this.cardInformation = cardDataTut;
     }
 }

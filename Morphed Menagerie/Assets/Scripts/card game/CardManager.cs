@@ -1,31 +1,44 @@
 using UnityEngine;
+using UnityEngine.UI;
 
-public class CardManager : MonoBehaviour
+public class CardManager : Singleton<CardManager>
 {
     public CardBattle battle;
+    public Button endTurn;
 
     [Header("Enemy")]
-    public CardData[] enemyCards;
+    public CharacterDeck enemy;
     public SetCard future;
     public SetCard present;
 
     [Header("Player")]
+    public CharacterDeck player;
     public SetCard p_future;
     public SetCard p_present;
     public SetCard p_past;
-    [HideInInspector]
-    public CardData p_card;
-    public CardData p_empty;
+    public CardDetection futureDetection;
+    [HideInInspector] public CardStatistics p_card;
+
+    [Header("Debug so dont assign")]
+    public Transform futureTrans;
+    public Transform presentTrans;
+    public Transform pastTrans;
 
     void Start()
     {
-        future.NewCard(enemyCards[Random.Range(0, enemyCards.Length)]);
+        future.NewCard(enemy.deck[Random.Range(0, enemy.deck.Length)]);
     }
 
-    public void EnemyTurn()
+    private void Update()
     {
-        present.NewCard(future.activeCard);
-        future.NewCard(enemyCards[Random.Range(0, enemyCards.Length)]);
+        if (p_future.HasBeenSet() && p_present.HasBeenSet() && p_past.HasBeenSet())
+        {
+            endTurn.interactable = true;
+        }
+        else
+        {
+            endTurn.interactable = false;
+        }
     }
 
     /// <summary>
@@ -33,29 +46,57 @@ public class CardManager : MonoBehaviour
     /// </summary>
     public void PlayerTurn()
     {
-        if (p_future.activeCard == null || p_future.activeCard == p_empty)
-            return;
-
         battle.Resolve();
     }
 
     public void ContinueTurn()
     {
-        if (p_present.activeCard == null)
-            p_past.NewCard(p_empty);
-        else
-            p_past.NewCard(p_present.activeCard);
+        // new assigns
         p_present.NewCard(p_future.activeCard);
-        //p_future.NewCard(p_empty); // resets future card to empty
+        p_past.NewCard(p_present.activeCard);
 
+        // set positions
+        futureTrans.position = presentTrans.position;
+        presentTrans.position = pastTrans.position;
+
+        // set transforms
+        Destroy(pastTrans.gameObject);
+        pastTrans = presentTrans;
+        presentTrans = futureTrans;
+
+        // set future
+        futureTrans = null;
+        futureDetection.ResetDetection();
+
+        Debug.Log("changed cards player");
         EnemyTurn();
     }
 
-    public void SetPlayerCard(CardData card)
+    public void EnemyTurn()
     {
-        p_future.NewCard(card);
+        present.NewCard(future.activeCard);
+        future.NewCard(enemy.deck[Random.Range(0, enemy.deck.Length)]);
+        Debug.Log("changed cards enemy");
+        DrawCardsGA drawCardsGA = new(5, true);
+        ActionSystem.Instance.Perform(drawCardsGA);
     }
 
-
-    //if specific card (Devil) is on specific position (present) with specific card on specific opponent position (opponentpresent), this event happens: blabla.
+    public void SetPlayerCard(CardStatistics card, int timeType, Transform cardTrans)
+    {
+        switch(timeType)
+        {
+            case 0:
+                p_past.NewCard(card);
+                pastTrans = cardTrans;
+                break;
+            case 1:
+                p_present.NewCard(card);
+                presentTrans = cardTrans;
+                break;
+            case 2:
+                p_future.NewCard(card);
+                futureTrans = cardTrans;
+                break;
+        }
+    }
 }

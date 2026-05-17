@@ -7,11 +7,11 @@ public class EnemyView : CombatantView
 
     public int AttackPower { get; set; }
 
-    public void Setup(EnemyData enemyData)
+    public void Setup(CharacterDeck enemyData)
     {
-        AttackPower = enemyData.AttackPower;
+        AttackPower = 0;
         UpdateAttackText();
-        SetupBase(enemyData.Health, enemyData.Image);
+        SetupBase(enemyData.health, enemyData.image);
     }
 
     private void UpdateAttackText()

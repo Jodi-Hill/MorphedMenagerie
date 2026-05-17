@@ -2,12 +2,16 @@ using UnityEngine;
 
 public class SetCard : MonoBehaviour
 {
-    public CardData activeCard;
+    public CardStatistics activeCard;
 
-    public void NewCard (CardData card)
+    public void NewCard (CardStatistics card)
     {
         activeCard = card;
-        MeshRenderer renderer = GetComponent<MeshRenderer>();
-        renderer.material.mainTexture = card.cardTexture;
+        //GetComponent<Renderer>().material.mainTexture = card.image;
+    }
+
+    public bool HasBeenSet()
+    {
+        return activeCard != null;
     }
 }

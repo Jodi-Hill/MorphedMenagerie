@@ -6,117 +6,102 @@ public class CardView : MonoBehaviour
     [SerializeField] private TMP_Text title;
     [SerializeField] private TMP_Text description;
     [SerializeField] private TMP_Text mana;
-    [SerializeField] private SpriteRenderer imageSR;
+    [SerializeField] private GameObject image;
+    private Material imageR;
     [SerializeField] private GameObject wrapper;
     [SerializeField] private LayerMask dropLayer;
     public Card Card { get; private set; }
     private Vector3 dragStartPosition;
     private Quaternion dragStartRotation;
+    private Vector3 startScale;
 
     public Transform thief;
 
+    public void SetStartPos()
+    {
+        startScale = transform.localScale;
+    }
+
     public void Setup(Card card)
     {
+        imageR = image.GetComponent<Renderer>().material;
         Card = card;
         title.text = card.Title;
         description.text = card.Description;
         mana.text = card.Mana.ToString();
-        imageSR.sprite = card.Image;
-
-        NormalizeSpriteSize();
-    }
-
-    //size of imageSR
-    private void NormalizeSpriteSize()
-    {
-        if (imageSR.sprite == null) return;
-        
-        Sprite sprite = imageSR.sprite;
-
-        float targetWidth = 3f;
-        float targetHeight = 3f;
-
-        Vector2 spriteSize = sprite.bounds.size;
-
-        float scaleX = targetWidth / spriteSize.x;
-        float scaleY = targetHeight / spriteSize.y;
-
-        float scale = Mathf.Min(scaleX, scaleY);
-
-        imageSR.transform.localScale = new Vector3(scale, scale, 1f);
+        imageR.mainTexture = card.Image;
     }
 
     private void OnMouseEnter()
     {
         if (!Interactions.Instance.PlayerCanHover()) return;
-        wrapper.SetActive(false);
-        Vector3 pos = new(transform.position.x, transform.position.y, 4.1f);
-        CardViewHoverSystem.Instance.Show(Card, pos);
+        transform.localScale = startScale * 1.2f;
     }
 
     private void OnMouseExit()
     {
         if (!Interactions.Instance.PlayerCanHover()) return;
-        CardViewHoverSystem.Instance.Hide();
-        wrapper.SetActive(true);
+        transform.localScale = startScale;
     }
 
     private void OnMouseDown()
     {
         if (!Interactions.Instance.PlayerCanInteract()) return;
-        if(Card.ManualTargetEffect != null)
+
+        Interactions.Instance.PlayerIsDragging = true;
+        wrapper.SetActive(true);
+        transform.localScale = startScale;
+        if (thief == null)
         {
-            ManualTargetSystem.Instance.StartTargeting(transform.position);
-        }
-        else
-        {
-            Interactions.Instance.PlayerIsDragging = true;
-            wrapper.SetActive(true);
-            CardViewHoverSystem.Instance.Hide();
             dragStartPosition = transform.position;
             dragStartRotation = transform.rotation;
-            transform.rotation = Quaternion.Euler(0, 0, 0);
-            transform.position = MouseUtil.GetMousePositionInWorldSpace(-1) - Vector3.back * 4;
         }
+        transform.rotation = Quaternion.Euler(0, 0, 0);
+        transform.position = MouseUtil.GetMousePositionInWorldSpace(-1) - Vector3.back * 4;
     }
 
     private void OnMouseDrag()
     {
         if (!Interactions.Instance.PlayerCanInteract()) return;
-        if (Card.ManualTargetEffect != null) return;
+
         transform.position = MouseUtil.GetMousePositionInWorldSpace(-1) - Vector3.back * 4;
     }
 
     private void OnMouseUp()
     {
         if (!Interactions.Instance.PlayerCanInteract()) return;
-        //if (Card.ManualTargetEffect != null)
-        //{
-        //    EnemyView target = ManualTargetSystem.Instance.EndTargeting(MouseUtil.GetMousePositionInWorldSpace(-1) - Vector3.back * 4);
-        //    if (target != null && ManaSystem.Instance.HasEnoughMana(Card.Mana))
-        //    {
-        //        PlayCardGA playCardGA = new(Card, target);
-        //        ActionSystem.Instance.Perform(playCardGA);
-        //    }
-        //}
-        //else
-        //{
-            /*if (ManaSystem.Instance.HasEnoughMana(Card.Mana)
-                    && Physics.Raycast(transform.position, Vector3.forward, out RaycastHit hit, 10f, dropLayer))
-            {
-                PlayCardGA playCardGA = new(Card);
-                ActionSystem.Instance.Perform(playCardGA);
-            }*/
-            if (thief != null)
+
+        if (thief != null && Vector3.Distance(transform.position, thief.position) < 2f)
+        {
+            if (thief.GetComponent<CardDetection>().CanThief())
             {
                 transform.position = thief.transform.position - Vector3.forward;
             }
             else
             {
+                thief = null;
                 transform.position = dragStartPosition;
                 transform.rotation = dragStartRotation;
             }
-            Interactions.Instance.PlayerIsDragging = false;
-        //}
+        }
+        else
+        {
+            if (thief != null)
+            {
+                thief.GetComponent<CardDetection>().RemovedThief();
+            }
+            transform.position = dragStartPosition;
+            transform.rotation = dragStartRotation;
+        }
+        Interactions.Instance.PlayerIsDragging = false;
+    }
+
+    public void SetThief(Transform transform)
+    {
+        if (thief != null && thief != transform)
+        {
+            thief.GetComponent<CardDetection>().RemovedThief();
+        }
+        thief = transform;
     }
 }

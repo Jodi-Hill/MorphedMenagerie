@@ -1,15 +1,15 @@
 using DG.Tweening;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.Splines;
-using System.Linq;
 
 public class HandView : MonoBehaviour
 {
     [SerializeField] private SplineContainer splineContainer;
 
-    private readonly List<CardView> cards = new();
+    public List<CardView> cards = new();
 
     public IEnumerator AddCard (CardView cardView)
     {
@@ -48,5 +48,10 @@ public class HandView : MonoBehaviour
             cards[i].transform.DOLocalRotateQuaternion(rotation, duration);
         }
         yield return new WaitForSeconds(duration);
+
+        foreach (var card in cards)
+        {
+            card.SetStartPos();
+        }
     }
 }

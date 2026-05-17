@@ -5,13 +5,13 @@ using UnityEngine;
 
 public class CardSystem : Singleton<CardSystem>
 {
-    [SerializeField] private HandView handView;
+    [SerializeField] public HandView handView;
     [SerializeField] private Transform drawPilePoint;
     [SerializeField] private Transform discardPilePoint;
 
     private readonly List<Card> drawPile = new();
     private readonly List<Card> discardPile = new();
-    private readonly List<Card> hand = new();
+    public List<Card> hand = new();
 
     private void OnEnable()
     {
@@ -27,7 +27,7 @@ public class CardSystem : Singleton<CardSystem>
         ActionSystem.DetachPerformer<PlayCardGA>();
     }
 
-    public void Setup(List<CardDataTut> deckData)
+    public void Setup(List<CardStatistics> deckData)
     {
         foreach (var cardDataTut in deckData)
         {
@@ -56,12 +56,6 @@ public class CardSystem : Singleton<CardSystem>
     private IEnumerator DiscardAllCardsPerformer(DiscardAllCardsGA discardAllCardsGA)
     {
         yield return null;
-        //foreach (var card in hand)
-        //{
-        //    CardView cardView = handView.RemoveCard(card);
-        //    yield return DiscardCard(cardView);
-        //}
-        //hand.Clear();
     }
 
     private IEnumerator PlayCardPerformer(PlayCardGA playCardGA)
@@ -69,22 +63,8 @@ public class CardSystem : Singleton<CardSystem>
         hand.Remove(playCardGA.Card);
         CardView cardView = handView.RemoveCard(playCardGA.Card);
         yield return DiscardCard(cardView);
-
         SpendManaGA spendManaGA = new(playCardGA.Card.Mana);
         ActionSystem.Instance.AddReaction(spendManaGA);
-
-        if (playCardGA.Card.ManualTargetEffect != null)
-        {
-            PerformEffectGA performEffectGA = new(playCardGA.Card.ManualTargetEffect, new() { playCardGA.ManualTarget });
-            ActionSystem.Instance.AddReaction(performEffectGA);
-        }
-
-        foreach (var effectWrapper in playCardGA.Card.OtherEffects)
-        {
-            List<CombatantView> targets = effectWrapper.TargetMode.GetTargets();
-            PerformEffectGA performEffectGA = new(effectWrapper.Effect, targets);
-            ActionSystem.Instance.AddReaction(performEffectGA);
-        }
     }
 
     private IEnumerator DrawCard()

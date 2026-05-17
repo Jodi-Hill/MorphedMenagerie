@@ -15,12 +15,12 @@ public class Dragging : MonoBehaviour
 
 
     public CardManager cardManager;
-    public CardData cardData;
+    public CardStatistics cardData;
 
 
     private void OnMouseDown()
     {
-        cardManager.SetPlayerCard(cardData);
+        //cardManager.SetPlayerCard(cardData);
     }
 
 
