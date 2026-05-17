@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -17,12 +18,13 @@ public class CardManager : Singleton<CardManager>
     public SetCard p_present;
     public SetCard p_past;
     public CardDetection futureDetection;
-    [HideInInspector] public CardStatistics p_card;
+    public CardDetection presentDetection;
+    public CardDetection pastDetection;
 
-    [Header("Debug so dont assign")]
-    public Transform futureTrans;
-    public Transform presentTrans;
-    public Transform pastTrans;
+    [HideInInspector] public CardStatistics p_card;
+    [HideInInspector] public Transform futureTrans;
+    [HideInInspector] public Transform presentTrans;
+    [HideInInspector] public Transform pastTrans;
 
     void Start()
     {
@@ -51,24 +53,24 @@ public class CardManager : Singleton<CardManager>
 
     public void ContinueTurn()
     {
-        // new assigns
+        StartCoroutine(CardTransforms());
+    }
+
+    IEnumerator CardTransforms()
+    {
         p_present.NewCard(p_future.activeCard);
         p_past.NewCard(p_present.activeCard);
+        UnityEngine.Object.Destroy(pastTrans.gameObject);
+        yield return new WaitForEndOfFrame();
 
-        // set positions
-        futureTrans.position = presentTrans.position;
-        presentTrans.position = pastTrans.position;
-
-        // set transforms
-        Destroy(pastTrans.gameObject);
         pastTrans = presentTrans;
         presentTrans = futureTrans;
-
-        // set future
         futureTrans = null;
         futureDetection.ResetDetection();
 
-        Debug.Log("changed cards player");
+        pastTrans.position = pastDetection.transform.position;
+        presentTrans.position = presentDetection.transform.position;
+
         EnemyTurn();
     }
 
@@ -76,7 +78,6 @@ public class CardManager : Singleton<CardManager>
     {
         present.NewCard(future.activeCard);
         future.NewCard(enemy.deck[Random.Range(0, enemy.deck.Length)]);
-        Debug.Log("changed cards enemy");
         DrawCardsGA drawCardsGA = new(5, true);
         ActionSystem.Instance.Perform(drawCardsGA);
     }

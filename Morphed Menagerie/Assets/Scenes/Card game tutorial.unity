@@ -4758,6 +4758,8 @@ MonoBehaviour:
   p_present: {fileID: 1132256127}
   p_past: {fileID: 1996037177}
   futureDetection: {fileID: 500366341}
+  presentDetection: {fileID: 1017927712}
+  pastDetection: {fileID: 1087291344}
   p_card: {fileID: 0}
   futureTrans: {fileID: 0}
   presentTrans: {fileID: 0}

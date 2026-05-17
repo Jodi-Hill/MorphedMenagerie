@@ -7,7 +7,7 @@ public class SetCard : MonoBehaviour
     public void NewCard (CardStatistics card)
     {
         activeCard = card;
-        //GetComponent<Renderer>().material.mainTexture = card.image;
+        GetComponent<Renderer>().material.mainTexture = card.image;
     }
 
     public bool HasBeenSet()

@@ -16,8 +16,11 @@ public class CardDetection : MonoBehaviour
     /// </summary>
     public void RaiseTurn()
     {
+        if ((firstTurnOnly && turn == 0) || !firstTurnOnly)
+        {
+            CardManager.Instance.SetPlayerCard(card.Card.cardInformation, timeType, cardTrans);
+        }
         turn++;
-        CardManager.Instance.SetPlayerCard(card.Card.cardInformation, timeType, cardTrans);
         CardSystem.Instance.hand.Remove(card.Card);
         CardSystem.Instance.handView.cards.Remove(card);
         UnityEngine.Object.Destroy(card);
