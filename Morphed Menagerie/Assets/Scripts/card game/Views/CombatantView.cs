@@ -10,6 +10,7 @@ public class CombatantView : MonoBehaviour
     [SerializeField] private TMP_Text healthText;
     [SerializeField] private SpriteRenderer spriteRenderer;
     [SerializeField] private StatusEffectsUI statusEffectsUI;
+    public bool isPlayer;
 
     public int MaxHealth {  get; private set; }
     public int CurrentHealth { get; private set; }
@@ -50,6 +51,14 @@ public class CombatantView : MonoBehaviour
             if (CurrentHealth < 0)
             {
                 CurrentHealth = 0;
+                if (isPlayer)
+                {
+                    Debug.Log("Player died!");
+                }
+                else
+                {
+                    Debug.Log("Enemy died!");
+                }
             }
         }
         transform.DOShakePosition(0.2f, 0.5f);

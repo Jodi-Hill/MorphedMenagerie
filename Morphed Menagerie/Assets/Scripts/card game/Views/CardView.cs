@@ -5,7 +5,8 @@ public class CardView : MonoBehaviour
 {
     [SerializeField] private TMP_Text title;
     [SerializeField] private TMP_Text description;
-    [SerializeField] private TMP_Text mana;
+    [SerializeField] private TMP_Text attack;
+    [SerializeField] private TMP_Text health;
     [SerializeField] private GameObject image;
     private Material imageR;
     [SerializeField] private GameObject wrapper;
@@ -28,7 +29,8 @@ public class CardView : MonoBehaviour
         Card = card;
         title.text = card.Title;
         description.text = card.Description;
-        mana.text = card.Mana.ToString();
+        attack.text = card.cardInformation.presentVal.attack.ToString();
+        health.text = card.cardInformation.presentVal.health.ToString();
         imageR.mainTexture = card.Image;
     }
 

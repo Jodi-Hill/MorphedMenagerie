@@ -5770,10 +5770,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7289754936386518657, guid: ac082ebf369ec494582db96c12720bab, type: 3}
       propertyPath: m_Name
-      value: HeroView
+      value: PlayerView
       objectReference: {fileID: 0}
     - target: {fileID: 7289754936386518657, guid: ac082ebf369ec494582db96c12720bab, type: 3}
       propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8863160814213185498, guid: ac082ebf369ec494582db96c12720bab, type: 3}
+      propertyPath: isPlayer
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
