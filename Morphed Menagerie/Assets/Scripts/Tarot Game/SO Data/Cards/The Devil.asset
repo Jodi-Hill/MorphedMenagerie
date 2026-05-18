@@ -12,10 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 04f39f10a52764a4bacee633fbb7c221, type: 3}
   m_Name: The Devil
   m_EditorClassIdentifier: 
-  health: 2
-  attack: 2
-  image: {fileID: 2800000, guid: ab02b72f06fd3cf47be6232a53240ebe, type: 3}
   cardName: The Devil
-  past: 0
+  cardDescription: This card signifies violence. This reading makes sure this fortune
+    doesn't come true.
+  health: 1
+  attack: 1
+  image: {fileID: 2800000, guid: ab02b72f06fd3cf47be6232a53240ebe, type: 3}
+  past: 12
   present: 0
-  future: 0
+  future: 18

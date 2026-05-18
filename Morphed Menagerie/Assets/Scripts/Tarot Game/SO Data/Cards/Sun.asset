@@ -12,9 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 04f39f10a52764a4bacee633fbb7c221, type: 3}
   m_Name: Sun
   m_EditorClassIdentifier: 
+  cardName: Sun
+  cardDescription: This card signifies that you're ready to jump in. This reading
+    makes sure that this fortune doesn't come true.
   health: 1
   attack: 1
   image: {fileID: 2800000, guid: 678a5940bffc87d46a8c2a036a02068d, type: 3}
-  cardName: Sun
-  past: 0
-  future: 0
+  past: 536
+  present: 96
+  future: 6
