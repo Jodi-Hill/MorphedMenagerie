@@ -1,4 +1,5 @@
 using UnityEngine;
+using static UnityEditor.Experimental.GraphView.GraphView;
 
 public class CardBattle : MonoBehaviour
 {
@@ -11,16 +12,18 @@ public class CardBattle : MonoBehaviour
 
         if (turnCount > 1)
         {
-            int pdmg = cardManager.p_present.activeCard.attack;
-            int edmg = cardManager.present.activeCard.attack;
-            int pdef = cardManager.p_present.activeCard.health;
-            int edef = cardManager.present.activeCard.health;
+            // apply future and past to present for player
+            int playerDmg = cardManager.p_present.activeCard.presentVal.attack + cardManager.p_past.activeCard.pastVal.attack + cardManager.p_future.activeCard.futureVal.attack;
+            int playerHp = cardManager.p_present.activeCard.presentVal.health + cardManager.p_past.activeCard.pastVal.health + cardManager.p_future.activeCard.futureVal.health;
+            // only use present for enemy
+            int enemyDmg = cardManager.e_present.activeCard.presentVal.attack;
+            int enemyHp = cardManager.e_present.activeCard.presentVal.health;
 
-            cardManager.player.health -= Mathf.Clamp(edmg - pdef, 0, 100);
-            cardManager.enemy.health -= Mathf.Clamp(pdmg - edef, 0, 100);
+            cardManager.playerView.Damage(Mathf.Clamp(enemyDmg - playerHp, 0, 100));
+            cardManager.enemyView.Damage(Mathf.Clamp(playerDmg - enemyHp, 0, 100));
+
+            Debug.Log("Battle: \nPlayer\n" + "dmg " + playerDmg + "\nhp " + playerHp + "\nEnemy\ndmg " + enemyDmg + "\nhp " + enemyHp);
         }
-
-        Debug.Log("did battle");
 
         cardManager.ContinueTurn();
     }

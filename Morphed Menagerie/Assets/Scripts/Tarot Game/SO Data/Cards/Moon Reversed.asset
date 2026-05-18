@@ -15,9 +15,14 @@ MonoBehaviour:
   cardName: Moon Reversed
   cardDescription: This card signifies unveiling secrets. This reading makes sure
     you can't hide any longer.
-  health: 2
-  attack: 2
   image: {fileID: 2800000, guid: 1ef11a209c9414843a7e022121e071e1, type: 3}
-  past: 24
-  present: 0
-  future: 24
+  pastVal:
+    attack: -1
+    health: -1
+  presentVal:
+    attack: 2
+    health: 2
+  futureVal:
+    attack: -1
+    health: -1
+  cardEffect: 0

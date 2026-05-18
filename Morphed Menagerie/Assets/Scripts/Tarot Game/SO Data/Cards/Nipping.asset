@@ -12,9 +12,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 04f39f10a52764a4bacee633fbb7c221, type: 3}
   m_Name: Nipping
   m_EditorClassIdentifier: 
-  health: 1
-  attack: 1
-  image: {fileID: 2800000, guid: cee851fc5581e814bad49210d2e4756d, type: 3}
   cardName: Nipping
-  past: 0
-  future: 0
+  cardDescription: 
+  image: {fileID: 2800000, guid: cee851fc5581e814bad49210d2e4756d, type: 3}
+  pastVal:
+    attack: 0
+    health: 0
+  presentVal:
+    attack: 1
+    health: 1
+  futureVal:
+    attack: 0
+    health: 0
+  cardEffect: 0

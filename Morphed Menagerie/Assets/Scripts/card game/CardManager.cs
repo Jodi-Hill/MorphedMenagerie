@@ -8,11 +8,13 @@ public class CardManager : Singleton<CardManager>
     public Button endTurn;
 
     [Header("Enemy")]
+    public HeroView enemyView;
     public CharacterDeck enemy;
-    public SetCard future;
-    public SetCard present;
+    public SetCard e_future;
+    public SetCard e_present;
 
     [Header("Player")]
+    public HeroView playerView;
     public CharacterDeck player;
     public SetCard p_future;
     public SetCard p_present;
@@ -25,10 +27,13 @@ public class CardManager : Singleton<CardManager>
     [HideInInspector] public Transform futureTrans;
     [HideInInspector] public Transform presentTrans;
     [HideInInspector] public Transform pastTrans;
+    private float duration = 0.25f;
 
     void Start()
     {
-        future.NewCard(enemy.deck[Random.Range(0, enemy.deck.Length)]);
+        enemyView.Setup(enemy);
+        playerView.Setup(player);
+        e_future.NewCard(enemy.deck[Random.Range(0, enemy.deck.Length)]);
     }
 
     private void Update()
@@ -68,16 +73,45 @@ public class CardManager : Singleton<CardManager>
         futureTrans = null;
         futureDetection.ResetDetection();
 
-        pastTrans.position = pastDetection.transform.position;
-        presentTrans.position = presentDetection.transform.position;
+        // Do past
+        float timeA = 0f;
+        Vector3 startPosA = pastTrans.position;
+        Vector3 endPosA = pastDetection.transform.position;
+        while (timeA < duration)
+        {
+            float t = timeA / duration;
+            pastTrans.position = Vector3.Lerp(startPosA, endPosA, t);
+            pastTrans.eulerAngles = new Vector3(0, 0, 90 + (t * 90f));
+            timeA += Time.deltaTime;
+            yield return null;
+        }
+        // Ensure exact final position
+        pastTrans.position = endPosA;
+        pastTrans.eulerAngles = new Vector3(0, 0, 180);
+
+        // Do present
+        float timeB = 0f;
+        Vector3 startPosB = presentTrans.position;
+        Vector3 endPosB = presentDetection.transform.position;
+        while (timeB < duration)
+        {
+            float t = timeB / duration;
+            presentTrans.position = Vector3.Lerp(startPosB, endPosB, t);
+            presentTrans.eulerAngles = new Vector3(0, 0, (t * 90f));
+            timeB += Time.deltaTime;
+            yield return null;
+        }
+        // Ensure exact final position
+        presentTrans.position = endPosB;
+        presentTrans.eulerAngles = new Vector3(0, 0, 90);
 
         EnemyTurn();
     }
 
     public void EnemyTurn()
     {
-        present.NewCard(future.activeCard);
-        future.NewCard(enemy.deck[Random.Range(0, enemy.deck.Length)]);
+        e_present.NewCard(e_future.activeCard);
+        e_future.NewCard(enemy.deck[Random.Range(0, enemy.deck.Length)]);
         DrawCardsGA drawCardsGA = new(5, true);
         ActionSystem.Instance.Perform(drawCardsGA);
     }

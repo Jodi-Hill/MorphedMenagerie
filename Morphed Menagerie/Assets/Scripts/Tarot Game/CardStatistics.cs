@@ -5,24 +5,16 @@ public class CardStatistics : ScriptableObject
 {
     public string cardName = string.Empty;
     public string cardDescription = string.Empty;
-    public int health = 5;
-    public int attack = 2;
     public Texture image;
-    public GameEffect past;
-    public GameEffect present;
-    public GameEffect future;
+    public CardValues pastVal;
+    public CardValues presentVal;
+    public CardValues futureVal;
+    public CardEffect cardEffect;
 }
 
-[System.Flags]
-public enum GameEffect
+[System.Serializable]
+public class CardValues
 {
-    MoreDamage = 2,
-    MoreHealth = 4,
-    LessDamage = 8,
-    LessHealth = 16,
-    AddDamage = 32,
-    AddHealth = 64,
-    SubtractDamage = 128,
-    SubtractHealth = 256,
-    Skip = 512,
+    public int attack;
+    public int health;
 }

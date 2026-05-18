@@ -15,9 +15,14 @@ MonoBehaviour:
   cardName: The Devil
   cardDescription: This card signifies violence. This reading makes sure this fortune
     doesn't come true.
-  health: 1
-  attack: 1
   image: {fileID: 2800000, guid: ab02b72f06fd3cf47be6232a53240ebe, type: 3}
-  past: 12
-  present: 0
-  future: 18
+  pastVal:
+    attack: -2
+    health: 2
+  presentVal:
+    attack: 1
+    health: 1
+  futureVal:
+    attack: 2
+    health: -2
+  cardEffect: 0
