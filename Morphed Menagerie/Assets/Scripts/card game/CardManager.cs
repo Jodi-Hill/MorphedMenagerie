@@ -2,6 +2,13 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 
+public enum CardOrientation
+{
+    Past = 0,
+    Present = 1,
+    Future = 2,
+}
+
 public class CardManager : Singleton<CardManager>
 {
     public CardBattle battle;
@@ -63,15 +70,14 @@ public class CardManager : Singleton<CardManager>
 
     IEnumerator CardTransforms()
     {
-        p_present.NewCard(p_future.activeCard);
         p_past.NewCard(p_present.activeCard);
+        p_present.NewCard(p_future.activeCard);
         UnityEngine.Object.Destroy(pastTrans.gameObject);
         yield return new WaitForEndOfFrame();
 
         pastTrans = presentTrans;
         presentTrans = futureTrans;
         futureTrans = null;
-        futureDetection.ResetDetection();
 
         // Do past
         float timeA = 0f;
@@ -86,6 +92,7 @@ public class CardManager : Singleton<CardManager>
             yield return null;
         }
         // Ensure exact final position
+        pastTrans.GetComponent<CardView>().UpdateCard(CardOrientation.Past);
         pastTrans.position = endPosA;
         pastTrans.eulerAngles = new Vector3(0, 0, 180);
 
@@ -102,9 +109,11 @@ public class CardManager : Singleton<CardManager>
             yield return null;
         }
         // Ensure exact final position
+        presentTrans.GetComponent<CardView>().UpdateCard(CardOrientation.Present);
         presentTrans.position = endPosB;
         presentTrans.eulerAngles = new Vector3(0, 0, 90);
 
+        futureDetection.ResetDetection();
         EnemyTurn();
     }
 
@@ -116,22 +125,30 @@ public class CardManager : Singleton<CardManager>
         ActionSystem.Instance.Perform(drawCardsGA);
     }
 
-    public void SetPlayerCard(CardStatistics card, int timeType, Transform cardTrans)
+    public void SetPlayerCard(CardStatistics card, CardOrientation timeType, Transform cardTrans)
     {
         switch(timeType)
         {
-            case 0:
+            case CardOrientation.Past:
                 p_past.NewCard(card);
                 pastTrans = cardTrans;
+                pastTrans.GetComponent<CardView>().UpdateCard(timeType);
                 break;
-            case 1:
+            case CardOrientation.Present:
                 p_present.NewCard(card);
                 presentTrans = cardTrans;
+                presentTrans.GetComponent<CardView>().UpdateCard(timeType);
                 break;
-            case 2:
+            case CardOrientation.Future:
                 p_future.NewCard(card);
                 futureTrans = cardTrans;
+                futureTrans.GetComponent<CardView>().UpdateCard(timeType);
                 break;
+        }
+
+        if (pastTrans != null && presentTrans != null && futureTrans != null)
+        {
+            presentTrans.GetComponent<CardView>().UpdateCard(CardOrientation.Present, pastTrans.GetComponent<CardView>().Card, futureTrans.GetComponent<CardView>().Card);
         }
     }
 }

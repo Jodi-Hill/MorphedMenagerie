@@ -13,8 +13,10 @@ public class CardBattle : MonoBehaviour
         if (turnCount > 1)
         {
             // apply future and past to present for player
-            int playerDmg = cardManager.p_present.activeCard.presentVal.attack + cardManager.p_past.activeCard.pastVal.attack + cardManager.p_future.activeCard.futureVal.attack;
-            int playerHp = cardManager.p_present.activeCard.presentVal.health + cardManager.p_past.activeCard.pastVal.health + cardManager.p_future.activeCard.futureVal.health;
+            int playerDmg = cardManager.p_present.activeCard.tempAtk;
+            int playerHp = cardManager.p_present.activeCard.tempHp;
+            //int playerDmg = cardManager.p_present.activeCard.presentVal.attack + cardManager.p_past.activeCard.pastVal.attack + cardManager.p_future.activeCard.futureVal.attack;
+            //int playerHp = cardManager.p_present.activeCard.presentVal.health + cardManager.p_past.activeCard.pastVal.health + cardManager.p_future.activeCard.futureVal.health;
             // only use present for enemy
             int enemyDmg = cardManager.e_present.activeCard.presentVal.attack;
             int enemyHp = cardManager.e_present.activeCard.presentVal.health;

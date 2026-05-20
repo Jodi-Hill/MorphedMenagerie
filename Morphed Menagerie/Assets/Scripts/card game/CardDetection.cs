@@ -4,7 +4,7 @@ public class CardDetection : MonoBehaviour
 {
     public bool firstTurnOnly;
     public int turn = 0;
-    public int timeType = 0; // 0=past, 1=present, 2=future
+    public CardOrientation timeType = CardOrientation.Past;
 
     public CardView card;
     public Transform cardTrans;
@@ -19,11 +19,11 @@ public class CardDetection : MonoBehaviour
         if ((firstTurnOnly && turn == 0) || !firstTurnOnly)
         {
             CardManager.Instance.SetPlayerCard(card.Card.cardInformation, timeType, cardTrans);
+            CardSystem.Instance.hand.Remove(card.Card);
+            CardSystem.Instance.handView.cards.Remove(card);
+            card.placed = true;
         }
         turn++;
-        CardSystem.Instance.hand.Remove(card.Card);
-        CardSystem.Instance.handView.cards.Remove(card);
-        UnityEngine.Object.Destroy(card);
     }
 
     private void OnTriggerEnter(Collider other)
@@ -63,14 +63,19 @@ public class CardDetection : MonoBehaviour
 
     public void ResetDetection()
     {
-        card = null;
-        cardTrans = null;
-        linkedCard.activeCard = null;
+        //card = null;
+        //cardTrans = null;
+        //linkedCard.activeCard = null;
         cardCollider.enabled = true;
     }
 
     private void OnTriggerExit(Collider other)
     {
+        if (firstTurnOnly && turn > 0)
+        {
+            return;
+        }
+
         if (card != null)
         {
             card = null;

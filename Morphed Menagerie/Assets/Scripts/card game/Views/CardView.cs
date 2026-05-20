@@ -1,5 +1,6 @@
 using TMPro;
 using UnityEngine;
+using Yarn.Unity;
 
 public class CardView : MonoBehaviour
 {
@@ -16,7 +17,13 @@ public class CardView : MonoBehaviour
     private Quaternion dragStartRotation;
     private Vector3 startScale;
 
+    public CardOrientation orientation = CardOrientation.Past;
+    public CardStatistics cardInfo;
     public Transform thief;
+    public bool placed;
+
+    public int attackValue = 0;
+    public int healthValue = 0;
 
     public void SetStartPos()
     {
@@ -27,11 +34,43 @@ public class CardView : MonoBehaviour
     {
         imageR = image.GetComponent<Renderer>().material;
         Card = card;
+        cardInfo = card.cardInformation;
         title.text = card.Title;
         description.text = card.Description;
-        attack.text = card.cardInformation.presentVal.attack.ToString();
-        health.text = card.cardInformation.presentVal.health.ToString();
+        attack.text = card.cardInformation.futureVal.attack.ToString();
+        health.text = card.cardInformation.futureVal.health.ToString();
         imageR.mainTexture = card.Image;
+    }
+
+    public void UpdateCard(CardOrientation newOrientation, Card past = null, Card future = null)
+    {
+        orientation = newOrientation;
+        switch (newOrientation)
+        {
+            case CardOrientation.Past:
+                attackValue = cardInfo.pastVal.attack;
+                healthValue = cardInfo.pastVal.health;
+                break;
+            case CardOrientation.Present:
+                attackValue = cardInfo.presentVal.attack;
+                healthValue = cardInfo.presentVal.health;
+                break;
+            case CardOrientation.Future:
+                attackValue = cardInfo.futureVal.attack;
+                healthValue = cardInfo.futureVal.health;
+                break;
+        }
+
+        if (past != null && future != null)
+        {
+            attackValue += past.cardInformation.pastVal.attack + future.cardInformation.futureVal.attack;
+            healthValue += past.cardInformation.pastVal.health + future.cardInformation.futureVal.health;
+        }
+        cardInfo.tempAtk = attackValue;
+        cardInfo.tempHp = healthValue;
+
+        attack.text = attackValue.ToString();
+        health.text = healthValue.ToString();
     }
 
     private void OnMouseEnter()
@@ -78,6 +117,7 @@ public class CardView : MonoBehaviour
             if (thief.GetComponent<CardDetection>().CanThief())
             {
                 transform.position = thief.transform.position - Vector3.forward;
+                CardManager.Instance.SetPlayerCard(cardInfo, thief.GetComponent<CardDetection>().timeType, transform);
             }
             else
             {

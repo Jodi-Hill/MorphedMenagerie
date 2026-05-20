@@ -10,6 +10,9 @@ public class CardStatistics : ScriptableObject
     public CardValues presentVal;
     public CardValues futureVal;
     public CardEffect cardEffect;
+
+    public int tempAtk;
+    public int tempHp;
 }
 
 [System.Serializable]
