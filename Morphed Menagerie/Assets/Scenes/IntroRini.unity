@@ -1401,7 +1401,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 07acbfad2a26b804aad4ce452b7efcfd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sceneName: PrototypeRini
+  sceneName: Card game tutorial
   text: {fileID: 1276204097}
 --- !u!65 &813490094
 BoxCollider:
