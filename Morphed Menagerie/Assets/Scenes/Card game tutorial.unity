@@ -586,6 +586,9 @@ PrefabInstance:
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 7289754936386518657, guid: ac082ebf369ec494582db96c12720bab, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 369568156}
     - targetCorrespondingSourceObject: {fileID: 3919013441472273721, guid: ac082ebf369ec494582db96c12720bab, type: 3}
       insertIndex: -1
       addedObject: {fileID: 0}
@@ -600,12 +603,32 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8863160814213185498, guid: ac082ebf369ec494582db96c12720bab, type: 3}
   m_PrefabInstance: {fileID: 369568152}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 369568155}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3b3c035e1c254f348b9cd8a89abc8eee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &369568155 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7289754936386518657, guid: ac082ebf369ec494582db96c12720bab, type: 3}
+  m_PrefabInstance: {fileID: 369568152}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &369568156
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 369568155}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6fcb78eeba282984b8acbb05c546baa2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Entered: 0
+  textAppear: {fileID: 0}
+  mouseOptions: 0
 --- !u!1 &371663790
 GameObject:
   m_ObjectHideFlags: 0
@@ -753,6 +776,7 @@ GameObject:
   - component: {fileID: 500366340}
   - component: {fileID: 500366339}
   - component: {fileID: 500366341}
+  - component: {fileID: 500366342}
   m_Layer: 0
   m_Name: CardSlot3
   m_TagString: Untagged
@@ -897,6 +921,21 @@ MonoBehaviour:
   cardTrans: {fileID: 0}
   linkedCard: {fileID: 500055128}
   cardCollider: {fileID: 500366340}
+--- !u!114 &500366342
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 500366335}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6fcb78eeba282984b8acbb05c546baa2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Entered: 0
+  textAppear: {fileID: 0}
+  mouseOptions: 0
 --- !u!1001 &564901547
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -972,6 +1011,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 2609001038704016258, guid: 77fa5d5197fb2ca478d7f8c450493645, type: 3}
       insertIndex: -1
       addedObject: {fileID: 564901550}
+    - targetCorrespondingSourceObject: {fileID: 2609001038704016258, guid: 77fa5d5197fb2ca478d7f8c450493645, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 564901551}
   m_SourcePrefab: {fileID: 100100000, guid: 77fa5d5197fb2ca478d7f8c450493645, type: 3}
 --- !u!1 &564901548 stripped
 GameObject:
@@ -996,6 +1038,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   activeCard: {fileID: 0}
+--- !u!114 &564901551
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 564901548}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6fcb78eeba282984b8acbb05c546baa2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Entered: 0
+  textAppear: {fileID: 0}
+  mouseOptions: 0
 --- !u!1 &569789032
 GameObject:
   m_ObjectHideFlags: 0
@@ -2261,6 +2318,7 @@ GameObject:
   - component: {fileID: 1017927711}
   - component: {fileID: 1017927710}
   - component: {fileID: 1017927712}
+  - component: {fileID: 1017927713}
   m_Layer: 0
   m_Name: CardSlot2
   m_TagString: Untagged
@@ -2405,6 +2463,21 @@ MonoBehaviour:
   cardTrans: {fileID: 0}
   linkedCard: {fileID: 1132256127}
   cardCollider: {fileID: 1017927711}
+--- !u!114 &1017927713
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1017927706}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6fcb78eeba282984b8acbb05c546baa2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Entered: 0
+  textAppear: {fileID: 0}
+  mouseOptions: 0
 --- !u!1 &1026007903
 GameObject:
   m_ObjectHideFlags: 0
@@ -2685,6 +2758,7 @@ GameObject:
   - component: {fileID: 1087291343}
   - component: {fileID: 1087291342}
   - component: {fileID: 1087291344}
+  - component: {fileID: 1087291345}
   m_Layer: 0
   m_Name: CardSlot1
   m_TagString: Untagged
@@ -2829,6 +2903,21 @@ MonoBehaviour:
   cardTrans: {fileID: 0}
   linkedCard: {fileID: 1996037177}
   cardCollider: {fileID: 1087291343}
+--- !u!114 &1087291345
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1087291338}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6fcb78eeba282984b8acbb05c546baa2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Entered: 0
+  textAppear: {fileID: 0}
+  mouseOptions: 0
 --- !u!1 &1132256125
 GameObject:
   m_ObjectHideFlags: 0
@@ -2997,24 +3086,47 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 7385975884415284706, guid: 86624d97c76876741975b36c5ff7eb3d, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1148447765}
   m_SourcePrefab: {fileID: 100100000, guid: 86624d97c76876741975b36c5ff7eb3d, type: 3}
 --- !u!114 &1148447762 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8207431141447472378, guid: 86624d97c76876741975b36c5ff7eb3d, type: 3}
   m_PrefabInstance: {fileID: 1148447761}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 1148447763}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a17e8eb7ac731354f9568b192eef8926, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1148447763 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7385975884415284706, guid: 86624d97c76876741975b36c5ff7eb3d, type: 3}
+  m_PrefabInstance: {fileID: 1148447761}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1148447764 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3280485229880678389, guid: 86624d97c76876741975b36c5ff7eb3d, type: 3}
   m_PrefabInstance: {fileID: 1148447761}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1148447765
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1148447763}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6fcb78eeba282984b8acbb05c546baa2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Entered: 0
+  textAppear: {fileID: 0}
+  mouseOptions: 0
 --- !u!1 &1152144596
 GameObject:
   m_ObjectHideFlags: 0
@@ -5784,6 +5896,9 @@ PrefabInstance:
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 7289754936386518657, guid: ac082ebf369ec494582db96c12720bab, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 3997952582818294921}
     - targetCorrespondingSourceObject: {fileID: 3919013441472273721, guid: ac082ebf369ec494582db96c12720bab, type: 3}
       insertIndex: -1
       addedObject: {fileID: 0}
@@ -5798,12 +5913,32 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8863160814213185498, guid: ac082ebf369ec494582db96c12720bab, type: 3}
   m_PrefabInstance: {fileID: 3997952582818294917}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 3997952582818294920}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3b3c035e1c254f348b9cd8a89abc8eee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &3997952582818294920 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7289754936386518657, guid: ac082ebf369ec494582db96c12720bab, type: 3}
+  m_PrefabInstance: {fileID: 3997952582818294917}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &3997952582818294921
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3997952582818294920}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6fcb78eeba282984b8acbb05c546baa2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Entered: 0
+  textAppear: {fileID: 0}
+  mouseOptions: 0
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
