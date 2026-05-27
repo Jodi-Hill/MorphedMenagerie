@@ -51,6 +51,7 @@ namespace RaafOritme.SmartNPCs
     {
         public Vitality vitality;
         public Vitality strength;
+        public List<CombatRotation> combatRotations;
         public UnityEvent actionDuringCombat;
         public UnityEvent actionAfterCombat;
         public float aggressionTime;
@@ -60,7 +61,8 @@ namespace RaafOritme.SmartNPCs
     [Serializable]
     public struct Dialogue
     {
-        public float talkTime;
+        public float textSpeed;
+        public DialogueSO dialogue;
         public UnityEvent actionAfterDialogue;
     }
 

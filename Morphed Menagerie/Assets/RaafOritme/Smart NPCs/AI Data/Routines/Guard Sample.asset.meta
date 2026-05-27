@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: d6145f3bb3a70dd4facb5f1357bff6ee
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 11400000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 286385
+  packageName: Smart NPCs
+  packageVersion: 0.8.5
+  assetPath: Assets/RaafOritme/Smart NPCs/AI Data/Routines/Guard Sample.asset
+  uploadId: 918402

@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 87bbf2a919280b8478937b01df334eb6
+guid: ae221362a56a920419ef147d465f7e3f
 NativeFormatImporter:
   externalObjects: {}
   mainObjectFileID: 2100000
@@ -10,6 +10,6 @@ AssetOrigin:
   serializedVersion: 1
   productId: 286385
   packageName: Smart NPCs
-  packageVersion: 0.7.3
+  packageVersion: 0.8.5
   assetPath: Assets/RaafOritme/Smart NPCs/Prefabs/Materials/Cyan.mat
-  uploadId: 861570
+  uploadId: 918402

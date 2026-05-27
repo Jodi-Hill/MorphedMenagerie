@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -78,7 +79,47 @@ namespace RaafOritme.SmartNPCs
 
         public override void TransitionToState(OverRuleState _state)
         {
-            // TIP: Can use this method to transition to a specific state if desired, for example immediate combat when getting attacked.
+            // Tip: This can be made more dynamic by using reflection
+            agentController.AnimationHandler.BackToDefault();
+            switch (_state)
+            {
+                default:
+                    activeAction?.OnEnter(this);
+                    break;
+
+                case OverRuleState.COMBAT:
+                    ExecuteModule(typeof(CombatModule));
+                    break;
+
+                case OverRuleState.CHATTING:
+                    ExecuteModule(typeof(DialogueModule));
+                    break;
+                case OverRuleState.DECEASED:
+                    activeAction?.OnComplete(this);
+                    break;
+            }
+        }
+
+        /// <summary>
+        /// Finds and executes specific module.
+        /// </summary>
+        /// <param name="_type"></param>
+        private void ExecuteModule(Type _type)
+        {
+            foreach (BaseModule module in AllModules)
+            {
+                if (module.GetType() == _type)
+                {
+                    for (int i = 0; i < AllModules.Count; i++)
+                    {
+                        TransitionToNext();
+                        if (activeAction.GetType() == _type)
+                        {
+                            break;
+                        }
+                    }
+                }
+            }
         }
 
         // TIP: This method can be optimized by implementing delays or by using for example LateUpdate, if desired so.

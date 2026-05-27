@@ -1,0 +1,9 @@
+fileFormatVersion: 2
+guid: f654ac82b43298447904e5ee3335a274
+AssetOrigin:
+  serializedVersion: 1
+  productId: 286385
+  packageName: Smart NPCs
+  packageVersion: 0.8.5
+  assetPath: Assets/RaafOritme/Smart NPCs/Scripts/AI/Modules/Combat/Rotations/MeleeRotation.cs
+  uploadId: 918402

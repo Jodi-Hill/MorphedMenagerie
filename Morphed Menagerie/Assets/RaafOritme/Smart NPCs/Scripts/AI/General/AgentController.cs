@@ -14,6 +14,7 @@ namespace RaafOritme.SmartNPCs
         public string currentAction;
         public List<string> actionStack;
         public Inventory agentInventory = new();
+        public bool triggerOverrule = false;
 
         [Header("Settings Area")]
         public GameObject mainVisualObject;
@@ -35,6 +36,7 @@ namespace RaafOritme.SmartNPCs
         public SettingsAI settings;
         public Animator animator;
         public Pathfinding pathfinding;
+        public Transform attacker; // TIP: assign this when attacking the agent
 
         private void Start()
         {
@@ -94,6 +96,12 @@ namespace RaafOritme.SmartNPCs
         /// </summary>
         public void UpdateMain()
         {
+            if (triggerOverrule)
+            {
+                SetOverrule(overRule);
+                triggerOverrule = false;
+            }
+
             currentAction = mainBrain.currentAction;
             actionStack = mainBrain.lastActions;
 
@@ -128,6 +136,13 @@ namespace RaafOritme.SmartNPCs
             {
                 NavmeshObstacle.enabled = false;
                 navmeshAgent.enabled = true;
+            }
+
+            // TIP: fine tune when agent should attack/fight back.
+            if (attacker != null && overRule != OverRuleState.COMBAT)
+            {
+                mainBrain.TransitionToState(OverRuleState.COMBAT);
+                SetOverrule(OverRuleState.COMBAT);
             }
 
             mainBrain.Update();

@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3a491cf0c5ebd3d4fb3e3c7c8ee6785d, type: 3}
+  m_Name: Sample 1
+  m_EditorClassIdentifier: Assembly-CSharp::RaafOritme.SmartNPCs.CombatRotation
+  meleeDamage: 5
+  rangeDamage: 3
+  combatRotations:
+  - combat:
+      rid: 4402253569856897094
+  - combat:
+      rid: 4402253569856897095
+  references:
+    version: 2
+    RefIds:
+    - rid: 4402253569856897094
+      type: {class: MeleeRotation, ns: RaafOritme.SmartNPCs, asm: Assembly-CSharp}
+      data: 
+    - rid: 4402253569856897095
+      type: {class: RangeRotation, ns: RaafOritme.SmartNPCs, asm: Assembly-CSharp}
+      data: 

@@ -17,8 +17,10 @@ namespace RaafOritme.SmartNPCs
         // NPC module settings
         protected Vitality vitality = Vitality.MODERATE;
         protected Vitality strength = Vitality.WEAK;
+        protected CombatRotation combatRotation;
         protected int walkSpeed = 2;
         protected int runSpeed = 5;
+        protected float textSpeed = 2;
         protected InspectorLengthOptions aggressionTime = InspectorLengthOptions.Average;
         protected InspectorDistanceOptions combatDistance = InspectorDistanceOptions.Average;
         protected Transform residence;
@@ -26,6 +28,7 @@ namespace RaafOritme.SmartNPCs
         protected LayerMask restAreaMask;
         protected bool randomNodes = false;
         protected PatrolArea patrolArea;
+        protected DialogueSO dialogue;
         protected MinMaxInt nodeAmountRange = new MinMaxInt() { min = 4, max = 10 };
         protected InspectorDistanceOptions nodeDistance = InspectorDistanceOptions.Average;
         protected InspectorHeightOptions prioritySensitivity = InspectorHeightOptions.Average;
@@ -60,6 +63,9 @@ namespace RaafOritme.SmartNPCs
         protected GUIContent vitalityTip = new GUIContent("Vitality", "How healthy is the npc");
         protected GUIContent strengthTip = new GUIContent("Strength", "How strong is the npc");
         protected GUIContent sceneObjectPrefab = new GUIContent("Scene object", "Which scene object should receive all the logic?");
+        protected GUIContent combatRotationTip = new GUIContent("Combat Rotation", "The first combat rotation of the NPC, more can be added later for fine tuning.");
+        protected GUIContent dialogueTip = new GUIContent("Dialogue", "This contains the conversation that this NPC will be having.");
+        protected GUIContent textSpeedTip = new GUIContent("Text Speed", "How many seconds should the text take to appear?");
 
         // Field related things
         protected Color red = new Color(0.4f, 0.2f, 0.2f);
@@ -156,6 +162,11 @@ namespace RaafOritme.SmartNPCs
             _controller.settings.combat.combatDistance = (1 + (int)combatDistance) * 0.5f;
             _controller.settings.combat.vitality = vitality;
             _controller.settings.combat.strength = strength;
+            _controller.settings.combat.combatRotations.Add(combatRotation);
+
+            // DialogueModule settings
+            _controller.settings.dialogue.dialogue = dialogue;
+            _controller.settings.dialogue.textSpeed = textSpeed;
         }
 
         /// <summary>
@@ -208,7 +219,7 @@ namespace RaafOritme.SmartNPCs
             customStyle.DrawHorizontalGUILine();
 
             DrawColorField(residence);
-            residence = (Transform)EditorGUILayout.ObjectField(residenceTip, residence, typeof(Transform));
+            residence = EditorGUILayout.ObjectField(residenceTip, residence, typeof(Transform), true) as Transform;
             CloseColorField();
 
             GUILayout.BeginHorizontal();
@@ -242,11 +253,14 @@ namespace RaafOritme.SmartNPCs
         protected void DrawWindowCombat()
         {
             GUILayout.Label("Combat Module", EditorStyles.boldLabel);
-            GUILayout.Label("This modules gives the AI the capabilities of combat. This is a very simple combat system that is used as an example.", EditorStyles.wordWrappedLabel);
+            GUILayout.Label("This modules gives the AI the capabilities of combat. This is a basic setup that requires fine tuning in the rotations.", EditorStyles.wordWrappedLabel);
             customStyle.DrawHorizontalGUILine();
 
             aggressionTime = (InspectorLengthOptions)EditorGUILayout.EnumPopup(aggressionTimeTip, aggressionTime);
             combatDistance = (InspectorDistanceOptions)EditorGUILayout.EnumPopup(combatDistanceTip, combatDistance);
+            DrawColorField(combatRotation);
+            combatRotation = EditorGUILayout.ObjectField(combatRotationTip, combatRotation, typeof(CombatRotation), true) as CombatRotation;
+            CloseColorField();
             vitality = (Vitality)EditorGUILayout.EnumPopup(vitalityTip, vitality);
             strength = (Vitality)EditorGUILayout.EnumPopup(strengthTip, strength);
         }
@@ -254,7 +268,13 @@ namespace RaafOritme.SmartNPCs
         protected void DrawWindowDialogue()
         {
             GUILayout.Label("Dialogue Module", EditorStyles.boldLabel);
-            GUILayout.Label("This modules gives the AI the capabilities of dialogue. NPCs without this module can not have a conversation with each other or the player.", EditorStyles.wordWrappedLabel);
+            GUILayout.Label("This modules gives the AI the capabilities of dialogue. NPCs without this module can not converse.", EditorStyles.wordWrappedLabel);
+            customStyle.DrawHorizontalGUILine();
+
+            DrawColorField(dialogue);
+            dialogue = EditorGUILayout.ObjectField(dialogueTip, dialogue, typeof(DialogueSO), true) as DialogueSO;
+            CloseColorField();
+            textSpeed = EditorGUILayout.FloatField(textSpeedTip, textSpeed);
         }
 
         protected void DrawWindowSensory()

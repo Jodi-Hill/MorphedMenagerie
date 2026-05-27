@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: a55144ba8aadf1c48ac3a74ca9850099
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 11400000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 286385
+  packageName: Smart NPCs
+  packageVersion: 0.8.5
+  assetPath: Assets/RaafOritme/Smart NPCs/AI Data/Dialogues/Sample Dialogue.asset
+  uploadId: 918402

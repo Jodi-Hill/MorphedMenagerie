@@ -78,7 +78,7 @@ namespace RaafOritme.SmartNPCs
         /// <param name="_state"></param>
         public override void TransitionToState(OverRuleState _state)
         {
-            // This can be made more dynamic by using reflection
+            // Tip: This can be made more dynamic by using reflection
             agentController.AnimationHandler.BackToDefault();
             switch (_state)
             {
@@ -91,6 +91,8 @@ namespace RaafOritme.SmartNPCs
                     break;
 
                 case OverRuleState.CHATTING:
+                    ExecuteModule(typeof(DialogueModule));
+                    break;
                 case OverRuleState.DECEASED:
                     currentState?.OnExit();
                     break;

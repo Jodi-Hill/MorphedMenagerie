@@ -2,7 +2,6 @@ namespace RaafOritme.SmartNPCs
 {
     public class DialogueModule : BaseModule
     {
-        // RO TODO > this module will be implemented in a future update.
         public override void Initialize(AgentController _agentController)
         {
             agentController = _agentController;
@@ -10,6 +9,7 @@ namespace RaafOritme.SmartNPCs
 
         public override void OnEnter(bool _excludeAction = false)
         {
+            DialogueManager.Instance.StartDialogue(agentController.settings.dialogue.dialogue, agentController.settings.dialogue.textSpeed);
         }
 
         public override void OnExit()

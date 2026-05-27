@@ -1,0 +1,57 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 08636930933171d4a80eb1b821b45a5e, type: 3}
+  m_Name: Guard Sample
+  m_EditorClassIdentifier: Assembly-CSharp::RaafOritme.SmartNPCs.AIRoutine
+  routine:
+  - module:
+      rid: 4402253484023349323
+  - module:
+      rid: 4402253569856897093
+  references:
+    version: 2
+    RefIds:
+    - rid: 4402253484023349323
+      type: {class: CombatModule, ns: RaafOritme.SmartNPCs, asm: Assembly-CSharp}
+      data:
+        combatSettings:
+          vitality: 0
+          strength: 0
+          combatRotations:
+          - {fileID: 11400000, guid: 429fee35471dc0d4db257e2b073a0ce0, type: 2}
+          actionDuringCombat:
+            m_PersistentCalls:
+              m_Calls: []
+          actionAfterCombat:
+            m_PersistentCalls:
+              m_Calls: []
+          aggressionTime: 2
+          combatDistance: 5
+        currentRotation: {fileID: 0}
+    - rid: 4402253569856897093
+      type: {class: PatrolModule, ns: RaafOritme.SmartNPCs, asm: Assembly-CSharp}
+      data:
+        patrolSettings:
+          randomNodes: 1
+          prioritySensitivity: 0
+          patrolAreaIndex: 0
+          patrolAreas: []
+          actionAfterPatrolArea:
+            m_PersistentCalls:
+              m_Calls: []
+          actionAfterPatrolNode:
+            m_PersistentCalls:
+              m_Calls: []
+          nodesBeforeRestRange:
+            min: 2
+            max: 8
+          maxNodeDistance: 2

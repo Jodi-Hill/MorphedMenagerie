@@ -1,0 +1,63 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 46ef25da4f25b5a49b1371d001cc9540, type: 3}
+  m_Name: Sample Dialogue
+  m_EditorClassIdentifier: Assembly-CSharp::RaafOritme.SmartNPCs.DialogueSO
+  agentName: Citizen
+  dialogue:
+    text: Good day!
+    answers:
+    - answer: Hello.
+      linksTo:
+        text: How are you doing?
+        answers:
+        - answer: Fine, and you?
+          linksTo:
+            text: Great, are you enjoying the demo?
+            answers:
+            - answer: I do!
+              linksTo:
+                text: I am so happy to read that! Did you know that you can enter
+                  as much text as you want and it adapts dynamically?
+                answers:
+                - answer: This supports up to 3 answers.
+                  linksTo:
+                    text: 
+                    answers: []
+                  end: 1
+                - answer: It can nest as far as you want.
+                  linksTo:
+                    text: 
+                    answers: []
+                  end: 1
+                - answer: This for example continues the conversation.
+                  linksTo:
+                    text: It can go as crazy as you want!
+                    answers:
+                    - answer: Thank you!
+                      linksTo:
+                        text: 
+                      end: 1
+                  end: 0
+              end: 0
+          end: 0
+        - answer: Bad, good bye.
+          linksTo:
+            text: 
+            answers: []
+          end: 1
+      end: 0
+    - answer: Good bye.
+      linksTo:
+        text: 
+        answers: []
+      end: 1

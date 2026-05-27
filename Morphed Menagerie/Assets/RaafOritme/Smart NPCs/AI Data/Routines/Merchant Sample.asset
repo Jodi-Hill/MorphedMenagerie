@@ -14,10 +14,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   routine:
   - module:
+      rid: 4402253618646614085
+  - module:
       rid: 3201070467280011279
   references:
     version: 2
     RefIds:
     - rid: 3201070467280011279
       type: {class: DialogueModule, ns: RaafOritme.SmartNPCs, asm: Assembly-CSharp}
+      data: 
+    - rid: 4402253618646614085
+      type: {class: IdleModule, ns: RaafOritme.SmartNPCs, asm: Assembly-CSharp}
       data: 
