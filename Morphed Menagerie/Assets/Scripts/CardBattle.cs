@@ -1,10 +1,13 @@
+using UnityEditor;
 using UnityEngine;
-using static UnityEditor.Experimental.GraphView.GraphView;
+using UnityEngine.SceneManagement;
 
 public class CardBattle : MonoBehaviour
 {
     public int turnCount = 0;
     public CardManager cardManager;
+    public SceneAsset sceneWin;
+    public SceneAsset sceneLose;
 
     public void Resolve()
     {
@@ -15,8 +18,6 @@ public class CardBattle : MonoBehaviour
             // apply future and past to present for player
             int playerDmg = cardManager.p_present.activeCard.tempAtk;
             int playerHp = cardManager.p_present.activeCard.tempHp;
-            //int playerDmg = cardManager.p_present.activeCard.presentVal.attack + cardManager.p_past.activeCard.pastVal.attack + cardManager.p_future.activeCard.futureVal.attack;
-            //int playerHp = cardManager.p_present.activeCard.presentVal.health + cardManager.p_past.activeCard.pastVal.health + cardManager.p_future.activeCard.futureVal.health;
             // only use present for enemy
             int enemyDmg = cardManager.e_present.activeCard.presentVal.attack;
             int enemyHp = cardManager.e_present.activeCard.presentVal.health;
@@ -28,5 +29,15 @@ public class CardBattle : MonoBehaviour
         }
 
         cardManager.ContinueTurn();
+    }
+
+    public void WinGame()
+    {
+        SceneManager.LoadScene(sceneWin.name);
+    }
+
+    public void LoseGame()
+    {
+        SceneManager.LoadScene(sceneLose.name);
     }
 }

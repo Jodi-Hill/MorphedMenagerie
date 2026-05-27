@@ -715,13 +715,14 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8863160814213185498, guid: ac082ebf369ec494582db96c12720bab, type: 3}
+      propertyPath: cardBattle
+      value: 
+      objectReference: {fileID: 1740946529}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 7289754936386518657, guid: ac082ebf369ec494582db96c12720bab, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 369568156}
     - targetCorrespondingSourceObject: {fileID: 3919013441472273721, guid: ac082ebf369ec494582db96c12720bab, type: 3}
       insertIndex: -1
       addedObject: {fileID: 0}
@@ -736,32 +737,12 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8863160814213185498, guid: ac082ebf369ec494582db96c12720bab, type: 3}
   m_PrefabInstance: {fileID: 369568152}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 369568155}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3b3c035e1c254f348b9cd8a89abc8eee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!1 &369568155 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7289754936386518657, guid: ac082ebf369ec494582db96c12720bab, type: 3}
-  m_PrefabInstance: {fileID: 369568152}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &369568156
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 369568155}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6fcb78eeba282984b8acbb05c546baa2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Entered: 0
-  textAppear: {fileID: 0}
-  mouseOptions: 0
 --- !u!1 &371663790
 GameObject:
   m_ObjectHideFlags: 0
@@ -5773,6 +5754,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   turnCount: 0
   cardManager: {fileID: 1740946528}
+  sceneWin: {fileID: 102900000, guid: e112359605146294390049b8a36411c2, type: 3}
+  sceneLose: {fileID: 102900000, guid: 21a8d35a1bb37e849b107486cdee44ba, type: 3}
 --- !u!114 &1740946530
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7039,13 +7022,14 @@ PrefabInstance:
       propertyPath: isPlayer
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8863160814213185498, guid: ac082ebf369ec494582db96c12720bab, type: 3}
+      propertyPath: cardBattle
+      value: 
+      objectReference: {fileID: 1740946529}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 7289754936386518657, guid: ac082ebf369ec494582db96c12720bab, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 3997952582818294921}
     - targetCorrespondingSourceObject: {fileID: 3919013441472273721, guid: ac082ebf369ec494582db96c12720bab, type: 3}
       insertIndex: -1
       addedObject: {fileID: 0}
@@ -7060,32 +7044,12 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8863160814213185498, guid: ac082ebf369ec494582db96c12720bab, type: 3}
   m_PrefabInstance: {fileID: 3997952582818294917}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3997952582818294920}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3b3c035e1c254f348b9cd8a89abc8eee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!1 &3997952582818294920 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7289754936386518657, guid: ac082ebf369ec494582db96c12720bab, type: 3}
-  m_PrefabInstance: {fileID: 3997952582818294917}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &3997952582818294921
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3997952582818294920}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6fcb78eeba282984b8acbb05c546baa2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Entered: 0
-  textAppear: {fileID: 0}
-  mouseOptions: 0
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

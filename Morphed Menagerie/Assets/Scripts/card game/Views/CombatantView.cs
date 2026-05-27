@@ -2,7 +2,6 @@ using DG.Tweening;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
-using System;
 
 [System.Serializable]
 public class CombatantView : MonoBehaviour
@@ -15,6 +14,7 @@ public class CombatantView : MonoBehaviour
     public int MaxHealth {  get; private set; }
     public int CurrentHealth { get; private set; }
     private Dictionary<StatusEffectType, int> statusEffects = new();
+    public CardBattle cardBattle;
 
     protected void SetupBase (int health, Sprite image)
     {
@@ -54,10 +54,12 @@ public class CombatantView : MonoBehaviour
                 if (isPlayer)
                 {
                     Debug.Log("Player died!");
+                    cardBattle.LoseGame();
                 }
                 else
                 {
                     Debug.Log("Enemy died!");
+                    cardBattle.WinGame();
                 }
             }
         }
