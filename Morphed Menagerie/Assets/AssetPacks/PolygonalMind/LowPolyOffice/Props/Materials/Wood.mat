@@ -11,7 +11,8 @@ Material:
   m_Shader: {fileID: 4800000, guid: 933532a4fcc9baf4fa0491de14d08ed7, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
-  m_ValidKeywords: []
+  m_ValidKeywords:
+  - _SPECULAR_SETUP
   m_InvalidKeywords:
   - OUTLINES
   - TCP2_COLORS_AS_NORMALS
@@ -207,7 +208,7 @@ Material:
     - _UseFade: 0
     - _UseGlossSpec: 0
     - _WindIntensity: 0.25
-    - _WorkflowMode: 1
+    - _WorkflowMode: 0
     - _ZSmooth: -1.86
     - _ZWrite: 1
     - __dummy__: 0
@@ -216,8 +217,8 @@ Material:
     - _outline_width: 0.2
     m_Colors:
     - _AlbedoColor: {r: 1, g: 1, b: 1, a: 1}
-    - _BaseColor: {r: 0.6397059, g: 0.30899996, b: 0.23799995, a: 1}
-    - _Color: {r: 0.6397059, g: 0.30899993, b: 0.23799992, a: 1}
+    - _BaseColor: {r: 0.16078432, g: 0.050980397, b: 0.03529412, a: 1}
+    - _Color: {r: 0.16078427, g: 0.050980374, b: 0.03529412, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _HColor: {r: 0.785, g: 0.785, b: 0.785, a: 1}
     - _OutlineColor: {r: 0.2, g: 0.2, b: 0.2, a: 1}
