@@ -5754,8 +5754,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   turnCount: 0
   cardManager: {fileID: 1740946528}
-  sceneWin: {fileID: 102900000, guid: e112359605146294390049b8a36411c2, type: 3}
-  sceneLose: {fileID: 102900000, guid: 21a8d35a1bb37e849b107486cdee44ba, type: 3}
+  sceneWin: {fileID: 102900000, guid: 94d747ee6488fca4bbdad653fc504f25, type: 3}
+  sceneLose: {fileID: 102900000, guid: d2306701f198ae747b069cc526ba8bac, type: 3}
 --- !u!114 &1740946530
 MonoBehaviour:
   m_ObjectHideFlags: 0
