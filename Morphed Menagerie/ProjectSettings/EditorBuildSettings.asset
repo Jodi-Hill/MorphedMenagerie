@@ -21,6 +21,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Card game tutorial.unity
     guid: 4bd443127140f804388ac0309f48ecc6
   - enabled: 1
+    path: Assets/Scenes/Card game tutorial 2.unity
+    guid: f902788e55f5f2b44858cf23640aa988
+  - enabled: 1
     path: Assets/Scenes/Zoo2.unity
     guid: 4e987ba6ca7c86f4782c11ce529c6789
   - enabled: 1

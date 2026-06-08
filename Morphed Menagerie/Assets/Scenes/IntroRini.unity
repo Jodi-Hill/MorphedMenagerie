@@ -1383,7 +1383,7 @@ GameObject:
   - component: {fileID: 813490094}
   - component: {fileID: 813490093}
   m_Layer: 0
-  m_Name: EnterCollider
+  m_Name: StartCollider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
