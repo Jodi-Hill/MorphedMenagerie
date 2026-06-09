@@ -71,9 +71,6 @@ public class CardDetection : MonoBehaviour
 
     public void ResetDetection()
     {
-        //card = null;
-        //cardTrans = null;
-        //linkedCard.activeCard = null;
         cardCollider.enabled = true;
         hasCard = false;
     }

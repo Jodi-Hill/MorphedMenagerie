@@ -13,6 +13,8 @@ public class CardSystem : Singleton<CardSystem>
     private readonly List<Card> discardPile = new();
     public List<Card> hand = new();
 
+    private int cardsDrawn = 0;
+
     private void OnEnable()
     {
         ActionSystem.AttachPerformer<DrawCardsGA>(DrawCardsPerformer);
@@ -74,9 +76,11 @@ public class CardSystem : Singleton<CardSystem>
             RefillDeck();
         }
 
+        cardsDrawn++;
         Card card = drawPile.Draw();
         hand.Add(card);
         CardView cardView = CardViewCreator.Instance.CreateCardView(card, drawPilePoint.position, drawPilePoint.rotation);
+        cardView.name = cardView.cardInfo.name + cardsDrawn;
         yield return handView.AddCard(cardView);
     }
 

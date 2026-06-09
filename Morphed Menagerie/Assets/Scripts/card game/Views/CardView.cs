@@ -120,7 +120,8 @@ public class CardView : MonoBehaviour
 
         if (thief != null && Vector3.Distance(transform.position, thief.position) < 2f)
         {
-            if (thief.GetComponent<CardDetection>().CanThief())
+            CardDetection cd = thief.GetComponent<CardDetection>();
+            if ((!cd.hasCard || cd.card == this) && cd.CanThief())
             {
                 transform.position = thief.transform.position - Vector3.forward;
                 CardManager.Instance.SetPlayerCard(cardInfo, thief.GetComponent<CardDetection>().timeType, transform);
