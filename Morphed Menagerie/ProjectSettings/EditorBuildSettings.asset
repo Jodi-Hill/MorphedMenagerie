@@ -33,6 +33,15 @@ EditorBuildSettings:
     path: Assets/Scenes/Lose.unity
     guid: d2306701f198ae747b069cc526ba8bac
   - enabled: 1
+    path: Assets/Scenes/Fao Battle.unity
+    guid: 1145180aa660977439be0daf61277908
+  - enabled: 1
+    path: Assets/Scenes/LoseFao.unity
+    guid: 6f0e64a94fc333d43b3ac29c0291126d
+  - enabled: 1
+    path: Assets/Scenes/WinFao.unity
+    guid: 0ad19d3e8402a6e4da47f1beab871d1a
+  - enabled: 1
     path: Assets/Scenes/ThankYou.unity
     guid: 1fb0d72dd94ea864da0c20ea79258414
   m_configObjects:
