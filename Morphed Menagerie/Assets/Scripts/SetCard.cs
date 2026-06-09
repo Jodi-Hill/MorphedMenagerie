@@ -4,6 +4,12 @@ public class SetCard : MonoBehaviour
 {
     public CardStatistics activeCard;
     public InfoPanel infoPanel;
+    private CardDetection cardDetection;
+
+    private void Start()
+    {
+        cardDetection = GetComponent<CardDetection>();
+    }
 
     public void NewCard (CardStatistics card)
     {
@@ -13,7 +19,7 @@ public class SetCard : MonoBehaviour
 
     public bool HasBeenSet()
     {
-        return activeCard != null;
+        return cardDetection.hasCard;
     }
 
     public void ShowInfo()

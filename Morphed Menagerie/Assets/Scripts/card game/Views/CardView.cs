@@ -16,6 +16,7 @@ public class CardView : MonoBehaviour
     private Vector3 dragStartPosition;
     private Quaternion dragStartRotation;
     private Vector3 startScale;
+    private Vector3 startPosition;
 
     public CardOrientation orientation = CardOrientation.Past;
     public CardStatistics cardInfo;
@@ -25,9 +26,14 @@ public class CardView : MonoBehaviour
     public int attackValue = 0;
     public int healthValue = 0;
 
+    private void Start()
+    {
+        startScale = Vector3.one;
+    }
+
     public void SetStartPos()
     {
-        startScale = transform.localScale;
+        startPosition = transform.localPosition;
     }
 
     public void Setup(Card card)
@@ -39,7 +45,7 @@ public class CardView : MonoBehaviour
         description.text = card.Description;
         attack.text = card.cardInformation.futureVal.attack.ToString();
         health.text = card.cardInformation.futureVal.health.ToString();
-        imageR.mainTexture = card.Image;
+        imageR.mainTexture = card.Image; 
     }
 
     public void UpdateCard(CardOrientation newOrientation, Card past = null, Card future = null)

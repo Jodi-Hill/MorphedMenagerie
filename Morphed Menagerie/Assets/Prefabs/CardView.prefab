@@ -141,7 +141,12 @@ MonoBehaviour:
   dropLayer:
     serializedVersion: 2
     m_Bits: 128
+  orientation: 0
+  cardInfo: {fileID: 0}
   thief: {fileID: 0}
+  placed: 0
+  attackValue: 0
+  healthValue: 0
 --- !u!65 &549465324203724002
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -161,7 +166,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1.31, y: 1.97, z: 0.1}
+  m_Size: {x: 1.31, y: 1.97, z: 3}
   m_Center: {x: -0.0006942749, y: -0.022827148, z: 0}
 --- !u!1 &3100735739506259801
 GameObject:

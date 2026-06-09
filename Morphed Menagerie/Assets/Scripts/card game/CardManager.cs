@@ -113,6 +113,17 @@ public class CardManager : Singleton<CardManager>
         presentTrans.position = endPosB;
         presentTrans.eulerAngles = new Vector3(0, 0, 90);
 
+        // Move over physical card data and then remove colliders
+        pastDetection.card = presentDetection.card;
+        pastDetection.cardTrans = presentDetection.cardTrans;
+        yield return new WaitForEndOfFrame();
+        presentDetection.card = futureDetection.card;
+        presentDetection.cardTrans = futureDetection.cardTrans;
+        yield return new WaitForEndOfFrame();
+        pastDetection.card.GetComponent<BoxCollider>().enabled = false;
+        presentDetection.card.GetComponent<BoxCollider>().enabled = false;
+        futureDetection.card = null;
+        futureDetection.cardTrans = null;
         futureDetection.ResetDetection();
         EnemyTurn();
     }

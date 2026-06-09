@@ -21,7 +21,7 @@ EditorBuildSettings:
     path: Assets/Scenes/IntroRini.unity
     guid: 743dbd99dc88bef458cca57b93931751
   - enabled: 1
-    path: Assets/Scenes/Card game tutorial.unity
+    path: Assets/Scenes/Rini Battle.unity
     guid: 4bd443127140f804388ac0309f48ecc6
   - enabled: 1
     path: Assets/Scenes/Card game tutorial 2.unity

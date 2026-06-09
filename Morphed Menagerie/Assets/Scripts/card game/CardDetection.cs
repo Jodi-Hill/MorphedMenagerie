@@ -3,13 +3,20 @@ using UnityEngine;
 public class CardDetection : MonoBehaviour
 {
     public bool firstTurnOnly;
+    public bool hasCard;
     public int turn = 0;
     public CardOrientation timeType = CardOrientation.Past;
 
     public CardView card;
     public Transform cardTrans;
-    public SetCard linkedCard;
-    public Collider cardCollider;
+    private SetCard linkedCard;
+    private Collider cardCollider;
+
+    private void Start()
+    {
+        linkedCard = GetComponent<SetCard>();
+        cardCollider = GetComponent<Collider>();
+    }
 
     /// <summary>
     /// Invoked by unity events.
@@ -45,6 +52,7 @@ public class CardDetection : MonoBehaviour
             card.SetThief(transform);
             linkedCard.NewCard(card.Card.cardInformation);
             cardCollider.enabled = false;
+            hasCard = true;
         }
     }
 
@@ -67,6 +75,7 @@ public class CardDetection : MonoBehaviour
         //cardTrans = null;
         //linkedCard.activeCard = null;
         cardCollider.enabled = true;
+        hasCard = false;
     }
 
     private void OnTriggerExit(Collider other)
