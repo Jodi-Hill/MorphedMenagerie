@@ -1,6 +1,5 @@
 using UnityEngine;
 using Yarn.Unity;
-using Unity.UI;
 
 public class NPCInteraction : MonoBehaviour
 {

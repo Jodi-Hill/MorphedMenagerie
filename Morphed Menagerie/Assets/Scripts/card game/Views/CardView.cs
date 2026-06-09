@@ -17,11 +17,13 @@ public class CardView : MonoBehaviour
     private Quaternion dragStartRotation;
     private Vector3 startScale;
     private Vector3 startPosition;
+    public InfoPanel infopanel;
 
     public CardOrientation orientation = CardOrientation.Past;
     public CardStatistics cardInfo;
     public Transform thief;
     public bool placed;
+    private bool selected;
 
     public int attackValue = 0;
     public int healthValue = 0;
@@ -29,6 +31,15 @@ public class CardView : MonoBehaviour
     private void Start()
     {
         startScale = Vector3.one;
+    }
+
+    private void Update()
+    {
+        if (selected && Input.GetMouseButton(1))
+        {
+            infopanel.gameObject.SetActive(true);
+            infopanel.ShowInfoPanel(cardInfo);
+        }
     }
 
     public void SetStartPos()
@@ -83,12 +94,14 @@ public class CardView : MonoBehaviour
     {
         if (!Interactions.Instance.PlayerCanHover()) return;
         transform.localScale = startScale * 1.2f;
+        selected = true;
     }
 
     private void OnMouseExit()
     {
         if (!Interactions.Instance.PlayerCanHover()) return;
         transform.localScale = startScale;
+        selected = false;
     }
 
     private void OnMouseDown()

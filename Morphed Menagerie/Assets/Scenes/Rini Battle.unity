@@ -1772,7 +1772,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 649984763}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c236baf7e2539b744af0f44504d0a3e2, type: 3}
   m_Name: 
@@ -5074,12 +5074,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 800, y: 600}
+  m_ReferenceResolution: {x: 1920, y: 1080}
   m_ScreenMatchMode: 0
-  m_MatchWidthOrHeight: 0
+  m_MatchWidthOrHeight: 0.5
   m_PhysicalUnit: 3
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
@@ -5696,8 +5696,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   turnCount: 0
   cardManager: {fileID: 1740946528}
-  sceneWin: {fileID: 102900000, guid: 94d747ee6488fca4bbdad653fc504f25, type: 3}
-  sceneLose: {fileID: 102900000, guid: d2306701f198ae747b069cc526ba8bac, type: 3}
+  sceneWin: Win
+  sceneLose: Lose
 --- !u!4 &1740946531
 Transform:
   m_ObjectHideFlags: 0
@@ -6888,6 +6888,7 @@ MonoBehaviour:
   handView: {fileID: 1820732531}
   drawPilePoint: {fileID: 1702082078}
   discardPilePoint: {fileID: 741786382}
+  infoPanel: {fileID: 996294290}
 --- !u!1 &2083238732
 GameObject:
   m_ObjectHideFlags: 0

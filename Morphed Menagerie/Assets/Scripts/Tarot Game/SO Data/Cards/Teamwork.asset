@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 04f39f10a52764a4bacee633fbb7c221, type: 3}
+  m_Name: Teamwork
+  m_EditorClassIdentifier: 
+  cardName: Teamwork
+  cardDescription: 
+  image: {fileID: 2800000, guid: 18284bd2c795bc74180a64625636fb4f, type: 3}
+  pastVal:
+    attack: 0
+    health: 0
+  presentVal:
+    attack: 1
+    health: 1
+  futureVal:
+    attack: 0
+    health: 0
+  cardEffect: 0
+  tempAtk: 0
+  tempHp: 0

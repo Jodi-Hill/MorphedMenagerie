@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 04f39f10a52764a4bacee633fbb7c221, type: 3}
   m_Name: The Fool
   m_EditorClassIdentifier: 
-  cardName: The Devil
+  cardName: The Fool
   cardDescription: This card signifies distraction. This reading elevates the current
     status.
   image: {fileID: 2800000, guid: 701301e65da4462428f86399428b11b3, type: 3}
@@ -26,3 +26,5 @@ MonoBehaviour:
     attack: 0
     health: 4
   cardEffect: 0
+  tempAtk: 0
+  tempHp: 4

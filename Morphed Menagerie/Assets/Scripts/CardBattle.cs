@@ -6,8 +6,8 @@ public class CardBattle : MonoBehaviour
 {
     public int turnCount = 0;
     public CardManager cardManager;
-    public SceneAsset sceneWin;
-    public SceneAsset sceneLose;
+    public string sceneWin;
+    public string sceneLose;
 
     public void Resolve()
     {
@@ -33,11 +33,11 @@ public class CardBattle : MonoBehaviour
 
     public void WinGame()
     {
-        SceneManager.LoadScene(sceneWin.name);
+        SceneManager.LoadScene(sceneWin);
     }
 
     public void LoseGame()
     {
-        SceneManager.LoadScene(sceneLose.name);
+        SceneManager.LoadScene(sceneLose);
     }
 }

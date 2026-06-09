@@ -130,6 +130,6 @@ namespace RaafOritme.SmartNPCs
 
             return true;
         }
-    }
 #endif
+    }
 }

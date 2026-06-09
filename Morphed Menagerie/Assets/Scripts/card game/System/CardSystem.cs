@@ -8,6 +8,7 @@ public class CardSystem : Singleton<CardSystem>
     [SerializeField] public HandView handView;
     [SerializeField] private Transform drawPilePoint;
     [SerializeField] private Transform discardPilePoint;
+    public InfoPanel infoPanel;
 
     private readonly List<Card> drawPile = new();
     private readonly List<Card> discardPile = new();
@@ -81,6 +82,7 @@ public class CardSystem : Singleton<CardSystem>
         hand.Add(card);
         CardView cardView = CardViewCreator.Instance.CreateCardView(card, drawPilePoint.position, drawPilePoint.rotation);
         cardView.name = cardView.cardInfo.name + cardsDrawn;
+        cardView.infopanel = infoPanel;
         yield return handView.AddCard(cardView);
     }
 
