@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cardName: Rini
   cardDescription: The bunny shapeshifter can be used as a worthy sacrifice.
-  image: {fileID: 2800000, guid: cee851fc5581e814bad49210d2e4756d, type: 3}
+  image: {fileID: 2800000, guid: 830dfa2fc7f057e4380579008dea953e, type: 3}
   pastVal:
     attack: 5
     health: 5
@@ -25,5 +25,5 @@ MonoBehaviour:
     attack: 5
     health: 5
   cardEffect: 0
-  tempAtk: 0
-  tempHp: 0
+  tempAtk: 5
+  tempHp: 5
