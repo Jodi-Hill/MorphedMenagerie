@@ -24,7 +24,7 @@ EditorBuildSettings:
     path: Assets/Scenes/Rini Battle.unity
     guid: 4bd443127140f804388ac0309f48ecc6
   - enabled: 1
-    path: Assets/Scenes/Zoo2.unity
+    path: Assets/Scenes/OldZoo.unity
     guid: 5065a4a824933e9478c95f6ccaacf2bd
   - enabled: 1
     path: Assets/Scenes/Win.unity
@@ -36,10 +36,10 @@ EditorBuildSettings:
     path: Assets/Scenes/Fao Battle.unity
     guid: 1145180aa660977439be0daf61277908
   - enabled: 1
-    path: Assets/Scenes/LoseFao.unity
+    path: Assets/Scenes/OldLoseFao.unity
     guid: 6f0e64a94fc333d43b3ac29c0291126d
   - enabled: 1
-    path: Assets/Scenes/WinFao.unity
+    path: Assets/Scenes/OldWinFao.unity
     guid: 0ad19d3e8402a6e4da47f1beab871d1a
   - enabled: 1
     path: Assets/Scenes/Fao BattleMode.unity
