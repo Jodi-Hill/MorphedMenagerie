@@ -1,0 +1,12 @@
+﻿title: Alma
+---
+Alma: Good day! Would you like some homemade ice cream?
+    -> Sure!
+        Alma: Which flavour would you like?
+        -> Chocolate
+        -> Vanilla
+        -> Strawberry
+        Alma: Here you go, enjoy!
+    -> No, thanks.
+    Alma: Come back anytime.
+===
