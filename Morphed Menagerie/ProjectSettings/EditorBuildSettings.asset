@@ -9,6 +9,9 @@ EditorBuildSettings:
     path: Assets/Scenes/MainMenu.unity
     guid: a8d1608c99e18fb4b9e6fc32133dbded
   - enabled: 1
+    path: Assets/Scenes/StoryDescription.unity
+    guid: 73f1f941e47823b4b942d51d5ef2e868
+  - enabled: 1
     path: Assets/Scenes/Zoo.unity
     guid: 296c162a0eac43a48aa3afa5228d43ad
   - enabled: 1
@@ -48,6 +51,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Rini BattleMode.unity
     guid: c57742abf06863c4ca8cf14b32f215a1
   - enabled: 1
+    path: Assets/Scenes/WinFao.unity
+    guid: 9c5b027258a2e484f889fad7db00b2d7
+  - enabled: 1
     path: Assets/Scenes/ThankYou.unity
     guid: 1fb0d72dd94ea864da0c20ea79258414
   - enabled: 1
@@ -56,6 +62,12 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/ContinueToLevel2.unity
     guid: 6c9428e50db21bf428711361f27dd1d6
+  - enabled: 1
+    path: Assets/Scenes/Zoo2.unity
+    guid: da49e842642a6f3419df88a6e733c072
+  - enabled: 1
+    path: Assets/Scenes/OldWinFao.unity
+    guid: 154402ad5742f1447bce9d6be28b8a4a
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: 9e7be553448fa2546aea5752021cbcf7, type: 2}
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
