@@ -63,6 +63,7 @@ namespace StarterAssets
 		// timeout deltatime
 		private float _jumpTimeoutDelta;
 		private float _fallTimeoutDelta;
+		public Animator character;
 
 	
 #if ENABLE_INPUT_SYSTEM
@@ -112,6 +113,7 @@ namespace StarterAssets
 
 		private void Update()
 		{
+			character.SetFloat("Speed", _speed);
 			JumpAndGravity();
 			GroundedCheck();
 			Move();
