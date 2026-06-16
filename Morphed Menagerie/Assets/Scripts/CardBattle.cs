@@ -8,26 +8,42 @@ public class CardBattle : MonoBehaviour
     public CardManager cardManager;
     public string sceneWin;
     public string sceneLose;
+    public VFXTrail player;
+    public VFXTrail enemy;
+
+    private int playerDmg, playerHp, enemyDmg, enemyHp;
 
     public void Resolve()
     {
         turnCount++;
 
-        if (turnCount > 1)
+        // apply future and past to present for player
+        playerDmg = cardManager.p_present.activeCard.tempAtk;
+        playerHp = cardManager.p_present.activeCard.tempHp;
+        // only use present for enemy
+        if (cardManager.e_present.activeCard != null)
         {
-            // apply future and past to present for player
-            int playerDmg = cardManager.p_present.activeCard.tempAtk;
-            int playerHp = cardManager.p_present.activeCard.tempHp;
-            // only use present for enemy
-            int enemyDmg = cardManager.e_present.activeCard.presentVal.attack;
-            int enemyHp = cardManager.e_present.activeCard.presentVal.health;
-
-            cardManager.playerView.Damage(Mathf.Clamp(enemyDmg - playerHp, 0, 100));
-            cardManager.enemyView.Damage(Mathf.Clamp(playerDmg - enemyHp, 0, 100));
-
-            Debug.Log("Battle: \nPlayer\n" + "dmg " + playerDmg + "\nhp " + playerHp + "\nEnemy\ndmg " + enemyDmg + "\nhp " + enemyHp);
+            enemyDmg = cardManager.e_present.activeCard.presentVal.attack;
+            enemyHp = cardManager.e_present.activeCard.presentVal.health;
         }
 
+        //Debug.Log("Battle: \nPlayer\n" + "dmg " + playerDmg + "\nhp " + playerHp + "\nEnemy\ndmg " + enemyDmg + "\nhp " + enemyHp);
+        player.damageCounter = playerDmg;
+        player.cardHealth = enemyHp; 
+        enemy.damageCounter = enemyDmg;
+        enemy.cardHealth = playerHp;
+        player.StartAnimation(PlayerHitTarget);
+    }
+
+    public void PlayerHitTarget()
+    {
+        cardManager.enemyView.Damage(Mathf.Clamp(playerDmg - enemyHp, 0, 100));
+        enemy.StartAnimation(EnemyHitTarget);
+    }
+
+    public void EnemyHitTarget()
+    {
+        cardManager.playerView.Damage(Mathf.Clamp(enemyDmg - playerHp, 0, 100));
         cardManager.ContinueTurn();
     }
 

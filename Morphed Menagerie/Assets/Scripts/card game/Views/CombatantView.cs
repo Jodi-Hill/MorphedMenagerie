@@ -48,7 +48,7 @@ public class CombatantView : MonoBehaviour
         if (remainingDamage > 0)
         {
             CurrentHealth -= remainingDamage;
-            if (CurrentHealth < 0)
+            if (CurrentHealth <= 0)
             {
                 CurrentHealth = 0;
                 if (isPlayer)
