@@ -11,6 +11,7 @@ public class CharacterWalkPath : MonoBehaviour
 
     public NavMeshAgent agent;
     public Animator animator;
+    public CutsceneEnable cutsceneObject;
 
     float time = 0f;
 
@@ -45,6 +46,7 @@ public class CharacterWalkPath : MonoBehaviour
 
     void Disappear()
     {
+        cutsceneObject.SwitchCams();
         gameObject.SetActive(false);
     }
 }

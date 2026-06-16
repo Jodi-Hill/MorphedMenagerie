@@ -12,16 +12,20 @@ public class AnimationOnTrigger : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            myAnimationController.SetBool ("playSpin", true);
-
-            foreach (ParticleSystem ps in particleEffects)
-            {
-                if (ps != null)
-                    ps.Play();
-            }
-
-            Debug.Log("trigger entered");
         }
+    }
+
+    public void Triggered()
+    {
+        myAnimationController.SetBool("playSpin", true);
+
+        foreach (ParticleSystem ps in particleEffects)
+        {
+            if (ps != null)
+                ps.Play();
+        }
+
+        Debug.Log("trigger entered");
     }
 
     public void EnableObject()
