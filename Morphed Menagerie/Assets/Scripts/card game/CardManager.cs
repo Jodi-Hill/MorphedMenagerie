@@ -44,6 +44,7 @@ public class CardManager : Singleton<CardManager>
         enemyView.Setup(enemyDeck);
         playerView.Setup(playerDeck);
         e_future.NewCard(enemyDeck.deck[Random.Range(0, enemyDeck.deck.Length)]);
+        e_present.NewCard(enemyDeck.deck[Random.Range(0, enemyDeck.deck.Length)]);
     }
 
     private void Update()
