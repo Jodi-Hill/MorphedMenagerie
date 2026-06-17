@@ -18,6 +18,15 @@ public class CardDetection : MonoBehaviour
         cardCollider = GetComponent<Collider>();
     }
 
+    private void Update()
+    {
+        if (!hasCard)
+        {
+            card = null;
+            cardTrans = null;
+        }
+    }
+
     /// <summary>
     /// Invoked by unity events.
     /// </summary>
@@ -72,6 +81,7 @@ public class CardDetection : MonoBehaviour
     public void ResetDetection()
     {
         cardCollider.enabled = true;
+        linkedCard.activeCard = null;
         hasCard = false;
     }
 

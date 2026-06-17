@@ -24,6 +24,7 @@ public class CardView : MonoBehaviour
     public Transform thief;
     public bool placed;
     private bool selected;
+    private Card past, future;
 
     public int attackValue = 0;
     public int healthValue = 0;
@@ -59,10 +60,17 @@ public class CardView : MonoBehaviour
         imageR.mainTexture = card.Image; 
     }
 
-    public void UpdateCard(CardOrientation newOrientation, Card past = null, Card future = null)
+    public void UpdateCard(CardOrientation newOrientation, Card cardpast = null, Card cardfuture = null)
     {
         orientation = newOrientation;
-        switch (newOrientation)
+        past = cardpast;
+        future = cardfuture;
+        CalculateValues();
+    }
+
+    private void CalculateValues()
+    {
+        switch (orientation)
         {
             case CardOrientation.Past:
                 attackValue = cardInfo.pastVal.attack;
@@ -78,11 +86,17 @@ public class CardView : MonoBehaviour
                 break;
         }
 
-        if (past != null && future != null)
+        if (future != null)
         {
-            attackValue += past.cardInformation.pastVal.attack + future.cardInformation.futureVal.attack;
-            healthValue += past.cardInformation.pastVal.health + future.cardInformation.futureVal.health;
+            attackValue += future.cardInformation.futureVal.attack;
+            healthValue += future.cardInformation.futureVal.health;
         }
+        if (past != null)
+        {
+            attackValue += past.cardInformation.pastVal.attack;
+            healthValue += past.cardInformation.pastVal.health;
+        }
+
         cardInfo.tempAtk = attackValue;
         cardInfo.tempHp = healthValue;
 
@@ -137,7 +151,11 @@ public class CardView : MonoBehaviour
             if ((!cd.hasCard || cd.card == this) && cd.CanThief())
             {
                 transform.position = thief.transform.position - Vector3.forward;
+                if (CardManager.Instance.futureTrans == transform) CardManager.Instance.futureTrans = null;
+                if (CardManager.Instance.pastTrans == transform) CardManager.Instance.pastTrans = null;
+                if (CardManager.Instance.presentTrans == transform) CardManager.Instance.presentTrans = null;
                 CardManager.Instance.SetPlayerCard(cardInfo, thief.GetComponent<CardDetection>().timeType, transform);
+                orientation = thief.GetComponent<CardDetection>().timeType;
             }
             else
             {
@@ -151,6 +169,14 @@ public class CardView : MonoBehaviour
             if (thief != null)
             {
                 thief.GetComponent<CardDetection>().RemovedThief();
+                thief = null;
+                if (CardManager.Instance.futureTrans == transform) CardManager.Instance.futureTrans = null;
+                if (CardManager.Instance.pastTrans == transform) CardManager.Instance.pastTrans = null;
+                if (CardManager.Instance.presentTrans == transform) CardManager.Instance.presentTrans = null;
+                attackValue = cardInfo.futureVal.attack;
+                healthValue = cardInfo.futureVal.health;
+                attack.text = attackValue.ToString();
+                health.text = healthValue.ToString();
             }
             transform.position = dragStartPosition;
             transform.rotation = dragStartRotation;

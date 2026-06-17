@@ -30,12 +30,12 @@ public class CardManager : Singleton<CardManager>
     public CardDetection presentDetection;
     public CardDetection pastDetection;
 
-    [HideInInspector] public CardStatistics p_card;
-    [HideInInspector] public Transform futureTrans;
-    [HideInInspector] public Transform presentTrans;
-    [HideInInspector] public Transform pastTrans;
+    [Header("Dont change")]
+    public CardStatistics p_card;
+    public Transform futureTrans;
+    public Transform presentTrans;
+    public Transform pastTrans;
     private float duration = 0.25f;
-
     public bool usedRini;
     public bool usedFao;
 
@@ -57,6 +57,19 @@ public class CardManager : Singleton<CardManager>
         {
             endTurn.interactable = false;
         }
+    }
+
+    private void FixedUpdate()
+    {
+        if (presentTrans != null)
+        {
+            presentTrans.GetComponent<CardView>().UpdateCard(
+                CardOrientation.Present,
+                (pastTrans != null && pastTrans.GetComponent<CardView>().Card != null) ? pastTrans.GetComponent<CardView>().Card : null,
+                (futureTrans != null && futureTrans.GetComponent<CardView>().Card != null) ? futureTrans.GetComponent<CardView>().Card : null
+            );
+        }
+        p_present.CalculateAura();
     }
 
     /// <summary>
@@ -159,11 +172,6 @@ public class CardManager : Singleton<CardManager>
                 futureTrans = cardTrans;
                 futureTrans.GetComponent<CardView>().UpdateCard(timeType);
                 break;
-        }
-
-        if (pastTrans != null && presentTrans != null && futureTrans != null)
-        {
-            presentTrans.GetComponent<CardView>().UpdateCard(CardOrientation.Present, pastTrans.GetComponent<CardView>().Card, futureTrans.GetComponent<CardView>().Card);
         }
     }
 }
