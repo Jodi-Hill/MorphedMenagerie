@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   characterName: Player
   health: 25
-  image: {fileID: 21300000, guid: 45feddb599d7a754e86768a6101930df, type: 3}
+  image: {fileID: 21300000, guid: ce57d35a077596e488a0c14427fa4f30, type: 3}
   deck:
   - {fileID: 11400000, guid: ef3b6e1a90121b742aa266b8b2767414, type: 2}
   - {fileID: 11400000, guid: 335fb25077654ba4fb1912f747d7b2e7, type: 2}

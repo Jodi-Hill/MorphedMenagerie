@@ -1,17 +1,16 @@
 using UnityEngine;
-using System.Collections.Generic;
 using System.Linq;
 
 public class MatchSetupSystem : MonoBehaviour
 {
-    [SerializeField] private CharacterDeck heroData;
-    [SerializeField] private List<CharacterDeck> enemyDatas;
+    public CharacterDeck heroDeck;
+    public CharacterDeck enemyDeck;
 
-    private void Start()
+    public void StartBattle()
     {
         //HeroSystem.Instance.Setup(heroData);
-        //EnemySystem.Instance.Setup(enemyDatas);
-        CardSystem.Instance.Setup(heroData.deck.ToList());
+        //EnemySystem.Instance.Setup(enemyData);
+        CardSystem.Instance.Setup(heroDeck.deck.ToList());
         DrawCardsGA drawCardsGA = new(5, true);
         ActionSystem.Instance.Perform(drawCardsGA);
     }

@@ -1,11 +1,15 @@
 using UnityEngine;
+using TMPro;
 
 public class SetCard : MonoBehaviour
 {
     public CardStatistics activeCard;
     public InfoPanel infoPanel;
+    public TextMeshPro atk, hp;
     private CardDetection cardDetection;
     private bool selected;
+    public bool setStats;
+    public CardOrientation timeType;
 
     private void Start()
     {
@@ -35,6 +39,25 @@ public class SetCard : MonoBehaviour
     {
         activeCard = card;
         GetComponent<Renderer>().material.mainTexture = card.image;
+
+        if (setStats)
+        {
+            switch (timeType)
+            {
+                case CardOrientation.Past:
+                    atk.text = activeCard.pastVal.attack.ToString();
+                    hp.text = activeCard.pastVal.health.ToString();
+                    break;
+                case CardOrientation.Present:
+                    atk.text = activeCard.presentVal.attack.ToString();
+                    hp.text = activeCard.presentVal.health.ToString();
+                    break;
+                case CardOrientation.Future:
+                    atk.text = activeCard.futureVal.attack.ToString();
+                    hp.text = activeCard.futureVal.health.ToString();
+                    break;
+            }
+        }
     }
 
     public bool HasBeenSet()

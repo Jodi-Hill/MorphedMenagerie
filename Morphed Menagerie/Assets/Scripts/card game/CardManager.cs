@@ -16,13 +16,13 @@ public class CardManager : Singleton<CardManager>
 
     [Header("Enemy")]
     public HeroView enemyView;
-    public CharacterDeck enemy;
+    public CharacterDeck enemyDeck;
     public SetCard e_future;
     public SetCard e_present;
 
     [Header("Player")]
     public HeroView playerView;
-    public CharacterDeck player;
+    public CharacterDeck playerDeck;
     public SetCard p_future;
     public SetCard p_present;
     public SetCard p_past;
@@ -36,11 +36,14 @@ public class CardManager : Singleton<CardManager>
     [HideInInspector] public Transform pastTrans;
     private float duration = 0.25f;
 
-    void Start()
+    public bool usedRini;
+    public bool usedFao;
+
+    public void StartBattle()
     {
-        enemyView.Setup(enemy);
-        playerView.Setup(player);
-        e_future.NewCard(enemy.deck[Random.Range(0, enemy.deck.Length)]);
+        enemyView.Setup(enemyDeck);
+        playerView.Setup(playerDeck);
+        e_future.NewCard(enemyDeck.deck[Random.Range(0, enemyDeck.deck.Length)]);
     }
 
     private void Update()
@@ -131,7 +134,7 @@ public class CardManager : Singleton<CardManager>
     public void EnemyTurn()
     {
         e_present.NewCard(e_future.activeCard);
-        e_future.NewCard(enemy.deck[Random.Range(0, enemy.deck.Length)]);
+        e_future.NewCard(enemyDeck.deck[Random.Range(0, enemyDeck.deck.Length)]);
         DrawCardsGA drawCardsGA = new(5, true);
         ActionSystem.Instance.Perform(drawCardsGA);
     }
