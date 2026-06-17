@@ -1,29 +1,29 @@
 ﻿title: Office
 ---
-Mr.Penelope: Hello, what can I help you with on this beautiful day?
--> I saw a human transform into an animal.
-Mr.Penelope: Ha.
-Mr.Penelope: So one of us has revealed themselves, huh?
--> I'm going to tell everyone.
-    Mr.Penelope: That's a pity.
-    Mr.Penelope: Then we have no choice but to keep you here. 
-    Mr.Penelope: You will work with us until we can trust you.
-    Mr.Penelope: As a magical being myself, I'm sensing that you have some magical skills yourself.
-    Mr.Penelope: You are a warlock, aren't you?
-    -> Yes.
-    Mr.Penelope: Excellent! 
-    Mr.Penelope: Is there a service that you can offer the visitors?
-    -> Tarot readings.
-    Mr.Penelope: Magnificent! Let's get started. 
--> I will keep it a secret.
-    Mr.Penelope: That's excellent!
-    Mr.Penelope: But you have to earn our trust.
-    Mr.Penelope: How about we offer you a job here until we can let you go?
-    Mr.Penelope: As a magical being myself, I'm sensing that you have some magical skills yourself.
-    Mr.Penelope: You are a warlock, aren't you?
-    -> Yes.
-    Mr.Penelope: Wonderful! 
-    Mr.Penelope: Is there a service that you can offer the visitors?
-    -> Tarot readings.
-    Mr.Penelope: Magnificent! Let's get started.
+Mr. Penelope: Hello, how can I help you on this beautiful day?
+-> I'm here to apply for a job.
+	Mr. Penelope: A job you say, huh?
+	Mr. Penelope: Well, I'm not sure if we have any positions open, I'm afraid.
+	-> I can offer you tarot readings.
+		Mr. Penelope: Interesting.
+		Mr. Penelope: Not something you would expect at a zoo.
+		Mr. Penelope: Hmm, we are always open to new activities.
+		Mr. Penelope: Why don't you do a reading for Rini?
+		Mr. Penelope: She's in the room next door.
+		Mr. Penelope: If she likes it, we can discuss it further!
+		-> Thank you, sir.
+-> I know your secret.
+	Mr. Penelope: My secret? I'm not sure I understand.
+	-> I saw someone transform into a bunny.
+	Mr. Penelope: Ha. 
+	Mr. Penelope: You found us out.
+	Mr. Penelope: Huh. That makes things difficult.
+	Mr. Penelope: I'm afraid I cannot let you leave with a secret like that.
+	Mr. Penelope: I'm here to ensure the safety of us all, you see.
+	Mr. Penelope: You are not leaving this zoo until you have gained our trust.
+-> I'm here to take over your souls.
+	Mr. Penelope: Okay, I'm not sure I understand.
+	Mr. Penelope: Can I call someone for you?
+	Mr. Penelope: Why don't you go into the next room for a while?
+	Mr. Penelope: My colleague will comfort you and call someone for you.
 ===
