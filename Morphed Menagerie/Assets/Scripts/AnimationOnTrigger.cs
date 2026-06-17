@@ -30,13 +30,21 @@ public class AnimationOnTrigger : MonoBehaviour
 
     public void EnableObject()
     {
-        if (objectToEnable != null)
+        if (text != null)
         {
             Debug.Log("text shown");
             text.SetActive(true);
         }
-        objectToEnable.SetActive(true);
-        objectToDisable.SetActive(false);
+
+        if (objectToEnable != null)
+        {
+            objectToEnable.SetActive(true);
+        }
+
+        if (objectToDisable != null)
+        {
+            objectToDisable.SetActive(false);
+        }
 
         StopParticles();
     }
