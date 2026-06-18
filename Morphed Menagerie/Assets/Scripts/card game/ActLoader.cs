@@ -169,6 +169,22 @@ public class ActLoader : MonoBehaviour
             case Act.Ending:
                 SceneManager.LoadScene(sceneCollection.thankyou.name);
                 break;
+            // This act is not in the cheat list
+            case Act.BattleMode:
+                SceneManager.LoadScene(sceneCollection.battlemode.name);
+                break;
+            case Act.ThankYou:
+                SceneManager.LoadScene(sceneCollection.thankyou.name);
+                break;
+            case Act.KilledRini:
+                SceneManager.LoadScene(sceneCollection.killrini.name);
+                break;
+            case Act.RiniLose:
+                SceneManager.LoadScene(sceneCollection.rinilose.name);
+                break;
+            case Act.FaoLose:
+                SceneManager.LoadScene(sceneCollection.faolose.name);
+                break;
         }
     }
 }
@@ -185,6 +201,11 @@ public enum Act
     FaoBattle,
     FaoOutro,
     Ending,
+    BattleMode,
+    ThankYou,
+    KilledRini,
+    RiniLose,
+    FaoLose,
 }
 
 [System.Serializable]
@@ -192,11 +213,11 @@ public struct Scenes
 {
     [Header("General")]
     public SceneAsset menu;
-    public SceneAsset battle, thankyou, zoo; // TODO: zoo generic as phase 2
+    public SceneAsset battle, thankyou, zoo, battlemode; // TODO: zoo generic as phase 2
     [Header("Rini")]
     public SceneAsset zooRini, office;
-    public SceneAsset riniIntro, riniOutro, riniLose; // TODO: make win & lose scenes part of character scene
+    public SceneAsset riniIntro, riniOutro, rinilose; // TODO: make win & lose scenes part of character scene
     [Header("Fao")]
     public SceneAsset zooFao;
-    public SceneAsset faoIntro, faoOutro, faoLose;
+    public SceneAsset faoIntro, faoOutro, faolose, killrini;
 }

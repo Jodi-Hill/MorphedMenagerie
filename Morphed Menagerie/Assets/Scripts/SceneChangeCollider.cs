@@ -1,10 +1,8 @@
 using UnityEngine;
-using UnityEngine.SceneManagement;
-using Yarn.Unity;
 
 public class SceneChangeCollider : MonoBehaviour
 {
-    [SerializeField] private string sceneName;
+    [SerializeField] private Act scene;
     [SerializeField] private GameObject text;
 
     private bool playerInside = false;
@@ -37,6 +35,6 @@ public class SceneChangeCollider : MonoBehaviour
 
     void ChangeScene()
     {
-        SceneManager.LoadScene(sceneName);
+        ActLoader.Instance.LoadAct(scene);
     }
 }

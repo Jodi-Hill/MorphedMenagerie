@@ -23,6 +23,7 @@ public class CardView : MonoBehaviour
     public CardStatistics cardInfo;
     public Transform thief;
     public bool placed;
+    public bool frozen;
     private bool selected;
     private Card past, future;
 
@@ -68,7 +69,7 @@ public class CardView : MonoBehaviour
         CalculateValues();
     }
 
-    private void CalculateValues()
+    public void CalculateValues()
     {
         switch (orientation)
         {
@@ -106,21 +107,21 @@ public class CardView : MonoBehaviour
 
     private void OnMouseEnter()
     {
-        if (!Interactions.Instance.PlayerCanHover()) return;
+        if (!Interactions.Instance.PlayerCanHover() || frozen) return;
         transform.localScale = startScale * 1.2f;
         selected = true;
     }
 
     private void OnMouseExit()
     {
-        if (!Interactions.Instance.PlayerCanHover()) return;
+        if (!Interactions.Instance.PlayerCanHover() || frozen) return;
         transform.localScale = startScale;
         selected = false;
     }
 
     private void OnMouseDown()
     {
-        if (!Interactions.Instance.PlayerCanInteract()) return;
+        if (!Interactions.Instance.PlayerCanInteract() || frozen) return;
 
         Interactions.Instance.PlayerIsDragging = true;
         wrapper.SetActive(true);
@@ -136,14 +137,14 @@ public class CardView : MonoBehaviour
 
     private void OnMouseDrag()
     {
-        if (!Interactions.Instance.PlayerCanInteract()) return;
+        if (!Interactions.Instance.PlayerCanInteract() || frozen) return;
 
         transform.position = MouseUtil.GetMousePositionInWorldSpace(-1) - Vector3.back * 4;
     }
 
     private void OnMouseUp()
     {
-        if (!Interactions.Instance.PlayerCanInteract()) return;
+        if (!Interactions.Instance.PlayerCanInteract() || frozen) return;
 
         if (thief != null && Vector3.Distance(transform.position, thief.position) < 2f)
         {
@@ -191,5 +192,12 @@ public class CardView : MonoBehaviour
             thief.GetComponent<CardDetection>().RemovedThief();
         }
         thief = transform;
+    }
+
+    public void ForceRemoval()
+    {
+        thief = null;
+        transform.position = dragStartPosition;
+        transform.rotation = dragStartRotation;
     }
 }

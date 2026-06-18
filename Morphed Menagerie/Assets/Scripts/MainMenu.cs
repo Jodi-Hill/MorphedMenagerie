@@ -1,13 +1,24 @@
 using UnityEngine;
-using UnityEngine.SceneManagement;
-using Yarn.Unity;
 
 public class MainMenu : MonoBehaviour
 {
-    [SerializeField] private string sceneName;
-
-    public void StartScene()
+    public void StartStory()
     {
-            SceneManager.LoadScene(sceneName);
+        ActLoader.Instance.LoadAct(Act.ZooRini);
+    }
+
+    public void StartBattle()
+    {
+        ActLoader.Instance.LoadAct(Act.BattleMode);
+    }
+
+    public void ThankYou()
+    {
+        ActLoader.Instance.LoadAct(Act.ThankYou);
+    }
+
+    public void Menu()
+    {
+        ActLoader.Instance.LoadAct(Act.Menu);
     }
 }

@@ -1,13 +1,9 @@
-using UnityEditor;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class CardBattle : MonoBehaviour
 {
     public int turnCount = 0;
     public CardManager cardManager;
-    public string sceneWin;
-    public string sceneLose;
     public VFXTrail player;
     public VFXTrail enemy;
 
@@ -16,6 +12,7 @@ public class CardBattle : MonoBehaviour
     public void Resolve()
     {
         turnCount++;
+        cardManager.CalculateValues();
 
         // apply future and past to present for player
         playerDmg = cardManager.p_present.activeCard.tempAtk;
@@ -27,7 +24,6 @@ public class CardBattle : MonoBehaviour
             enemyHp = cardManager.e_present.activeCard.presentVal.health;
         }
 
-        //Debug.Log("Battle: \nPlayer\n" + "dmg " + playerDmg + "\nhp " + playerHp + "\nEnemy\ndmg " + enemyDmg + "\nhp " + enemyHp);
         player.damageCounter = playerDmg;
         player.cardHealth = enemyHp; 
         enemy.damageCounter = enemyDmg;
@@ -49,11 +45,11 @@ public class CardBattle : MonoBehaviour
 
     public void WinGame()
     {
-        SceneManager.LoadScene(sceneWin);
+        cardManager.LoadWin();
     }
 
     public void LoseGame()
     {
-        SceneManager.LoadScene(sceneLose);
+        cardManager.LoadLose();
     }
 }
