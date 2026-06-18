@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cardName: Hunting
   cardDescription: 
-  image: {fileID: 2800000, guid: dc02e7c64a585f44582d5ddec55abbed, type: 3}
+  image: {fileID: 2800000, guid: bf347d24cb79e1840b2e09f4476d27a6, type: 3}
   pastVal:
     attack: 0
     health: 0

@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cardName: Aggression
   cardDescription: 
-  image: {fileID: 2800000, guid: 987eef7da437f854b9e22f31776206a9, type: 3}
+  image: {fileID: 2800000, guid: dc189aa287f0b4b4ba367765f0be5abb, type: 3}
   pastVal:
     attack: 0
     health: 0

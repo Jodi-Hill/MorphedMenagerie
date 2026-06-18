@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cardName: Nipping
   cardType: 1
+  cardEffect: 0
   attack: 1
   defence: 1
-  cardTexture: {fileID: 2800000, guid: cee851fc5581e814bad49210d2e4756d, type: 3}
+  cardTexture: {fileID: 2800000, guid: ac191dc4a7c4bb74bbb2d3658126047c, type: 3}

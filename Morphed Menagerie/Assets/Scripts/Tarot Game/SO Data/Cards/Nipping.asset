@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cardName: Nipping
   cardDescription: 
-  image: {fileID: 2800000, guid: cee851fc5581e814bad49210d2e4756d, type: 3}
+  image: {fileID: 2800000, guid: ac191dc4a7c4bb74bbb2d3658126047c, type: 3}
   pastVal:
     attack: 0
     health: 0
@@ -25,3 +25,5 @@ MonoBehaviour:
     attack: 0
     health: 0
   cardEffect: 0
+  tempAtk: 0
+  tempHp: 0

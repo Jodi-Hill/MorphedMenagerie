@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cardName: Howling
   cardDescription: 
-  image: {fileID: 2800000, guid: ec250d70147991c4f8ba8045d8ea0945, type: 3}
+  image: {fileID: 2800000, guid: 3ca0241a3ea4672479ef1367ddd34a76, type: 3}
   pastVal:
     attack: 0
     health: 0

@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cardName: Teamwork
   cardDescription: 
-  image: {fileID: 2800000, guid: 18284bd2c795bc74180a64625636fb4f, type: 3}
+  image: {fileID: 2800000, guid: 390633aef67b0794b8bea8868d4f8aa5, type: 3}
   pastVal:
     attack: 0
     health: 0

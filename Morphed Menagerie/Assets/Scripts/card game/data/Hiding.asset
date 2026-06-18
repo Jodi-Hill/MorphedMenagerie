@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cardName: Hiding
   cardType: 2
+  cardEffect: 0
   attack: 0
   defence: 1
-  cardTexture: {fileID: 2800000, guid: ebab1db15f6f7bf43bb24570f842ea3f, type: 3}
+  cardTexture: {fileID: 2800000, guid: 1038c2d4664d486438ae71d17d5515f1, type: 3}

@@ -17,4 +17,4 @@ MonoBehaviour:
   cardEffect: 1
   attack: 0
   defence: 2
-  cardTexture: {fileID: 2800000, guid: 9c760f845c0904a47baf028d1a3972e1, type: 3}
+  cardTexture: {fileID: 2800000, guid: 635b9e2c27220a84e999d30fae09f43c, type: 3}
