@@ -35,6 +35,8 @@ public class CardManager : Singleton<CardManager>
     public Transform futureTrans;
     public Transform presentTrans;
     public Transform pastTrans;
+    public Act winScene;
+    public Act loseScene;
     private float duration = 0.25f;
     public bool usedRini;
     public bool usedFao;
@@ -45,6 +47,13 @@ public class CardManager : Singleton<CardManager>
         playerView.Setup(playerDeck);
         e_future.NewCard(enemyDeck.deck[Random.Range(0, enemyDeck.deck.Length)]);
         e_present.NewCard(enemyDeck.deck[Random.Range(0, enemyDeck.deck.Length)]);
+    }
+
+    public void CalculateValues()
+    {
+        futureDetection.card.CalculateValues();
+        pastDetection.card.CalculateValues();
+        presentDetection.card.UpdateCard(CardOrientation.Present, pastDetection.card.Card, futureDetection.card.Card);
     }
 
     private void Update()
@@ -83,6 +92,21 @@ public class CardManager : Singleton<CardManager>
     public void ContinueTurn()
     {
         StartCoroutine(CardTransforms());
+    }
+
+    public void LoadWin()
+    {
+        if (usedRini)
+        {
+            ActLoader.Instance.LoadAct(Act.KilledRini);
+            return;
+        }
+        ActLoader.Instance.LoadAct(winScene);
+    }
+
+    public void LoadLose()
+    {
+        ActLoader.Instance.LoadAct(loseScene);
     }
 
     IEnumerator CardTransforms()
