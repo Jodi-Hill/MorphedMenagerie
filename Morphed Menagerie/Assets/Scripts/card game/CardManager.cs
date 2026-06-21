@@ -1,3 +1,4 @@
+using DG.Tweening;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
@@ -13,12 +14,16 @@ public class CardManager : Singleton<CardManager>
 {
     public CardBattle battle;
     public Button endTurn;
+    public GameObject cardViewPrefab;
+    public InfoPanel infoPanel;
 
     [Header("Enemy")]
     public HeroView enemyView;
     public CharacterDeck enemyDeck;
     public SetCard e_future;
     public SetCard e_present;
+    public Transform e_futureTrans;
+    public Transform e_presentTrans;
 
     [Header("Player")]
     public HeroView playerView;
@@ -35,6 +40,8 @@ public class CardManager : Singleton<CardManager>
     public Transform futureTrans;
     public Transform presentTrans;
     public Transform pastTrans;
+    public GameObject e_futCard;
+    public GameObject e_presCard;
     public Act winScene;
     public Act loseScene;
     private float duration = 0.25f;
@@ -45,8 +52,28 @@ public class CardManager : Singleton<CardManager>
     {
         enemyView.Setup(enemyDeck);
         playerView.Setup(playerDeck);
-        e_future.NewCard(enemyDeck.deck[Random.Range(0, enemyDeck.deck.Length)]);
-        e_present.NewCard(enemyDeck.deck[Random.Range(0, enemyDeck.deck.Length)]);
+
+        GameObject cardObj1 = Instantiate(cardViewPrefab, e_future.transform.position, Quaternion.identity);
+        cardObj1.transform.localScale = Vector3.one;
+        Card card1 = new(enemyDeck.deck[Random.Range(0, enemyDeck.deck.Length)]);
+        CardView view1 = cardObj1.GetComponent<CardView>();
+        view1.Setup(card1);
+        view1.UpdateCard(CardOrientation.Future);
+        e_futCard = cardObj1;
+        e_future.NewCard(cardObj1.GetComponent<CardView>().cardInfo);
+        view1.infopanel = infoPanel;
+        view1.frozen = true;
+
+        GameObject cardObj2 = Instantiate(cardViewPrefab, e_present.transform.position, Quaternion.identity);
+        cardObj2.transform.localScale = Vector3.one;
+        Card card2 = new(enemyDeck.deck[Random.Range(0, enemyDeck.deck.Length)]);
+        CardView view2 = cardObj2.GetComponent<CardView>();
+        view2.Setup(card2);
+        view2.UpdateCard(CardOrientation.Present);
+        e_presCard = cardObj2;
+        e_present.NewCard(cardObj2.GetComponent<CardView>().cardInfo);
+        view2.infopanel = infoPanel;
+        view2.frozen = true;
     }
 
     public void CalculateValues()
@@ -111,6 +138,7 @@ public class CardManager : Singleton<CardManager>
 
     IEnumerator CardTransforms()
     {
+        //---------- PLAYER TURN -----------
         p_past.NewCard(p_present.activeCard);
         p_present.NewCard(p_future.activeCard);
         UnityEngine.Object.Destroy(pastTrans.gameObject);
@@ -161,18 +189,47 @@ public class CardManager : Singleton<CardManager>
         presentDetection.card = futureDetection.card;
         presentDetection.cardTrans = futureDetection.cardTrans;
         yield return new WaitForEndOfFrame();
-        pastDetection.card.GetComponent<BoxCollider>().enabled = false;
-        presentDetection.card.GetComponent<BoxCollider>().enabled = false;
+        //pastDetection.card.GetComponent<BoxCollider>().enabled = false;
+        //presentDetection.card.GetComponent<BoxCollider>().enabled = false;
+        pastDetection.card.frozen = true;
+        presentDetection.card.frozen = true;
         futureDetection.card = null;
         futureDetection.cardTrans = null;
         futureDetection.ResetDetection();
-        EnemyTurn();
-    }
 
-    public void EnemyTurn()
-    {
+        //---------- ENEMY TURN -----------
+        float timeC = 0f;
+        Vector3 startPosC = e_futureTrans.position;
+        Vector3 endPosC = e_presentTrans.position;
+        // remove present
+        Destroy(e_presCard);
+
+        // move future to present
+        e_presCard = e_futCard;
+        while (timeC < duration)
+        {
+            float t = timeC / duration;
+            e_presCard.transform.position = Vector3.Lerp(startPosC, endPosC, t);
+            timeC += Time.deltaTime;
+            yield return null;
+        }
+        e_presCard.GetComponent<CardView>().UpdateCard(CardOrientation.Present);
+        e_presCard.transform.position = endPosC;
         e_present.NewCard(e_future.activeCard);
-        e_future.NewCard(enemyDeck.deck[Random.Range(0, enemyDeck.deck.Length)]);
+
+        // generate future
+        GameObject cardObj = Instantiate(cardViewPrefab, e_future.transform.position, Quaternion.identity);
+        cardObj.transform.localScale = Vector3.one;
+        Card cardE = new(enemyDeck.deck[Random.Range(0, enemyDeck.deck.Length)]);
+        CardView view = cardObj.GetComponent<CardView>();
+        view.Setup(cardE);
+        view.UpdateCard(CardOrientation.Future);
+        e_futCard = cardObj;
+        e_future.NewCard(cardObj.GetComponent<CardView>().cardInfo);
+        view.infopanel = infoPanel;
+        view.frozen = true;
+
+        //---------- CONTINUE -----------
         DrawCardsGA drawCardsGA = new(5, true);
         ActionSystem.Instance.Perform(drawCardsGA);
     }

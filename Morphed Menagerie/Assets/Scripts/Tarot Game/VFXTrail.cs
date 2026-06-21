@@ -1,13 +1,12 @@
-using UnityEngine;
-using TMPro;
 using System;
+using UnityEngine;
 
 public class VFXTrail : MonoBehaviour
 {
     public float moveSpeed, turnSpeed;
-    public int damageCounter = 5;
+    public int damageCounter = 69;
     public int cardHealth = 2;
-    public TextMeshPro text;
+    public GameObject hitText;
 
     public ParticleSystem explosion;
 
@@ -19,6 +18,7 @@ public class VFXTrail : MonoBehaviour
 
     private float step;
     private Action callback;
+    private int showable;
 
     private void Update()
     {
@@ -31,17 +31,15 @@ public class VFXTrail : MonoBehaviour
                     target = start;
                     transform.position = target.position;
                     transform.eulerAngles = Vector3.zero;
-                    text.text = effectiveDmg + "";
+                    showable = 0;
                     break;
                 case 1:
                     target = card;
-                    text.text = effectiveDmg + "";
+                    showable = Mathf.Clamp(effectiveDmg, 0, cardHealth);
                     break;
                 case 2:
                     target = fighter;
-                    effectiveDmg -= cardHealth;
-                    if (effectiveDmg < 0) effectiveDmg = 0;
-                    text.text = effectiveDmg + "";
+                    showable = Mathf.Clamp(effectiveDmg - cardHealth, 0, int.MaxValue);
                     break;
             }
 
@@ -56,6 +54,13 @@ public class VFXTrail : MonoBehaviour
             
             if (Vector3.Distance(transform.position, target.position) < 0.15f)
             {
+                if (index != 0)
+                {
+                    GameObject hitEf = Instantiate(hitText, transform.position, Quaternion.identity);
+                    hitEf.GetComponent<HitCount>().text.text = showable + "";
+                    hitEf.transform.position -= Vector3.forward;
+                }
+
                 index++;
                 explosion.Play();
                 if (index > 2)

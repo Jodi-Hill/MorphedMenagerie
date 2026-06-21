@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Rini
   m_EditorClassIdentifier: 
   characterName: Rini
-  health: 15
+  health: 30
   image: {fileID: 21300000, guid: efa66820ee09cff47a08a83a04e5b26a, type: 3}
   deck:
   - {fileID: 11400000, guid: a307de38167ea9f4084e9432b1cdf6a2, type: 2}

@@ -12,9 +12,11 @@ public class CardSystem : Singleton<CardSystem>
 
     private readonly List<Card> drawPile = new();
     private readonly List<Card> discardPile = new();
+    private readonly List<Card> drawnPile = new();
     public List<Card> hand = new();
 
     private int cardsDrawn = 0;
+    private int maxHandSize = 5;
 
     private void OnEnable()
     {
@@ -44,11 +46,11 @@ public class CardSystem : Singleton<CardSystem>
         int actualAmount = 0;
         if (DrawCardsGA.TurnStart)
         {
-            actualAmount = Mathf.Min(DrawCardsGA.Amount - hand.Count, drawPile.Count);
+            actualAmount = Mathf.Min(DrawCardsGA.Amount - hand.Count, maxHandSize);
         }
         else
         {
-            actualAmount = Mathf.Min(DrawCardsGA.Amount, drawPile.Count);
+            actualAmount = Mathf.Min(DrawCardsGA.Amount, maxHandSize);
         }
         for (int i = 0; i < actualAmount; i++)
         {
@@ -83,13 +85,16 @@ public class CardSystem : Singleton<CardSystem>
         CardView cardView = CardViewCreator.Instance.CreateCardView(card, drawPilePoint.position, drawPilePoint.rotation);
         cardView.name = cardView.cardInfo.name + cardsDrawn;
         cardView.infopanel = infoPanel;
+        drawnPile.Add(card);
         yield return handView.AddCard(cardView);
     }
 
     private void RefillDeck()
     {
-        drawPile.AddRange(discardPile);
-        discardPile.Clear();
+        drawPile.AddRange(drawnPile);
+        drawnPile.Clear();
+        //drawPile.AddRange(discardPile);
+        //discardPile.Clear();
     }
 
     private IEnumerator DiscardCard(CardView cardView)

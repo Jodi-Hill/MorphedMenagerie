@@ -1,6 +1,5 @@
 using TMPro;
 using UnityEngine;
-using Yarn.Unity;
 
 public class CardView : MonoBehaviour
 {
@@ -107,16 +106,16 @@ public class CardView : MonoBehaviour
 
     private void OnMouseEnter()
     {
+        selected = true;
         if (!Interactions.Instance.PlayerCanHover() || frozen) return;
         transform.localScale = startScale * 1.2f;
-        selected = true;
     }
 
     private void OnMouseExit()
     {
+        selected = false;
         if (!Interactions.Instance.PlayerCanHover() || frozen) return;
         transform.localScale = startScale;
-        selected = false;
     }
 
     private void OnMouseDown()
