@@ -143,7 +143,8 @@ public class ActLoader : MonoBehaviour
                 SceneManager.LoadScene(sceneCollection.menu.name);
                 break;
             case Act.ZooRini:
-                SceneManager.LoadScene(sceneCollection.zooRini.name);
+                //SceneManager.LoadScene(sceneCollection.zooRini.name);
+                SceneManager.LoadScene(sceneCollection.zoo.name);
                 break;
             case Act.Office:
                 SceneManager.LoadScene(sceneCollection.office.name);
@@ -158,13 +159,15 @@ public class ActLoader : MonoBehaviour
                 SceneManager.LoadScene(sceneCollection.riniOutro.name);
                 break;
             case Act.ZooFao:
-                SceneManager.LoadScene(sceneCollection.zooFao.name);
+                //SceneManager.LoadScene(sceneCollection.zooFao.name);
+                SceneManager.LoadScene(sceneCollection.zoo.name);
                 break;
             case Act.FaoBattle:
                 SceneManager.LoadScene(sceneCollection.battle.name);
                 break;
             case Act.FaoOutro:
-                SceneManager.LoadScene(sceneCollection.faoOutro.name);
+                //SceneManager.LoadScene(sceneCollection.faoOutro.name);
+                SceneManager.LoadScene(sceneCollection.zoo.name);
                 break;
             case Act.Ending:
                 SceneManager.LoadScene(sceneCollection.thankyou.name);
@@ -183,7 +186,12 @@ public class ActLoader : MonoBehaviour
                 SceneManager.LoadScene(sceneCollection.rinilose.name);
                 break;
             case Act.FaoLose:
-                SceneManager.LoadScene(sceneCollection.faolose.name);
+                //SceneManager.LoadScene(sceneCollection.faolose.name);
+                SceneManager.LoadScene(sceneCollection.zoo.name);
+                break;
+            case Act.FaoNoSacri:
+                //SceneManager.LoadScene(sceneCollection.nokill.name);
+                SceneManager.LoadScene(sceneCollection.zoo.name);
                 break;
         }
     }
@@ -206,6 +214,7 @@ public enum Act
     KilledRini,
     RiniLose,
     FaoLose,
+    FaoNoSacri
 }
 
 [System.Serializable]
@@ -219,5 +228,5 @@ public struct Scenes
     public SceneAsset riniIntro, riniOutro, rinilose; // TODO: make win & lose scenes part of character scene
     [Header("Fao")]
     public SceneAsset zooFao;
-    public SceneAsset faoIntro, faoOutro, faolose, killrini;
+    public SceneAsset faoIntro, faoOutro, faolose, killrini, nokill;
 }

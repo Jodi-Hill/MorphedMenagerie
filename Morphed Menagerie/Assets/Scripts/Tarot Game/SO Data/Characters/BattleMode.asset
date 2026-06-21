@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b7b6f5ff1159be64aba7b970f8523b0a, type: 3}
+  m_Name: BattleMode
+  m_EditorClassIdentifier: 
+  characterName: Taika
+  health: 75
+  image: {fileID: 21300000, guid: a532596321f476643b480f053e40bfb8, type: 3}
+  deck:
+  - {fileID: 11400000, guid: dfa234300b1955545a287e957d93aa4c, type: 2}
+  - {fileID: 11400000, guid: 01c9b539499a49b44b9b16f66cd2db68, type: 2}
+  - {fileID: 11400000, guid: 80d8618aeda486a449f514dfba56312b, type: 2}
+  - {fileID: 11400000, guid: ceea14649311d25448e4e763acb02e12, type: 2}
+  - {fileID: 11400000, guid: b6d0dd4d9face3a4492d7de1542ae582, type: 2}
+  - {fileID: 11400000, guid: 0766dc632253b2a43b429b5fafe4424a, type: 2}
+  - {fileID: 11400000, guid: a307de38167ea9f4084e9432b1cdf6a2, type: 2}
+  - {fileID: 11400000, guid: ef3b6e1a90121b742aa266b8b2767414, type: 2}
+  - {fileID: 11400000, guid: fc6fc933423711f42acfd256f1d524db, type: 2}

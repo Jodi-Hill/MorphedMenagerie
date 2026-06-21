@@ -31,7 +31,7 @@ public class BattleHandler : MonoBehaviour
                 matchSetupSystem.heroDeck = ActLoader.Instance.playerFao;
                 cardManager.enemyDeck = ActLoader.Instance.fao;
                 matchSetupSystem.enemyDeck = ActLoader.Instance.fao;
-                cardManager.winScene = Act.FaoOutro;
+                cardManager.winScene = Act.FaoNoSacri;
                 cardManager.loseScene = Act.FaoLose;
                 allySlot.sprite = riniAlly;
                 break;

@@ -17,6 +17,7 @@ public class CardView : MonoBehaviour
     private Vector3 startScale;
     private Vector3 startPosition;
     public InfoPanel infopanel;
+    public GameObject highlight;
 
     public CardOrientation orientation = CardOrientation.Past;
     public CardStatistics cardInfo;
@@ -40,6 +41,11 @@ public class CardView : MonoBehaviour
         {
             infopanel.gameObject.SetActive(true);
             infopanel.ShowInfoPanel(cardInfo);
+        }
+
+        if (highlight.activeSelf != selected)
+        {
+            highlight.SetActive(selected);
         }
     }
 

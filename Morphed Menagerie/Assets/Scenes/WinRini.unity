@@ -411,7 +411,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogueRunner: {fileID: 1513416073}
-  nodeName: AfterLevel1
+  nodeName: WinRini
   text: {fileID: 1317052225}
 --- !u!65 &127922712
 BoxCollider:

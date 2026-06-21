@@ -22,8 +22,8 @@ namespace SerializeReferenceEditor.Editor.ClassReplacer
 			EditorSceneManager.sceneSaving -= OnSceneSaving;
 			EditorSceneManager.sceneSaving += OnSceneSaving;
 
-			Selection.selectionChanged -= OnSelectionChanged;
-			Selection.selectionChanged += OnSelectionChanged;
+			//Selection.selectionChanged -= OnSelectionChanged;
+			//Selection.selectionChanged += OnSelectionChanged;
 
 			OnSelectionChanged();
 		}
