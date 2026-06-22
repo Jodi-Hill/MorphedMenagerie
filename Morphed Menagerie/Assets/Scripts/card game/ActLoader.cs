@@ -1,5 +1,4 @@
 using UnityEngine;
-using UnityEditor;
 using TMPro;
 using UnityEngine.SceneManagement;
 
@@ -35,7 +34,7 @@ public class ActLoader : MonoBehaviour
 
         if (Input.GetKeyUp(KeyCode.Escape))
         {
-            SceneManager.LoadScene(sceneCollection.menu.name);
+            SceneManager.LoadScene(sceneCollection.menu);
         }
 
         if (Input.GetKeyDown(KeyCode.Alpha1))
@@ -140,58 +139,58 @@ public class ActLoader : MonoBehaviour
             default:
                 break;
             case Act.Menu:
-                SceneManager.LoadScene(sceneCollection.menu.name);
+                SceneManager.LoadScene(sceneCollection.menu);
                 break;
             case Act.ZooRini:
-                //SceneManager.LoadScene(sceneCollection.zooRini.name);
-                SceneManager.LoadScene(sceneCollection.zoo.name);
+                //SceneManager.LoadScene(sceneCollection.zooRini);
+                SceneManager.LoadScene(sceneCollection.zoo);
                 break;
             case Act.Office:
-                SceneManager.LoadScene(sceneCollection.office.name);
+                SceneManager.LoadScene(sceneCollection.office);
                 break;
             case Act.RiniIntro:
-                SceneManager.LoadScene(sceneCollection.riniIntro.name);
+                SceneManager.LoadScene(sceneCollection.riniIntro);
                 break;
             case Act.RiniBattle:
-                SceneManager.LoadScene(sceneCollection.battle.name);
+                SceneManager.LoadScene(sceneCollection.battle);
                 break;
             case Act.RiniOutro:
-                SceneManager.LoadScene(sceneCollection.riniOutro.name);
+                SceneManager.LoadScene(sceneCollection.riniOutro);
                 break;
             case Act.ZooFao:
-                //SceneManager.LoadScene(sceneCollection.zooFao.name);
-                SceneManager.LoadScene(sceneCollection.zoo.name);
+                //SceneManager.LoadScene(sceneCollection.zooFao);
+                SceneManager.LoadScene(sceneCollection.zoo);
                 break;
             case Act.FaoBattle:
-                SceneManager.LoadScene(sceneCollection.battle.name);
+                SceneManager.LoadScene(sceneCollection.battle);
                 break;
             case Act.FaoOutro:
-                //SceneManager.LoadScene(sceneCollection.faoOutro.name);
-                SceneManager.LoadScene(sceneCollection.zoo.name);
+                //SceneManager.LoadScene(sceneCollection.faoOutro);
+                SceneManager.LoadScene(sceneCollection.zoo);
                 break;
             case Act.Ending:
-                SceneManager.LoadScene(sceneCollection.thankyou.name);
+                SceneManager.LoadScene(sceneCollection.thankyou);
                 break;
             // This act is not in the cheat list
             case Act.BattleMode:
-                SceneManager.LoadScene(sceneCollection.battlemode.name);
+                SceneManager.LoadScene(sceneCollection.battlemode);
                 break;
             case Act.ThankYou:
-                SceneManager.LoadScene(sceneCollection.thankyou.name);
+                SceneManager.LoadScene(sceneCollection.thankyou);
                 break;
             case Act.KilledRini:
-                SceneManager.LoadScene(sceneCollection.killrini.name);
+                SceneManager.LoadScene(sceneCollection.killrini);
                 break;
             case Act.RiniLose:
-                SceneManager.LoadScene(sceneCollection.rinilose.name);
+                SceneManager.LoadScene(sceneCollection.rinilose);
                 break;
             case Act.FaoLose:
-                //SceneManager.LoadScene(sceneCollection.faolose.name);
-                SceneManager.LoadScene(sceneCollection.zoo.name);
+                //SceneManager.LoadScene(sceneCollection.faolose);
+                SceneManager.LoadScene(sceneCollection.zoo);
                 break;
             case Act.FaoNoSacri:
-                //SceneManager.LoadScene(sceneCollection.nokill.name);
-                SceneManager.LoadScene(sceneCollection.zoo.name);
+                //SceneManager.LoadScene(sceneCollection.nokill);
+                SceneManager.LoadScene(sceneCollection.zoo);
                 break;
         }
     }
@@ -221,12 +220,11 @@ public enum Act
 public struct Scenes
 {
     [Header("General")]
-    public SceneAsset menu;
-    public SceneAsset battle, thankyou, zoo, battlemode; // TODO: zoo generic as phase 2
+    public string menu;
+    public string battle, thankyou, zoo, battlemode; // TODO: zoo generic as phase 2
     [Header("Rini")]
-    public SceneAsset zooRini, office;
-    public SceneAsset riniIntro, riniOutro, rinilose; // TODO: make win & lose scenes part of character scene
+    public string office;
+    public string riniIntro, riniOutro, rinilose; // TODO: make win & lose scenes part of character scene
     [Header("Fao")]
-    public SceneAsset zooFao;
-    public SceneAsset faoIntro, faoOutro, faolose, killrini, nokill;
+    public string killrini;
 }
