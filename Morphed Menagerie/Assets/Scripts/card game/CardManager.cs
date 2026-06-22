@@ -46,6 +46,7 @@ public class CardManager : Singleton<CardManager>
     private float duration = 0.25f;
     public bool usedRini;
     public bool usedFao;
+    private bool inAnim;
 
     public void StartBattle()
     {
@@ -84,7 +85,7 @@ public class CardManager : Singleton<CardManager>
 
     private void Update()
     {
-        if (p_future.HasBeenSet() && p_present.HasBeenSet() && p_past.HasBeenSet())
+        if (p_future.HasBeenSet() && p_present.HasBeenSet() && p_past.HasBeenSet() && !inAnim)
         {
             endTurn.interactable = true;
         }
@@ -112,6 +113,7 @@ public class CardManager : Singleton<CardManager>
     /// </summary>
     public void PlayerTurn()
     {
+        inAnim = true;
         battle.Resolve();
     }
 
@@ -231,6 +233,7 @@ public class CardManager : Singleton<CardManager>
         //---------- CONTINUE -----------
         DrawCardsGA drawCardsGA = new(5, true);
         ActionSystem.Instance.Perform(drawCardsGA);
+        inAnim = false;
     }
 
     public void SetPlayerCard(CardStatistics card, CardOrientation timeType, Transform cardTrans)
