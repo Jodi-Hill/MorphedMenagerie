@@ -47,6 +47,7 @@ public class CardManager : Singleton<CardManager>
     public bool usedRini;
     public bool usedFao;
     private bool inAnim;
+    public bool playTuto;
 
     public void StartBattle()
     {
