@@ -21,4 +21,14 @@ public class MainMenu : MonoBehaviour
     {
         ActLoader.Instance.LoadAct(Act.Menu);
     }
+
+    public void RiniBattle()
+    {
+        ActLoader.Instance.LoadAct(Act.RiniBattle);
+    }
+
+    public void FaoBattle()
+    {
+        ActLoader.Instance.LoadAct(Act.FaoBattle);
+    }
 }
