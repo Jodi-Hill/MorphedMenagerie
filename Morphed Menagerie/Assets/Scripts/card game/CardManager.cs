@@ -13,7 +13,7 @@ public class CardManager : Singleton<CardManager>
 {
     public CardBattle battle;
     public Button endTurn;
-    public GameObject cardViewPrefab;
+    public GameObject cardViewPrefab, tutoScreen, tutoPlayer;
     public InfoPanel infoPanel;
 
     [Header("Enemy")]
@@ -75,6 +75,12 @@ public class CardManager : Singleton<CardManager>
         e_present.NewCard(cardObj2.GetComponent<CardView>().cardInfo);
         view2.infopanel = infoPanel;
         view2.frozen = true;
+
+        if (!playTuto)
+        {
+            tutoScreen.SetActive(false);
+            tutoPlayer.SetActive(false);
+        }
     }
 
     public void CalculateValues()

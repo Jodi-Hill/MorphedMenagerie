@@ -34,6 +34,7 @@ public class BattleHandler : MonoBehaviour
                 cardManager.winScene = Act.FaoNoSacri;
                 cardManager.loseScene = Act.FaoLose;
                 allySlot.sprite = riniAlly;
+                cardManager.playTuto = false;
                 break;
         }
 

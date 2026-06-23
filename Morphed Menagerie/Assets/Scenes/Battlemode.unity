@@ -56555,6 +56555,8 @@ MonoBehaviour:
   battle: {fileID: 1951865520}
   endTurn: {fileID: 1798674147}
   cardViewPrefab: {fileID: 831054615127028463, guid: 61aafb4db5571b745be7d81539eb98c1, type: 3}
+  tutoScreen: {fileID: 1008718069}
+  tutoPlayer: {fileID: 278941992}
   infoPanel: {fileID: 1111405816}
   enemyView: {fileID: 338669833}
   enemyDeck: {fileID: 11400000, guid: f3107117bf4747142999298d07e39efe, type: 2}
