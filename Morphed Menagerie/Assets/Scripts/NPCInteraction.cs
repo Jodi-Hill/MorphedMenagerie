@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Events;
 using Yarn.Unity;
 
 public class NPCInteraction : MonoBehaviour
@@ -6,6 +7,9 @@ public class NPCInteraction : MonoBehaviour
     [SerializeField] private DialogueRunner dialogueRunner;
     [SerializeField] private string nodeName = "Start";
     [SerializeField] private GameObject text;
+
+    public UnityEventString nodeStartEvents, nodeComplete;
+    public UnityEvent dialogueStart, dialogueComplete;
 
     private bool playerInside = false;
 
@@ -32,6 +36,10 @@ public class NPCInteraction : MonoBehaviour
     {
         if (playerInside && Input.GetKeyDown(KeyCode.E) && !dialogueRunner.IsDialogueRunning)
         {
+            dialogueRunner.onNodeStart = nodeStartEvents;
+            dialogueRunner.onNodeComplete = nodeComplete;
+            dialogueRunner.onDialogueStart = dialogueStart;
+            dialogueRunner.onDialogueComplete = dialogueComplete;
             dialogueRunner.StartDialogue(nodeName);
         }
     }
