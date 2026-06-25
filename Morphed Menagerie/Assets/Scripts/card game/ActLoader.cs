@@ -169,8 +169,16 @@ public class ActLoader : MonoBehaviour
 
     public void DisableLoading()
     {
-        Cursor.lockState = CursorLockMode.Locked;
-        Cursor.visible = false;
+        if (currentAct == Act.Menu || currentAct == Act.ThankYou || currentAct == Act.Ending || currentAct == Act.BattleMode || currentAct == Act.FaoBattle || currentAct == Act.RiniBattle)
+        {
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
+        }
+        else
+        {
+            Cursor.lockState = CursorLockMode.Locked;
+            Cursor.visible = false;
+        }
         loadingScreen.SetActive(false);
     }
 
