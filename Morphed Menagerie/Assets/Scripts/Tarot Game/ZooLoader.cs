@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class ZooLoader : MonoBehaviour
@@ -6,11 +7,17 @@ public class ZooLoader : MonoBehaviour
 
     private void Start()
     {
+        StartCoroutine(Loading());
+    }
+
+    private IEnumerator Loading()
+    {
+        yield return new WaitForSeconds(3f);
         zooRini.SetActive(false);
         zooFaoIntro.SetActive(false);
         zooFaoLose.SetActive(false);
         zooFaoKillRini.SetActive(false);
-        zooFaoLiveRini.SetActive(false); 
+        zooFaoLiveRini.SetActive(false);
 
         switch (ActLoader.Instance.currentAct)
         {
@@ -33,5 +40,7 @@ public class ZooLoader : MonoBehaviour
                 zooFaoLose.SetActive(true);
                 break;
         }
+        yield return new WaitForSeconds(3f);
+        ActLoader.Instance.DisableLoading();
     }
 }

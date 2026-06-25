@@ -16,6 +16,7 @@ public class ActLoader : MonoBehaviour
     public CharacterDeck playerFao, rini, fao;
 
     public Scenes sceneCollection;
+    public GameObject loadingScreen;
 
     private void Start()
     {
@@ -131,8 +132,14 @@ public class ActLoader : MonoBehaviour
         }
     }
 
+    public void DisableLoading()
+    {
+        loadingScreen.SetActive(false);
+    }
+
     public void LoadAct(Act actToLoad)
     {
+        loadingScreen.SetActive(true);
         currentAct = actToLoad;
         switch (currentAct)
         {
