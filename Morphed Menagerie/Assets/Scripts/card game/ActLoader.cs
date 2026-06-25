@@ -18,6 +18,10 @@ public class ActLoader : MonoBehaviour
     public Scenes sceneCollection;
     public GameObject loadingScreen;
 
+    public bool waitLoad = false;
+    public int waitCount = 0;
+    public int waitMax = 150;
+
     private void Start()
     {
         if (Instance != null && Instance != this)
@@ -27,10 +31,20 @@ public class ActLoader : MonoBehaviour
         }
         Instance = this;
         DontDestroyOnLoad(this);
+        waitMax = 150; // TODO make a better method to catch the real loading time, this is just a placeholder for now
     }
 
     private void Update()
     {
+        if (waitLoad)
+        {
+            if (waitCount >= waitMax)
+            {
+                waitLoad = false;
+                DisableLoading();
+            }
+        }
+
         loadableAct.text = "Load: " + loadAct.ToString();
 
         if (Input.GetKeyUp(KeyCode.Escape))

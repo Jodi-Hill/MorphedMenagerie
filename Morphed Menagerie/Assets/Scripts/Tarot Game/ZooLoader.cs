@@ -7,12 +7,17 @@ public class ZooLoader : MonoBehaviour
 
     private void Start()
     {
+        ActLoader.Instance.waitCount = 0;
         StartCoroutine(Loading());
     }
 
     private IEnumerator Loading()
     {
-        yield return new WaitForSeconds(3f);
+        yield return new WaitForSeconds(1f);
+        ActLoader.Instance.waitCount = 0;
+        ActLoader.Instance.waitLoad = true;
+
+        yield return new WaitForSeconds(2f);
         zooRini.SetActive(false);
         zooFaoIntro.SetActive(false);
         zooFaoLose.SetActive(false);
@@ -40,7 +45,5 @@ public class ZooLoader : MonoBehaviour
                 zooFaoLose.SetActive(true);
                 break;
         }
-        yield return new WaitForSeconds(3f);
-        ActLoader.Instance.DisableLoading();
     }
 }

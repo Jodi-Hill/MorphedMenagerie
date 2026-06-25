@@ -321,10 +321,12 @@ namespace Bozo.AnimeCharacters
                 this.data = data;
                 isDirty = true;
                 MergeCharacter();
+                ActLoader.Instance.waitCount++;
             }
             else
             {
                 await BMAC_SaveSystem.LoadCharacter(this, data, false, async);
+                ActLoader.Instance.waitCount++;
             }
         }
 
