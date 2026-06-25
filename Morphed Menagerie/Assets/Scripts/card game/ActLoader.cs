@@ -20,7 +20,7 @@ public class ActLoader : MonoBehaviour
 
     public bool waitLoad = false;
     public int waitCount = 0;
-    public int waitMax = 150;
+    public int waitMax = 140;
 
     private void Start()
     {
@@ -31,7 +31,9 @@ public class ActLoader : MonoBehaviour
         }
         Instance = this;
         DontDestroyOnLoad(this);
-        waitMax = 150; // TODO make a better method to catch the real loading time, this is just a placeholder for now
+        waitMax = 140; // TODO make a better method to catch the real loading time, this is just a placeholder for now
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
     }
 
     private void Update()
@@ -50,6 +52,25 @@ public class ActLoader : MonoBehaviour
         if (Input.GetKeyUp(KeyCode.Escape))
         {
             SceneManager.LoadScene(sceneCollection.menu);
+        }
+
+        if (Input.GetKeyDown(KeyCode.Alpha0))
+        {
+            DisableLoading();
+        }
+
+        if (Input.GetKeyDown(KeyCode.L))
+        {
+            if (Cursor.visible)
+            {
+                Cursor.lockState = CursorLockMode.Locked;
+                Cursor.visible = false;
+            }
+            else
+            {
+                Cursor.lockState = CursorLockMode.None;
+                Cursor.visible = true;
+            }
         }
 
         if (Input.GetKeyDown(KeyCode.Alpha1))
@@ -148,11 +169,16 @@ public class ActLoader : MonoBehaviour
 
     public void DisableLoading()
     {
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
         loadingScreen.SetActive(false);
     }
 
     public void LoadAct(Act actToLoad)
     {
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
+
         loadingScreen.SetActive(true);
         currentAct = actToLoad;
         switch (currentAct)
