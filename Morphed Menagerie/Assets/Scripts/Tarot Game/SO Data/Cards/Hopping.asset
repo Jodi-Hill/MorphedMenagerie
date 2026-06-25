@@ -16,14 +16,14 @@ MonoBehaviour:
   cardDescription: 
   image: {fileID: 2800000, guid: 635b9e2c27220a84e999d30fae09f43c, type: 3}
   pastVal:
-    attack: 0
-    health: 0
+    attack: 1
+    health: 1
   presentVal:
     attack: 1
     health: 1
   futureVal:
-    attack: 0
-    health: 0
+    attack: 1
+    health: 1
   cardEffect: 1
   tempAtk: 0
   tempHp: 0

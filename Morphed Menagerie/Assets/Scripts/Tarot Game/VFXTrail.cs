@@ -10,41 +10,29 @@ public class VFXTrail : MonoBehaviour
 
     public ParticleSystem explosion;
 
-    public Transform start, card, fighter;
-
     public bool animate;
-    private int index;
-    private Transform target;
 
     private float step;
     private Action callback;
-    private int showable;
+    private Transform[] path;
+    private int pathId = 0;
+    private bool noDmg;
 
     private void Update()
     {
         if (animate)
         {
-            int effectiveDmg = damageCounter;
-            switch (index)
+            if (!noDmg && damageCounter <= 0)
             {
-                case 0:
-                    target = start;
-                    transform.position = target.position;
-                    transform.eulerAngles = Vector3.zero;
-                    showable = 0;
-                    break;
-                case 1:
-                    target = card;
-                    showable = Mathf.Clamp(effectiveDmg, 0, cardHealth);
-                    break;
-                case 2:
-                    target = fighter;
-                    showable = Mathf.Clamp(effectiveDmg - cardHealth, 0, int.MaxValue);
-                    break;
+                animate = false;
+                transform.position = Vector3.forward * -2000;
+                callback.Invoke();
             }
 
+            int effectiveDmg = damageCounter;
+
             // Rotate towards destination
-            Vector3 targetDir = target.position - transform.position;
+            Vector3 targetDir = path[pathId].position - transform.position;
             step = Time.deltaTime * turnSpeed;
             Vector3 newDir = Vector3.RotateTowards(transform.forward, targetDir, step, 0.0f);
             transform.rotation = Quaternion.LookRotation(newDir);
@@ -52,21 +40,56 @@ public class VFXTrail : MonoBehaviour
             // Move forward
             transform.position += transform.forward * moveSpeed * Time.deltaTime;
             
-            if (Vector3.Distance(transform.position, target.position) < 0.15f)
+            if (Vector3.Distance(transform.position, path[pathId].position) < 0.15f)
             {
-                if (index != 0)
+                if (pathId != 0)
                 {
-                    GameObject hitEf = Instantiate(hitText, transform.position, Quaternion.identity);
-                    hitEf.GetComponent<HitCount>().text.text = showable + "";
-                    hitEf.transform.position -= Vector3.forward;
+                    CardDetection targetCard = path[pathId].GetComponent<CardDetection>();
+                    EnemyDetection enemyDetection = path[pathId].GetComponent<EnemyDetection>();
+                    HeroView hero = path[pathId].GetComponent<HeroView>();
+                    if (noDmg) // buff card
+                    {
+                        if (targetCard != null)
+                        {
+                            targetCard.card.healthValue += cardHealth;
+                            targetCard.card.attackValue += damageCounter;
+                            targetCard.linkedCard.CalculateAura(targetCard.card.attackValue);
+                        }
+                        if (enemyDetection != null)
+                        {
+                            enemyDetection.card.healthValue += cardHealth;
+                            enemyDetection.card.attackValue += damageCounter;
+                        }
+                    }
+                    else // damage card
+                    {
+                        int hp = 0;
+                        GameObject hitEf = Instantiate(hitText, transform.position, Quaternion.identity);
+                        hitEf.GetComponent<HitCount>().text.text = damageCounter + "";
+                        hitEf.transform.position -= Vector3.forward;
+                        if (targetCard != null)
+                        {
+                            hp = targetCard.card.healthValue;
+                            targetCard.Damage(damageCounter);
+                        }
+                        if (enemyDetection != null)
+                        {
+                            hp = enemyDetection.card.healthValue;
+                            enemyDetection.Damage(damageCounter);
+                        }
+                        if (hero != null)
+                        {
+                            hero.Damage(damageCounter);
+                        }
+                        damageCounter -= hp;
+                    }
                 }
 
-                index++;
+                pathId++;
                 explosion.Play();
-                if (index > 2)
+                if (pathId >= path.Length)
                 {
                     animate = false;
-                    index = 0;
                     transform.position = Vector3.forward * -2000;
                     callback.Invoke();
                 }
@@ -74,9 +97,35 @@ public class VFXTrail : MonoBehaviour
         }
     }
 
-    public void StartAnimation(Action _callback)
+    public void StartAnimation(Action _callback, Transform[] _path, bool _noDmg)
     {
+        path = _path;
         animate = true;
+        noDmg = _noDmg;
         callback = _callback;
+        pathId = 0;
+        damageCounter = 0;
+        cardHealth = 0;
+
+        // get starting values
+        CardDetection targetCard = path[pathId].GetComponent<CardDetection>();
+        EnemyDetection enemyDetection = path[pathId].GetComponent<EnemyDetection>();
+        if (noDmg)
+        {
+            if (targetCard != null) cardHealth += targetCard.card.healthValue;
+            if (enemyDetection != null) cardHealth += enemyDetection.card.healthValue;
+        }
+        if (targetCard != null) damageCounter += targetCard.card.attackValue;
+        if (enemyDetection != null) damageCounter += enemyDetection.card.attackValue;
+
+        if (damageCounter <= 0 && !noDmg)
+        {
+            animate = false;
+            transform.position = Vector3.forward * -2000;
+            callback.Invoke();
+            return;
+        }
+        transform.position = path[pathId].position;
+        transform.eulerAngles = Vector3.zero;
     }
 }

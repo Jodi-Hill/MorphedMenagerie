@@ -1,6 +1,8 @@
 using DG.Tweening;
+using NUnit.Framework;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class CardSystem : Singleton<CardSystem>
@@ -44,9 +46,19 @@ public class CardSystem : Singleton<CardSystem>
     private IEnumerator DrawCardsPerformer(DrawCardsGA DrawCardsGA)
     {
         int actualAmount = 0;
+        CardManager.Instance.cards = CardManager.Instance.cards.Where(item => item != null).ToList();
+        int handSize = CardManager.Instance.cards.Count;
+        foreach (GameObject card in CardManager.Instance.cards)
+        {
+            if (card != null && card.GetComponent<CardView>().frozen)
+            {
+                handSize--;
+            }
+        }
+
         if (DrawCardsGA.TurnStart)
         {
-            actualAmount = Mathf.Min(DrawCardsGA.Amount - hand.Count, maxHandSize);
+            actualAmount = Mathf.Min(DrawCardsGA.Amount - handSize, maxHandSize);
         }
         else
         {
@@ -85,6 +97,7 @@ public class CardSystem : Singleton<CardSystem>
         CardView cardView = CardViewCreator.Instance.CreateCardView(card, drawPilePoint.position, drawPilePoint.rotation);
         cardView.name = cardView.cardInfo.name + cardsDrawn;
         cardView.infopanel = infoPanel;
+        CardManager.Instance.cards.Add(cardView.gameObject);
         drawnPile.Add(card);
         yield return handView.AddCard(cardView);
     }

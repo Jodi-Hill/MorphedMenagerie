@@ -6,7 +6,7 @@ public class SetCard : MonoBehaviour
     public CardStatistics activeCard;
     public InfoPanel infoPanel;
     public TextMeshPro atk, hp;
-    private CardDetection cardDetection;
+    public CardDetection cardDetection;
     private bool selected;
     public bool setStats;
     public CardOrientation timeType;
@@ -61,11 +61,17 @@ public class SetCard : MonoBehaviour
                     break;
             }
         }
-
-        CalculateAura();
     }
 
-    public void CalculateAura()
+    public void DisableAura()
+    {
+        aura1.SetActive(false);
+        aura2.SetActive(false);
+        aura3.SetActive(false);
+        aura4.SetActive(false);
+    }
+
+    public void CalculateAura(int attack)
     {
         if (activeCard == null)
         {
@@ -78,19 +84,19 @@ public class SetCard : MonoBehaviour
         if (useAura && activeCard != null)
         {
             int aur = 0;
-            if (activeCard.tempAtk >= 10)
+            if (attack >= 10)
             {
                 aur = 4;
             }
-            else if (activeCard.tempAtk >= 6)
+            else if (attack >= 6)
             {
                 aur = 3;
             }
-            else if (activeCard.tempAtk >= 4)
+            else if (attack >= 4)
             {
                 aur = 2;
             }
-            else if (activeCard.tempAtk >= 2)
+            else if (attack >= 2)
             {
                 aur = 1;
             }
@@ -135,10 +141,6 @@ public class SetCard : MonoBehaviour
 
     public bool HasBeenSet()
     {
-        if (cardDetection.firstTurnOnly && cardDetection.turn > 0)
-        {
-            return true;
-        }
         return cardDetection.hasCard;
     }
 

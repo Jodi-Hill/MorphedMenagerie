@@ -25,7 +25,6 @@ public class CardView : MonoBehaviour
     public bool placed;
     public bool frozen;
     private bool selected;
-    private Card past, future;
 
     public int attackValue = 0;
     public int healthValue = 0;
@@ -47,6 +46,18 @@ public class CardView : MonoBehaviour
         {
             highlight.SetActive(selected);
         }
+
+        attack.text = attackValue.ToString();
+        health.text = healthValue.ToString();
+    }
+
+    public void TakeDamage(int _value)
+    {
+        healthValue -= _value;
+        if (healthValue <= 0)
+        {
+            Destroy(gameObject);
+        }
     }
 
     public void SetStartPos()
@@ -66,11 +77,9 @@ public class CardView : MonoBehaviour
         imageR.mainTexture = card.Image; 
     }
 
-    public void UpdateCard(CardOrientation newOrientation, Card cardpast = null, Card cardfuture = null)
+    public void UpdateCard(CardOrientation newOrientation)
     {
         orientation = newOrientation;
-        past = cardpast;
-        future = cardfuture;
         CalculateValues();
     }
 
@@ -92,22 +101,8 @@ public class CardView : MonoBehaviour
                 break;
         }
 
-        if (future != null)
-        {
-            attackValue += future.cardInformation.futureVal.attack;
-            healthValue += future.cardInformation.futureVal.health;
-        }
-        if (past != null)
-        {
-            attackValue += past.cardInformation.pastVal.attack;
-            healthValue += past.cardInformation.pastVal.health;
-        }
-
         cardInfo.tempAtk = attackValue;
         cardInfo.tempHp = healthValue;
-
-        attack.text = attackValue.ToString();
-        health.text = healthValue.ToString();
     }
 
     private void OnMouseEnter()
@@ -154,7 +149,7 @@ public class CardView : MonoBehaviour
         if (thief != null && Vector3.Distance(transform.position, thief.position) < 2f)
         {
             CardDetection cd = thief.GetComponent<CardDetection>();
-            if ((!cd.hasCard || cd.card == this) && cd.CanThief())
+            if ((!cd.hasCard || cd.card == this))
             {
                 transform.position = thief.transform.position - Vector3.forward;
                 if (CardManager.Instance.futureTrans == transform) CardManager.Instance.futureTrans = null;

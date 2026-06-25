@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: BattleMode
   m_EditorClassIdentifier: 
   characterName: Taika
-  health: 75
+  health: 50
   image: {fileID: 21300000, guid: a532596321f476643b480f053e40bfb8, type: 3}
   deck:
   - {fileID: 11400000, guid: dfa234300b1955545a287e957d93aa4c, type: 2}
