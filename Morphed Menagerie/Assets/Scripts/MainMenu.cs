@@ -31,4 +31,9 @@ public class MainMenu : MonoBehaviour
     {
         ActLoader.Instance.LoadAct(Act.FaoBattle);
     }
+
+    public void QuitGame()
+    {
+        Application.Quit();
+    }
 }
