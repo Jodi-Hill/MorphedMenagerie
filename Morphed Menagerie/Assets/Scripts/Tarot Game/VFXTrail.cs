@@ -18,6 +18,12 @@ public class VFXTrail : MonoBehaviour
     private int pathId = 0;
     private bool noDmg;
 
+    public void ChangeSpeed(int value)
+    {
+        moveSpeed = value;
+        turnSpeed = value * 4;
+    }
+
     private void Update()
     {
         if (animate)

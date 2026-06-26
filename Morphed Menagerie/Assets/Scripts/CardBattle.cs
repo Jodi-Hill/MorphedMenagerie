@@ -3,12 +3,38 @@ using UnityEngine;
 public class CardBattle : MonoBehaviour
 {
     public int turnCount = 0;
+    public int speedSlow, speedNormal, speedFast;
     public CardManager cardManager;
     public VFXTrail player, player2;
     public VFXTrail enemy, enemy2;
 
     private int readyCount = 0;
     private int enemyCount = 0;
+
+    public void UpdateSpeed(int value)
+    {
+        switch(value)
+        {
+            case 0:
+                player.ChangeSpeed(speedSlow);
+                player2.ChangeSpeed(speedSlow);
+                enemy.ChangeSpeed(speedSlow);
+                enemy2.ChangeSpeed(speedSlow);
+                break;
+            case 1:
+                player.ChangeSpeed(speedNormal);
+                player2.ChangeSpeed(speedNormal);
+                enemy.ChangeSpeed(speedNormal);
+                enemy2.ChangeSpeed(speedNormal);
+                break;
+            case 2:
+                player.ChangeSpeed(speedFast);
+                player2.ChangeSpeed(speedFast);
+                enemy.ChangeSpeed(speedFast);
+                enemy2.ChangeSpeed(speedFast);
+                break;
+        }
+    }
 
     public void Resolve()
     {
