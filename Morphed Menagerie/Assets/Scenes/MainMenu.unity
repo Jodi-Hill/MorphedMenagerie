@@ -546,6 +546,9 @@ MonoBehaviour:
     rinilose: LoseRini
     killrini: KillingCutscene
   loadingScreen: {fileID: 1452076511}
+  waitLoad: 0
+  waitCount: 0
+  waitMax: 140
 --- !u!1 &346214828
 GameObject:
   m_ObjectHideFlags: 0
@@ -2838,7 +2841,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: LOAdING...
+  m_text: LoAdInG...
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 7d373f19e9b464548a06ae97a114a649, type: 2}
   m_sharedMaterial: {fileID: 6689174564264311586, guid: 7d373f19e9b464548a06ae97a114a649, type: 2}
