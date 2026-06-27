@@ -13,12 +13,12 @@ MonoBehaviour:
   m_Name: Moon Reversed
   m_EditorClassIdentifier: 
   cardName: Moon Reversed
-  cardDescription: This card signifies unveiling secrets. This reading makes sure
-    you can't hide any longer.
+  cardDescription: This card signifies unveiling secrets. It will stir some chaos
+    in the future!
   image: {fileID: 2800000, guid: 1ef11a209c9414843a7e022121e071e1, type: 3}
   pastVal:
-    attack: -1
-    health: -1
+    attack: 3
+    health: 3
   presentVal:
     attack: 2
     health: 2
@@ -26,3 +26,5 @@ MonoBehaviour:
     attack: -1
     health: -1
   cardEffect: 0
+  tempAtk: 0
+  tempHp: 0

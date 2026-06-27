@@ -13,18 +13,18 @@ MonoBehaviour:
   m_Name: The Fool
   m_EditorClassIdentifier: 
   cardName: The Fool
-  cardDescription: This card signifies distraction. This reading elevates the current
-    status.
+  cardDescription: This card signifies distraction. Be aware of it not affecting
+    your health in the future!
   image: {fileID: 2800000, guid: 701301e65da4462428f86399428b11b3, type: 3}
   pastVal:
-    attack: 4
-    health: 0
+    attack: 0
+    health: 4
   presentVal:
     attack: 0
     health: 0
   futureVal:
-    attack: 0
-    health: 4
+    attack: 4
+    health: 0
   cardEffect: 0
   tempAtk: 0
   tempHp: 4

@@ -13,8 +13,7 @@ MonoBehaviour:
   m_Name: The Devil
   m_EditorClassIdentifier: 
   cardName: The Devil
-  cardDescription: This card signifies violence. This reading makes sure this fortune
-    doesn't come true.
+  cardDescription: This card signifies violence. Aggression is high in the future!
   image: {fileID: 2800000, guid: ab02b72f06fd3cf47be6232a53240ebe, type: 3}
   pastVal:
     attack: -2
@@ -26,3 +25,5 @@ MonoBehaviour:
     attack: 2
     health: -2
   cardEffect: 0
+  tempAtk: 0
+  tempHp: 0

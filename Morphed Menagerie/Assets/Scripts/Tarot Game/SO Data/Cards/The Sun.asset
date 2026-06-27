@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: The Sun
   m_EditorClassIdentifier: 
   cardName: The Sun
-  cardDescription: This card signifies that you're ready to jump in. This reading
-    makes sure that this fortune doesn't come true.
+  cardDescription: This card signifies that you're ready to jump in. The future is
+    looking ahead!
   image: {fileID: 2800000, guid: 678a5940bffc87d46a8c2a036a02068d, type: 3}
   pastVal:
     attack: -2
