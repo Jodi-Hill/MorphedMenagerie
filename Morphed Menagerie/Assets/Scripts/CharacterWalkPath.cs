@@ -15,14 +15,19 @@ public class CharacterWalkPath : MonoBehaviour
 
     float time = 0f;
 
+    public float distance;
+
     private void Start()
     {
+        path.index = 0;
         agent.destination = path.GetCurrentWayPoint();
     }
 
     private void Update()
     {
-        if (agent.remainingDistance <= 0.1f)
+        distance = Vector3.Distance(transform.position, path.GetCurrentWayPoint());
+
+        if (distance <= 0.5f)
         {
             time += Time.deltaTime;
 

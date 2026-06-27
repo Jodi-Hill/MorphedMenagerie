@@ -14,7 +14,7 @@ public class Path : MonoBehaviour
     public PathType pathType = PathType.Loop;
 
     private int direction = 1;
-    int index;
+    public int index;
 
     public Vector3 GetCurrentWayPoint()
     {
